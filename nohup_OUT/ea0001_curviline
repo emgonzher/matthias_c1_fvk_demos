@@ -1,0 +1,428 @@
+Executable : test_disk_fvk
+make: 'test_disk_fvk' está actualizado.
+_free
+./emitest.bash: línea 90: [: demasiados argumentos
+ 
+ 
+Running: 
+-rwxrwxr-x 1 emiliano emiliano 7271672 ago  1 13:50 test_disk_fvk
+--use_free_bc
+ in /home/emiliano/oomph-lib_new/oomph-lib/user_drivers/matthias_c1_fvk_demos/Run_ea0001_nseg4_Eta_141e5_pinc1_curviline/Case_straight_rotated_coords_no_t_shape_fvk_free
+ 
+ 
+Terminado
+
+
+-- Processing mesh_black_box_upgrade.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 78048 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: mesh_black_box_upgrade.vtu 
+
+
+-- Processing mesh_before_black_box_upgrade.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 78048 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: mesh_before_black_box_upgrade.vtu 
+
+
+-- Processing duplicated_nodes.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for points........done
+Write points coordinates...................done
+Write field 01/02.........................done
+Write field 02/02.........................done
+* Conversion done in 0 seconds
+* Output file name: duplicated_nodes.vtp 
+
+
+-- Processing rotated_nodes.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for points........done
+Write points coordinates...................done
+Write field 01/02.........................done
+Write field 02/02.........................done
+* Conversion done in 0 seconds
+* Output file name: rotated_nodes.vtp 
+
+
+-- Processing elements_upgraded_to_curved.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 3072 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: elements_upgraded_to_curved.vtu 
+
+
+-- Processing rotated_elements.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 6832 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: rotated_elements.vtu 
+
+
+-- Processing split_elements.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........
+CONVERSION FAILED
+*** The input file split_elements.dat
+***  does not contain any Tecplot zone! Created an empty file... 
+***  You may want to try converting this file to point 
+***  data with -p2 option if dim == 2 or -p3 option if dim == 3
+done
+* 0 lines ignored
+
+
+-- Processing boundary_coordinate0.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for points........done
+Write points coordinates...................done
+Write field 01/01.........................done
+* Conversion done in 0 seconds
+* Output file name: boundary_coordinate0.vtp 
+
+
+-- Processing boundary_coordinate1.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for points........done
+Write points coordinates...................done
+Write field 01/01.........................done
+* Conversion done in 0 seconds
+* Output file name: boundary_coordinate1.vtp 
+
+
+-- Processing boundary_coordinate2.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for points........done
+Write points coordinates...................done
+Write field 01/01.........................done
+* Conversion done in 0 seconds
+* Output file name: boundary_coordinate2.vtp 
+
+
+-- Processing boundary_coordinate3.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for points........done
+Write points coordinates...................done
+Write field 01/01.........................done
+* Conversion done in 0 seconds
+* Output file name: boundary_coordinate3.vtp 
+
+
+-- Processing boundary_coordinate4.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for points........done
+Write points coordinates...................done
+Write field 01/01.........................done
+* Conversion done in 0 seconds
+* Output file name: boundary_coordinate4.vtp 
+
+
+-- Processing test_bulk_elements_on_boundary0.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 288 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: test_bulk_elements_on_boundary0.vtu 
+
+
+-- Processing test_bulk_elements_on_boundary1.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 288 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: test_bulk_elements_on_boundary1.vtu 
+
+
+-- Processing test_bulk_elements_on_boundary2.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 288 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: test_bulk_elements_on_boundary2.vtu 
+
+
+-- Processing test_bulk_elements_on_boundary3.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 288 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: test_bulk_elements_on_boundary3.vtu 
+
+
+-- Processing test_bulk_elements_on_boundary4.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 576 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: test_bulk_elements_on_boundary4.vtu 
+
+
+-- Processing test_face_elements_on_boundary0.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for points........done
+Write points coordinates...................done
+* Conversion done in 0 seconds
+* Output file name: test_face_elements_on_boundary0.vtp 
+
+
+-- Processing test_face_elements_on_boundary1.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for points........done
+Write points coordinates...................done
+* Conversion done in 0 seconds
+* Output file name: test_face_elements_on_boundary1.vtp 
+
+
+-- Processing test_face_elements_on_boundary2.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for points........done
+Write points coordinates...................done
+* Conversion done in 0 seconds
+* Output file name: test_face_elements_on_boundary2.vtp 
+
+
+-- Processing test_face_elements_on_boundary3.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for points........done
+Write points coordinates...................done
+* Conversion done in 0 seconds
+* Output file name: test_face_elements_on_boundary3.vtp 
+
+
+-- Processing test_face_elements_on_boundary4.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for points........done
+Write points coordinates...................done
+* Conversion done in 0 seconds
+* Output file name: test_face_elements_on_boundary4.vtp 
+
+
+-- Processing soln0.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 78048 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: soln0.vtu 
+
+
+-- Processing soln1.dat
+* oomph-convert.py, ver. 20110615
+File soln1.vtu already exists!
+Not overwriting.
+
+
+-- Processing soln2.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 78048 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: soln2.vtu 
+ 
+ --> File soln.pvd created
+ 
+
+
+-- Processing full_soln0.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 78048 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/24.........................done
+Write field 02/24.........................done
+Write field 03/24.........................done
+Write field 04/24.........................done
+Write field 05/24.........................done
+Write field 06/24.........................done
+Write field 07/24.........................done
+Write field 08/24.........................done
+Write field 09/24.........................done
+Write field 10/24.........................done
+Write field 11/24.........................done
+Write field 12/24.........................done
+Write field 13/24.........................done
+Write field 14/24.........................done
+Write field 15/24.........................done
+Write field 16/24.........................done
+Write field 17/24.........................done
+Write field 18/24.........................done
+Write field 19/24.........................done
+Write field 20/24.........................done
+Write field 21/24.........................done
+Write field 22/24.........................done
+Write field 23/24.........................done
+Write field 24/24.........................done
+* Conversion done in 0 seconds
+* Output file name: full_soln0.vtu 
+
+
+-- Processing full_soln1.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 78048 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/24.........................done
+Write field 02/24.........................done
+Write field 03/24.........................done
+Write field 04/24.........................done
+Write field 05/24.........................done
+Write field 06/24.........................done
+Write field 07/24.........................done
+Write field 08/24.........................done
+Write field 09/24.........................done
+Write field 10/24.........................done
+Write field 11/24.........................done
+Write field 12/24.........................done
+Write field 13/24.........................done
+Write field 14/24.........................done
+Write field 15/24.........................done
+Write field 16/24.........................done
+Write field 17/24.........................done
+Write field 18/24.........................done
+Write field 19/24.........................done
+Write field 20/24.........................done
+Write field 21/24.........................done
+Write field 22/24.........................done
+Write field 23/24.........................done
+Write field 24/24.........................done
+* Conversion done in 1 seconds
+* Output file name: full_soln1.vtu 
+
+
+-- Processing full_soln2.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 78048 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/24.........................done
+Write field 02/24.........................done
+Write field 03/24.........................done
+Write field 04/24.........................done
+Write field 05/24.........................done
+Write field 06/24.........................done
+Write field 07/24.........................done
+Write field 08/24.........................done
+Write field 09/24.........................done
+Write field 10/24.........................done
+Write field 11/24.........................done
+Write field 12/24.........................done
+Write field 13/24.........................done
+Write field 14/24.........................done
+Write field 15/24.........................done
+Write field 16/24.........................done
+Write field 17/24.........................done
+Write field 18/24.........................done
+Write field 19/24.........................done
+Write field 20/24.........................done
+Write field 21/24.........................done
+Write field 22/24.........................done
+Write field 23/24.........................done
+Write field 24/24.........................done
+* Conversion done in 1 seconds
+* Output file name: full_soln2.vtu 
+ 
+ --> File full_soln.pvd created
+ 
+./emitest.bash: línea 134: error sintáctico cerca del elemento inesperado `done'
+./emitest.bash: línea 134: `    done'

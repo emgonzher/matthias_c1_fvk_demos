@@ -8,6 +8,10 @@
 
 using namespace oomph;
 
+//==start_of_namespace======================================================
+// Namespace for parameters in the 1D Axisymmetric FvK
+//==========================================================================
+
 // Namespace for storing problem parameters
 namespace GlobalParameters
 {
@@ -21,7 +25,7 @@ namespace GlobalParameters
   unsigned Wavemode = 16;
 
   // Specify the number of elements being used
-  unsigned NElements = 10;
+  unsigned NElements = 50; // 10
 
   // Not the pressure function but simply sets the magnitude of the pressure
   // function
@@ -71,6 +75,7 @@ namespace GlobalParameters
   // Specify the transverse pressure
   double pressure_function(const double& r)
   {
+    //oomph_info << " P_magnitude = " << PressureMagnitude << std::endl;
     return PressureMagnitude;
   }
 
@@ -81,9 +86,13 @@ namespace GlobalParameters
   }
 } // namespace GlobalParameters
 
+
+
+//==mesh_constructor==========================================================
 // The mesh used in the AxisymFvKProblem, almost the same as the OneDMesh
 // templated with AxisymFvKElements. Except we also define functions to count,
 // refer to, or check Hermite nodes and our mesh is only between 0 and 1.
+//============================================================================
 template<unsigned NNODE_1D>
 class AxisymFvkMesh : public OneDMesh<AxisymFvkElement<NNODE_1D>>
 {
@@ -161,10 +170,13 @@ public:
   }
 };
 
-
+// ==start_of_problem_class===================================================
+// Axisymmetric FvK and eigenvalues 
+// ===========================================================================
 /// The problem class for the axisymmetric Foeppl-von Karman equations and the
 /// eigenvalue problem created by adding a perturbation.
-template<unsigned NNODE_1D, class EIGEN_SOLVER>
+
+template<unsigned NNODE_1D, class EIGEN_SOLVER> // what is this??
 class AxisymFvkProblem : public Problem
 {
 public:
@@ -315,25 +327,41 @@ public:
     // Base solution boundary conditions
     //----------------------------------
 
+    bool pin_just_centre = true; // miraqui - bc 
+
     // Centre boundary conditions
+    if (pin_just_centre == true)
+    {
+    centre_boundary_node->pin(w_index_fvk());
+    centre_boundary_node->pin(dwds_index_fvk());
+    }
+    else
+    {
     centre_boundary_node->pin(u_index_fvk());
     centre_boundary_node->pin(dwds_index_fvk());
 
     // Outer boundary conditions
     outer_boundary_node->pin(w_index_fvk());
     outer_boundary_node->pin(dwds_index_fvk());
-
+    }
     // Perturbation boundary conditions
     //---------------------------------
-
     // Centre boundary conditions
+    if (pin_just_centre == true)
+    {
+    centre_boundary_node->pin(w_pert_index_fvk());
+    centre_boundary_node->pin(dwds_pert_index_fvk()); 
+    }
+    else 
+    {
     centre_boundary_node->pin(u_pert_index_fvk());
     centre_boundary_node->pin(dwds_pert_index_fvk());
-
     // Outer boundary conditions
     // outer_boundary_node->pin(u_theta_pert_index_fvk());
     outer_boundary_node->pin(w_pert_index_fvk());
     outer_boundary_node->pin(dwds_pert_index_fvk());
+    }
+   
   }
 
   // Pin the base solution dofs at every node
@@ -427,8 +455,9 @@ public:
       }
     }
   }
-
-  /// Document the solution
+  // ===================================================================
+  /// Document the solution -- why not a separate class ??
+  // ===================================================================
   void doc_solution(std::string filename, const unsigned& npts) const
   {
     // Output the computed solution
@@ -440,13 +469,13 @@ public:
     if (CommandLineArgs::command_line_flag_has_been_set("--validation"))
     {
       // Output exact solution
-      outfile.open("RESLT/exact_soln.dat");
+      outfile.open("RESLT_axivsfull/exact_soln.dat");
       mesh_pt()->output_fct(
         outfile, npts, GlobalParameters::validation_solution);
       outfile.close();
     }
   }
-
+ 
   /// Integrate the pressure over the domain
   double integrate_pressure()
   {
@@ -475,9 +504,11 @@ public:
     DoubleVector eigenvector_imag;
   };
 
+  // --------------------------------------------------------------------------
   /// Solve the eigenproblem for at least n_eval eigenvalues/vectors, sort the
   /// eigenvalues/vectors by the real part of the eigenvalues, keep the first
   /// n_eval eigenvectors/values and assign the first eigenvector to the dofs.
+  // --------------------------------------------------------------------------
   Vector<std::complex<double>> eigensolve(const unsigned& n_eval)
   {
     // Storage for the eigenvalues
@@ -555,6 +586,9 @@ public:
   }
 };
 
+//==start_of_main =======================================================
+// Driver for 1D Axisymmetric FvK problem
+//=======================================================================
 
 int main(int argc, char** argv)
 {
@@ -578,6 +612,58 @@ int main(int argc, char** argv)
   // Doc what has actually been specified on the command line
   CommandLineArgs::doc_specified_flags();
 
+// ----------------------------------------------------------------
+// ----  Lines introduced just to test axisymmetric solutions -----
+// ----------------------------------------------------------------
+
+    // Assign storage for the number of elements
+    unsigned n_element = 50;
+
+    // Create the problem, solve the axisymmetric problem and document it.
+      AxisymFvkProblem<3, LAPACK_QZ> problem(n_element);
+
+    // Set the number of output points per element
+    unsigned npts = 5;
+
+    GlobalParameters::Eta = 1.41e5; //140625;
+
+    bool just_steady_sol = true;
+    if (just_steady_sol == true)
+    {
+    // Magnitude of the transverse pressure
+    GlobalParameters::PressureMagnitude = 40.0; //86.2207;
+
+    oomph_info << " P_magnitude = " << GlobalParameters::PressureMagnitude << std::endl;
+
+   // std::string filename = "RESLT_test/test_sol_P.dat";
+
+
+
+  //  std::string filename = "RESLT_test/test_sol_P" + std::to_string(GlobalParameters::PressureMagnitude%f) 
+  //                         + "_Eta" + std::to_string(GlobalParameters::Eta) + ".dat";
+   
+
+    // Oldstyle C 
+    char buffer[100];
+    //sprintf(buffer, "RESLT_test/test_sol_P%0.3f_Eta%0.3f.dat", GlobalParameters::PressureMagnitude, GlobalParameters::Eta);
+    sprintf(buffer, "RESLT_axi/axi_sol_P%0.3f_Eta%.3e.dat", GlobalParameters::PressureMagnitude, GlobalParameters::Eta);
+    //sprintf(buffer, "RESLT_axi/crit_soln.dat");
+
+    std::string filename = buffer;
+
+    problem.max_residuals() = 1.0e100;
+    problem.max_newton_iterations() = 100;
+
+    problem.newton_solve();
+
+    problem.doc_solution(filename, npts);
+
+    return 0; 
+    }
+// // miraqui - we stop main() here and not calculate eigenvalues yet - testing
+// ------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------
+
   // If running the validation case, run this section of code otherwise, run
   // everything else.
   if (CommandLineArgs::command_line_flag_has_been_set("--validation"))
@@ -596,7 +682,7 @@ int main(int argc, char** argv)
       n_element = n_element_list[i];
 
       // Output the results to the file of this name
-      std::string filename = "RESLT/validation_solution_" +
+      std::string filename = "RESLT_axivsfull/validation_solution_" +
                              std::to_string(n_element_list[i]) +
                              "_elements.dat";
 
@@ -620,21 +706,31 @@ int main(int argc, char** argv)
     unsigned npts = 5;
 
     // Solution doc file
-    std::string doc_solution_filename = "RESLT/soln.dat";
-    std::string doc_critical_pressure_filename = "RESLT/critical_pressure.dat";
+    std::string doc_solution_filename = "RESLT_axi/crit_soln.dat";
+    std::string doc_critical_pressure_filename = "RESLT_axi/critical_pressure.dat";
 
     // How small the eigenvalue must be to accept the critical pressure value
     double eigenvalue_tolerance = 1.0e-6;
 
     // The nondimensional measure aspect ratio
-    GlobalParameters::Eta = 1.0e5;
+    //GlobalParameters::Eta = 1.0e4;
 
     // Magnitude of the transverse pressure
-    GlobalParameters::PressureMagnitude = 200.0;
+    //GlobalParameters::PressureMagnitude = 0.2;
+
+    // Save this value to document solution
+   // double pressure_axi_sol = GlobalParameters::PressureMagnitude;
+   unsigned initial_wavemode = 4;
+   unsigned max_wavemode = 15;
+   GlobalParameters::Wavemode = initial_wavemode;
+    for ( unsigned i = initial_wavemode; i < max_wavemode+1; i++ )
+    {
+    // Wavemode
+    GlobalParameters::Wavemode = i;
 
     // Set the range of pressures that we guess within
     double minimum_pressure_guess = 0.0;
-    double maximum_pressure_guess = 1000.0;
+    double maximum_pressure_guess = 100;
 
     ////////////////////////////////////////////////////////////////////////////
     // End of setting parameters
@@ -708,20 +804,36 @@ int main(int argc, char** argv)
       }
     }
 
+    oomph_info << GlobalParameters::PressureMagnitude << std::endl;
+
+
     // Document the solution
     problem.doc_solution(doc_solution_filename, npts);
 
-    // Document the critical pressure
-    std::ofstream output_file(doc_critical_pressure_filename);
+    // Document the critical pressure   
+    std::ofstream output_file;
+    output_file.open(doc_critical_pressure_filename,std::ios::app);
+
+    //std::ofstream output_file(doc_critical_pressure_filename);//,ios::app);
 
     output_file.precision(16);
     output_file << GlobalParameters::NElements << " "
                 << GlobalParameters::Wavemode << " "
+                << GlobalParameters::Eta << " "
                 << GlobalParameters::PressureMagnitude << " "
-                << current_guess_eigenvalue << std::endl;
+                << current_guess_eigenvalue << " "
+                << std::endl;
+
+    oomph_info << GlobalParameters::NElements << " "
+               << GlobalParameters::Wavemode << " "
+               << GlobalParameters::Eta << " "
+               << GlobalParameters::PressureMagnitude << " "
+               << current_guess_eigenvalue << " "
+               << std::endl;
 
     output_file.close();
   }
-
+}
   return 0;
 }
+

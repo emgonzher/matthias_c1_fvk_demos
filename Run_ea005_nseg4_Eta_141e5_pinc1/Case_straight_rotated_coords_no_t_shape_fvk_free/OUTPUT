@@ -1,0 +1,3494 @@
+
+Specified (and recognised) command line flags:
+----------------------------------------------
+--use_free_bc
+
+hierher ellipse geom obj: 0x63229b762bc0
+nsegment = 4
+hierher flat outer geom obj: 0x63229b7653b0
+Constructing Delaunay triangulation by divide-and-conquer method.
+Delaunay milliseconds:  0
+Recovering segments in Delaunay triangulation.
+Segment milliseconds:  0
+Removing unwanted triangles.
+Hole milliseconds:  0
+Adding Steiner points to enforce quality.
+Quality milliseconds:  0
+
+Writing vertices.
+Writing triangles.
+Writing segments.
+
+Output milliseconds:  0
+Total running milliseconds:  0
+
+Statistics:
+
+  Input vertices: 19
+  Input segments: 18
+  Input holes: 0
+
+  Mesh vertices: 55
+  Mesh triangles: 89
+  Mesh edges: 143
+  Mesh exterior boundary edges: 19
+  Mesh interior boundary edges: 4
+  Mesh subsegments (constrained edges): 23
+
+
+
+Starting upgrade_triangle_mesh_for_c1_plate_bending(...)
+Stats before: 
+-------------
+- Number of elements/nodes in bulk mesh: 89 430 
+- Number of elements in constraint mesh: 0 
+- Pin status of data in constraint elements: 
+Boundary 0 is curvilinear.
+Boundary 1 is curvilinear.
+Boundary 2 is curvilinear.
+Boundary 3 is curvilinear.
+Boundary 4 is curvilinear.
+
+No elements needed splitting
+Rotating coordinates on all curvilinear boundaries
+therefore also duplicating corner nodes
+Testing if element 0 of 5 : 0x63229b786648 with vertices at 
+0.83147 0.55557
+0.707107 0.707107
+0.551811 0.368708
+contains the to be replaced node 0x63229b767bc0 on boundary 0
+Testing if element 1 of 5 : 0x63229b786e68 with vertices at 
+0.92388 0.382683
+0.75 0.149184
+1 -2.44929e-16
+contains the to be replaced node 0x63229b767bc0 on boundary 0
+    YES: replace and build 
+Testing if element 2 of 5 : 0x63229b787ea8 with vertices at 
+0.245053 0.709278
+0.382683 0.92388
+6.12323e-17 1
+contains the to be replaced node 0x63229b767bc0 on boundary 0
+Testing if element 3 of 5 : 0x63229b7a0b68 with vertices at 
+0.382683 0.92388
+0.475935 0.677298
+0.707107 0.707107
+contains the to be replaced node 0x63229b767bc0 on boundary 0
+Testing if element 4 of 5 : 0x63229b7a64c8 with vertices at 
+0.551811 0.368708
+0.92388 0.382683
+0.83147 0.55557
+contains the to be replaced node 0x63229b767bc0 on boundary 0
+Dealing with boundaries (dupl,left) 0 3  Replacing node 2 0x63229b767bc0 in element 0x63229b786e68 with vertices at 
+0.92388 0.382683
+0.75 0.149184
+0 0
+ with new node 0x63229b7703f0
+hierher BEFORE
+to be duplicated: 0x63229b767bc0
+new             : 0x63229b7703f0
+Node 0x63229b767bc0 at 1 -2.44929e-16  is on boundaries: 0 0 ; 3 6.28319 ; 
+Node 0x63229b7703f0 at 1 -2.44929e-16  is on boundaries: 
+Getting boundary coordinate on boundary 0 from 0x63229b767bc0
+Adding boundary coordinate on boundary 0 to 0x63229b7703f0
+hierher AFTER
+to be duplicated: 0x63229b767bc0
+new             : 0x63229b7703f0
+Node 0x63229b767bc0 at 1 -2.44929e-16  is on boundaries: 3 6.28319 ; 
+Node 0x63229b7703f0 at 1 -2.44929e-16  is on boundaries: 0 0 ; 
+Testing if element 0 of 5 : 0x63229b765e78 with vertices at 
+-0.83147 -0.55557
+-0.707107 -0.707107
+-0.551811 -0.368708
+contains the to be replaced node 0x63229b7766a0 on boundary 2
+Testing if element 1 of 5 : 0x63229b77c428 with vertices at 
+-0.382683 -0.92388
+-0.42279 -0.632751
+-0.707107 -0.707107
+contains the to be replaced node 0x63229b7766a0 on boundary 2
+Testing if element 2 of 5 : 0x63229b77f488 with vertices at 
+-1 1.22465e-16
+-0.92388 -0.382683
+-0.75 -0.149184
+contains the to be replaced node 0x63229b7766a0 on boundary 2
+Testing if element 3 of 5 : 0x63229b78e848 with vertices at 
+-0.147831 -0.743198
+-0.382683 -0.92388
+-1.83697e-16 -1
+contains the to be replaced node 0x63229b7766a0 on boundary 2
+    YES: replace and build 
+Testing if element 4 of 5 : 0x63229b78f068 with vertices at 
+-0.551811 -0.368708
+-0.92388 -0.382683
+-0.83147 -0.55557
+contains the to be replaced node 0x63229b7766a0 on boundary 2
+Dealing with boundaries (dupl,left) 2 3  Replacing node 2 0x63229b7766a0 in element 0x63229b78e848 with vertices at 
+-0.147831 -0.743198
+-0.382683 -0.92388
+0 0
+ with new node 0x63229b76c410
+hierher BEFORE
+to be duplicated: 0x63229b7766a0
+new             : 0x63229b76c410
+Node 0x63229b76c410 at -1.83697e-16 -1  is on boundaries: 
+Node 0x63229b7766a0 at -1.83697e-16 -1  is on boundaries: 2 4.71239 ; 3 4.71239 ; 
+Getting boundary coordinate on boundary 2 from 0x63229b7766a0
+Adding boundary coordinate on boundary 2 to 0x63229b76c410
+hierher AFTER
+to be duplicated: 0x63229b7766a0
+new             : 0x63229b76c410
+Node 0x63229b76c410 at -1.83697e-16 -1  is on boundaries: 2 4.71239 ; 
+Node 0x63229b7766a0 at -1.83697e-16 -1  is on boundaries: 3 4.71239 ; 
+Testing if element 0 of 5 : 0x63229b786648 with vertices at 
+0.83147 0.55557
+0.707107 0.707107
+0.551811 0.368708
+contains the to be replaced node 0x63229b776eb0 on boundary 0
+Testing if element 1 of 5 : 0x63229b786e68 with vertices at 
+0.92388 0.382683
+0.75 0.149184
+1 -2.44929e-16
+contains the to be replaced node 0x63229b776eb0 on boundary 0
+Testing if element 2 of 5 : 0x63229b787ea8 with vertices at 
+0.245053 0.709278
+0.382683 0.92388
+6.12323e-17 1
+contains the to be replaced node 0x63229b776eb0 on boundary 0
+    YES: replace and build 
+Testing if element 3 of 5 : 0x63229b7a0b68 with vertices at 
+0.382683 0.92388
+0.475935 0.677298
+0.707107 0.707107
+contains the to be replaced node 0x63229b776eb0 on boundary 0
+Testing if element 4 of 5 : 0x63229b7a64c8 with vertices at 
+0.551811 0.368708
+0.92388 0.382683
+0.83147 0.55557
+contains the to be replaced node 0x63229b776eb0 on boundary 0
+Dealing with boundaries (dupl,left) 0 1  Replacing node 2 0x63229b776eb0 in element 0x63229b787ea8 with vertices at 
+0.245053 0.709278
+0.382683 0.92388
+0 0
+ with new node 0x63229b769820
+hierher BEFORE
+to be duplicated: 0x63229b776eb0
+new             : 0x63229b769820
+Node 0x63229b769820 at 6.12323e-17 1  is on boundaries: 
+Node 0x63229b776eb0 at 6.12323e-17 1  is on boundaries: 0 1.5708 ; 1 1.5708 ; 
+Getting boundary coordinate on boundary 0 from 0x63229b776eb0
+Adding boundary coordinate on boundary 0 to 0x63229b769820
+hierher AFTER
+to be duplicated: 0x63229b776eb0
+new             : 0x63229b769820
+Node 0x63229b769820 at 6.12323e-17 1  is on boundaries: 0 1.5708 ; 
+Node 0x63229b776eb0 at 6.12323e-17 1  is on boundaries: 1 1.5708 ; 
+Testing if element 0 of 4 : 0x63229b77cbe8 with vertices at 
+-0.92388 0.382683
+-1 1.22465e-16
+-0.75 0.149184
+contains the to be replaced node 0x63229b7a8e90 on boundary 1
+    YES: replace and build 
+Testing if element 1 of 4 : 0x63229b77d408 with vertices at 
+-0.92388 0.382683
+-0.675502 0.386151
+-0.707107 0.707107
+contains the to be replaced node 0x63229b7a8e90 on boundary 1
+Testing if element 2 of 4 : 0x63229b77e448 with vertices at 
+-0.382683 0.92388
+-0.707107 0.707107
+-0.446362 0.668029
+contains the to be replaced node 0x63229b7a8e90 on boundary 1
+Testing if element 3 of 4 : 0x63229b79c248 with vertices at 
+-0.225302 0.770879
+6.12323e-17 1
+-0.382683 0.92388
+contains the to be replaced node 0x63229b7a8e90 on boundary 1
+Dealing with boundaries (dupl,left) 1 2  Replacing node 1 0x63229b7a8e90 in element 0x63229b77cbe8 with vertices at 
+-0.92388 0.382683
+0 0
+-0.75 0.149184
+ with new node 0x63229b7705e0
+hierher BEFORE
+to be duplicated: 0x63229b7a8e90
+new             : 0x63229b7705e0
+Node 0x63229b7705e0 at -1 1.22465e-16  is on boundaries: 
+Node 0x63229b7a8e90 at -1 1.22465e-16  is on boundaries: 1 3.14159 ; 2 3.14159 ; 
+Getting boundary coordinate on boundary 1 from 0x63229b7a8e90
+Adding boundary coordinate on boundary 1 to 0x63229b7705e0
+hierher AFTER
+to be duplicated: 0x63229b7a8e90
+new             : 0x63229b7705e0
+Node 0x63229b7705e0 at -1 1.22465e-16  is on boundaries: 1 3.14159 ; 
+Node 0x63229b7a8e90 at -1 1.22465e-16  is on boundaries: 2 3.14159 ; 
+Node 0x63229b775a90 at 0.83147 0.55557 is on curved boundary 0
+Node 0x63229b777ab0 at 0.707107 0.707107 is on curved boundary 0
+Node 0x63229b7780f0 at 0.551811 0.368708 is not on curved boundary 0
+Upgrading to a 5-er
+Node 0x63229b7754d0 at 0.92388 0.382683 is on curved boundary 0
+Node 0x63229b777e10 at 0.75 0.149184 is not on curved boundary 0
+Node 0x63229b7703f0 at 1 -2.44929e-16 is on curved boundary 0
+Upgrading to a 5-er
+Node 0x63229b7782d0 at 0.245053 0.709278 is not on curved boundary 0
+Node 0x63229b775050 at 0.382683 0.92388 is on curved boundary 0
+Node 0x63229b769820 at 6.12323e-17 1 is on curved boundary 0
+Upgrading to a 5-er
+Node 0x63229b775050 at 0.382683 0.92388 is on curved boundary 0
+Node 0x63229b76bc10 at 0.475935 0.677298 is not on curved boundary 0
+Node 0x63229b777ab0 at 0.707107 0.707107 is on curved boundary 0
+Upgrading to a 5-er
+Node 0x63229b7780f0 at 0.551811 0.368708 is not on curved boundary 0
+Node 0x63229b7754d0 at 0.92388 0.382683 is on curved boundary 0
+Node 0x63229b775a90 at 0.83147 0.55557 is on curved boundary 0
+Upgrading to a 5-er
+Node 0x63229b7a8c30 at -0.92388 0.382683 is on curved boundary 1
+Node 0x63229b7705e0 at -1 1.22465e-16 is on curved boundary 1
+Node 0x63229b7a90f0 at -0.75 0.149184 is not on curved boundary 1
+Upgrading to a 5-er
+Node 0x63229b7a8c30 at -0.92388 0.382683 is on curved boundary 1
+Node 0x63229b7a92b0 at -0.675502 0.386151 is not on curved boundary 1
+Node 0x63229b7a9490 at -0.707107 0.707107 is on curved boundary 1
+Upgrading to a 5-er
+Node 0x63229b7a96d0 at -0.382683 0.92388 is on curved boundary 1
+Node 0x63229b7a9490 at -0.707107 0.707107 is on curved boundary 1
+Node 0x63229b7a98f0 at -0.446362 0.668029 is not on curved boundary 1
+Upgrading to a 5-er
+Node 0x63229b76be50 at -0.225302 0.770879 is not on curved boundary 1
+Node 0x63229b776eb0 at 6.12323e-17 1 is on curved boundary 1
+Node 0x63229b7a96d0 at -0.382683 0.92388 is on curved boundary 1
+Upgrading to a 5-er
+Node 0x63229b7a6c90 at -0.83147 -0.55557 is on curved boundary 2
+Node 0x63229b7a6ef0 at -0.707107 -0.707107 is on curved boundary 2
+Node 0x63229b7a7150 at -0.551811 -0.368708 is not on curved boundary 2
+Upgrading to a 5-er
+Node 0x63229b7a8830 at -0.382683 -0.92388 is on curved boundary 2
+Node 0x63229b7a8a70 at -0.42279 -0.632751 is not on curved boundary 2
+Node 0x63229b7a6ef0 at -0.707107 -0.707107 is on curved boundary 2
+Upgrading to a 5-er
+Node 0x63229b7a8e90 at -1 1.22465e-16 is on curved boundary 2
+Node 0x63229b7a9ad0 at -0.92388 -0.382683 is on curved boundary 2
+Node 0x63229b7a8650 at -0.75 -0.149184 is not on curved boundary 2
+Upgrading to a 5-er
+Node 0x63229b7a9d60 at -0.147831 -0.743198 is not on curved boundary 2
+Node 0x63229b7a8830 at -0.382683 -0.92388 is on curved boundary 2
+Node 0x63229b76c410 at -1.83697e-16 -1 is on curved boundary 2
+Upgrading to a 5-er
+Node 0x63229b7a7150 at -0.551811 -0.368708 is not on curved boundary 2
+Node 0x63229b7a9ad0 at -0.92388 -0.382683 is on curved boundary 2
+Node 0x63229b7a6c90 at -0.83147 -0.55557 is on curved boundary 2
+Upgrading to a 5-er
+Node 0x63229b7a9f40 at 0.92388 -0.382683 is on curved boundary 3
+Node 0x63229b767bc0 at 1 -2.44929e-16 is on curved boundary 3
+Node 0x63229b7a74f0 at 0.75 -0.149184 is not on curved boundary 3
+Upgrading to a 5-er
+Node 0x63229b774fa0 at 0.382683 -0.92388 is on curved boundary 3
+Node 0x63229b7a8290 at 0.153281 -0.770598 is not on curved boundary 3
+Node 0x63229b7766a0 at -1.83697e-16 -1 is on curved boundary 3
+Upgrading to a 5-er
+Node 0x63229b7a9f40 at 0.92388 -0.382683 is on curved boundary 3
+Node 0x63229b7a7310 at 0.551811 -0.368708 is not on curved boundary 3
+Node 0x63229b778c10 at 0.83147 -0.55557 is on curved boundary 3
+Upgrading to a 5-er
+Node 0x63229b777290 at 0.707107 -0.707107 is on curved boundary 3
+Node 0x63229b7a8470 at 0.413242 -0.629842 is not on curved boundary 3
+Node 0x63229b774fa0 at 0.382683 -0.92388 is on curved boundary 3
+Upgrading to a 5-er
+Node 0x63229b7a7310 at 0.551811 -0.368708 is not on curved boundary 3
+Node 0x63229b777290 at 0.707107 -0.707107 is on curved boundary 3
+Node 0x63229b778c10 at 0.83147 -0.55557 is on curved boundary 3
+Upgrading to a 5-er
+Node 0x63229b7764f0 at 3.33067e-16 0 is on curved boundary 4
+Node 0x63229b769090 at -0.125 0.284756 is not on curved boundary 4
+Node 0x63229b767e50 at -0.25 0 is on curved boundary 4
+Upgrading to a 5-er
+Node 0x63229b76ba30 at 0.107358 0.267107 is not on curved boundary 4
+Node 0x63229b7764f0 at 3.33067e-16 0 is on curved boundary 4
+Node 0x63229b775f30 at 0.25 0 is on curved boundary 4
+Upgrading to a 5-er
+Node 0x63229b7a80b0 at 0.0193408 -0.256044 is not on curved boundary 4
+Node 0x63229b775f30 at 0.25 0 is on curved boundary 4
+Node 0x63229b7764f0 at 3.33067e-16 0 is on curved boundary 4
+Upgrading to a 5-er
+hierher element edge is inverted
+Node 0x63229b767e50 at -0.25 0 is on curved boundary 4
+Node 0x63229b7788e0 at -0.5 0 is on curved boundary 4
+Node 0x63229b7a7b10 at -0.383237 -0.204402 is not on curved boundary 4
+Upgrading to a 5-er
+hierher element edge is inverted
+Node 0x63229b775f30 at 0.25 0 is on curved boundary 4
+Node 0x63229b7a7ed0 at 0.287539 -0.303101 is not on curved boundary 4
+Node 0x63229b7a76d0 at 0.5 0 is on curved boundary 4
+Upgrading to a 5-er
+hierher element edge is inverted
+Node 0x63229b7a80b0 at 0.0193408 -0.256044 is not on curved boundary 4
+Node 0x63229b7764f0 at 3.33067e-16 0 is on curved boundary 4
+Node 0x63229b767e50 at -0.25 0 is on curved boundary 4
+Upgrading to a 5-er
+hierher element edge is inverted
+Node 0x63229b7788e0 at -0.5 0 is on curved boundary 4
+Node 0x63229b767e50 at -0.25 0 is on curved boundary 4
+Node 0x63229b7777f0 at -0.375 0.186668 is not on curved boundary 4
+Upgrading to a 5-er
+Node 0x63229b7a76d0 at 0.5 0 is on curved boundary 4
+Node 0x63229b7aa600 at 0.338251 0.235641 is not on curved boundary 4
+Node 0x63229b775f30 at 0.25 0 is on curved boundary 4
+Upgrading to a 5-er
+Rotating coordinates on all curvilinear boundaries!
+
+
+End upgrade_triangle_mesh_for_c1_plate_bending(...)
+Stats after: 
+-------------
+- Number of elements/nodes in bulk mesh: 89 434 
+- Number of elements in constraint mesh: 4 
+- Pin status of data in constraint elements: 
+Element 0:
+1 -2.44929e-16 :  0  0  0  0  0  0  0  0 
+Element 1:
+-1.83697e-16 -1 :  0  0  0  0  0  0  0  0 
+Element 2:
+6.12323e-17 1 :  0  0  0  0  0  0  0  0 
+Element 3:
+-1 1.22465e-16 :  0  0  0  0  0  0  0  0 
+Checking boundary 0
+Number of elements on boundary 0 : 5
+Element 0 has 10 nodes 
+Node n = 0 at 0.83147 0.55557  is on boundaries:0 
+Node n = 1 at 0.707107 0.707107  is on boundaries:0 
+Node n = 2 at 0.551811 0.368708  is not a boundary node
+Node n = 3 at 0.793353 0.608761  is on boundaries:0 
+Node n = 4 at 0.75184 0.659346  is on boundaries:0 
+Node n = 5 at 0.655342 0.594307  is not a boundary node
+Node n = 6 at 0.603576 0.481508  is not a boundary node
+Node n = 7 at 0.639705 0.427437  is not a boundary node
+Node n = 8 at 0.727599 0.486166  is not a boundary node
+Node n = 9 at 0.69147 0.540237  is not a boundary node
+Element 1 has 10 nodes 
+Node n = 0 at 0.92388 0.382683  is on boundaries:0 
+Node n = 1 at 0.75 0.149184  is not a boundary node
+Node n = 2 at 1 -2.44929e-16  is on boundaries:0 
+Node n = 3 at 0.86592 0.30485  is not a boundary node
+Node n = 4 at 0.80796 0.227017  is not a boundary node
+Node n = 5 at 0.833333 0.0994562  is not a boundary node
+Node n = 6 at 0.916667 0.0497281  is not a boundary node
+Node n = 7 at 0.991445 0.130526  is on boundaries:0 
+Node n = 8 at 0.965926 0.258819  is on boundaries:0 
+Node n = 9 at 0.891293 0.177289  is not a boundary node
+Element 2 has 10 nodes 
+Node n = 0 at 0.245053 0.709278  is not a boundary node
+Node n = 1 at 0.382683 0.92388  is on boundaries:0 
+Node n = 2 at 6.12323e-17 1  is on boundaries:0 
+Node n = 3 at 0.29093 0.780812  is not a boundary node
+Node n = 4 at 0.336807 0.852346  is not a boundary node
+Node n = 5 at 0.258819 0.965926  is on boundaries:0 
+Node n = 6 at 0.130526 0.991445  is on boundaries:0 
+Node n = 7 at 0.0816843 0.903093  is not a boundary node
+Node n = 8 at 0.163369 0.806186  is not a boundary node
+Node n = 9 at 0.209245 0.877719  is not a boundary node
+Element 3 has 10 nodes 
+Node n = 0 at 0.382683 0.92388  is on boundaries:0 
+Node n = 1 at 0.475935 0.677298  is not a boundary node
+Node n = 2 at 0.707107 0.707107  is on boundaries:0 
+Node n = 3 at 0.413767 0.841686  is not a boundary node
+Node n = 4 at 0.444851 0.759492  is not a boundary node
+Node n = 5 at 0.552992 0.687235  is not a boundary node
+Node n = 6 at 0.630049 0.697171  is not a boundary node
+Node n = 7 at 0.608761 0.793353  is on boundaries:0 
+Node n = 8 at 0.5 0.866025  is on boundaries:0 
+Node n = 9 at 0.521908 0.769428  is not a boundary node
+Element 4 has 10 nodes 
+Node n = 0 at 0.551811 0.368708  is not a boundary node
+Node n = 1 at 0.92388 0.382683  is on boundaries:0 
+Node n = 2 at 0.83147 0.55557  is on boundaries:0 
+Node n = 3 at 0.675834 0.373367  is not a boundary node
+Node n = 4 at 0.799857 0.378025  is not a boundary node
+Node n = 5 at 0.896873 0.442289  is on boundaries:0 
+Node n = 6 at 0.866025 0.5  is on boundaries:0 
+Node n = 7 at 0.727599 0.486166  is not a boundary node
+Node n = 8 at 0.639705 0.427437  is not a boundary node
+Node n = 9 at 0.763728 0.432096  is not a boundary node
+Checking boundary 1
+Number of elements on boundary 1 : 4
+Element 0 has 10 nodes 
+Node n = 0 at -0.92388 0.382683  is on boundaries:1 
+Node n = 1 at -1 1.22465e-16  is on boundaries:1 
+Node n = 2 at -0.75 0.149184  is not a boundary node
+Node n = 3 at -0.965926 0.258819  is on boundaries:1 
+Node n = 4 at -0.991445 0.130526  is on boundaries:1 
+Node n = 5 at -0.916667 0.0497281  is not a boundary node
+Node n = 6 at -0.833333 0.0994562  is not a boundary node
+Node n = 7 at -0.80796 0.227017  is not a boundary node
+Node n = 8 at -0.86592 0.30485  is not a boundary node
+Node n = 9 at -0.891293 0.177289  is not a boundary node
+Element 1 has 10 nodes 
+Node n = 0 at -0.92388 0.382683  is on boundaries:1 
+Node n = 1 at -0.675502 0.386151  is not a boundary node
+Node n = 2 at -0.707107 0.707107  is on boundaries:1 
+Node n = 3 at -0.841087 0.383839  is not a boundary node
+Node n = 4 at -0.758295 0.384995  is not a boundary node
+Node n = 5 at -0.686037 0.493137  is not a boundary node
+Node n = 6 at -0.696572 0.600122  is not a boundary node
+Node n = 7 at -0.793353 0.608761  is on boundaries:1 
+Node n = 8 at -0.866025 0.5  is on boundaries:1 
+Node n = 9 at -0.768829 0.491981  is not a boundary node
+Element 2 has 10 nodes 
+Node n = 0 at -0.382683 0.92388  is on boundaries:1 
+Node n = 1 at -0.707107 0.707107  is on boundaries:1 
+Node n = 2 at -0.446362 0.668029  is not a boundary node
+Node n = 3 at -0.5 0.866025  is on boundaries:1 
+Node n = 4 at -0.608761 0.793353  is on boundaries:1 
+Node n = 5 at -0.620192 0.694081  is not a boundary node
+Node n = 6 at -0.533277 0.681055  is not a boundary node
+Node n = 7 at -0.425136 0.753312  is not a boundary node
+Node n = 8 at -0.40391 0.838596  is not a boundary node
+Node n = 9 at -0.512051 0.766338  is not a boundary node
+Element 3 has 10 nodes 
+Node n = 0 at -0.225302 0.770879  is not a boundary node
+Node n = 1 at 6.12323e-17 1  is on boundaries:1 
+Node n = 2 at -0.382683 0.92388  is on boundaries:1 
+Node n = 3 at -0.150202 0.847253  is not a boundary node
+Node n = 4 at -0.0751008 0.923626  is not a boundary node
+Node n = 5 at -0.130526 0.991445  is on boundaries:1 
+Node n = 6 at -0.258819 0.965926  is on boundaries:1 
+Node n = 7 at -0.330223 0.872879  is not a boundary node
+Node n = 8 at -0.277763 0.821879  is not a boundary node
+Node n = 9 at -0.202662 0.898253  is not a boundary node
+Checking boundary 2
+Number of elements on boundary 2 : 5
+Element 0 has 10 nodes 
+Node n = 0 at -0.83147 -0.55557  is on boundaries:2 
+Node n = 1 at -0.707107 -0.707107  is on boundaries:2 
+Node n = 2 at -0.551811 -0.368708  is not a boundary node
+Node n = 3 at -0.793353 -0.608761  is on boundaries:2 
+Node n = 4 at -0.75184 -0.659346  is on boundaries:2 
+Node n = 5 at -0.655342 -0.594307  is not a boundary node
+Node n = 6 at -0.603576 -0.481508  is not a boundary node
+Node n = 7 at -0.639705 -0.427437  is not a boundary node
+Node n = 8 at -0.727599 -0.486166  is not a boundary node
+Node n = 9 at -0.69147 -0.540237  is not a boundary node
+Element 1 has 10 nodes 
+Node n = 0 at -0.382683 -0.92388  is on boundaries:2 
+Node n = 1 at -0.42279 -0.632751  is not a boundary node
+Node n = 2 at -0.707107 -0.707107  is on boundaries:2 
+Node n = 3 at -0.396052 -0.826837  is not a boundary node
+Node n = 4 at -0.409421 -0.729794  is not a boundary node
+Node n = 5 at -0.517563 -0.657536  is not a boundary node
+Node n = 6 at -0.612335 -0.682321  is not a boundary node
+Node n = 7 at -0.608761 -0.793353  is on boundaries:2 
+Node n = 8 at -0.5 -0.866025  is on boundaries:2 
+Node n = 9 at -0.504194 -0.754579  is not a boundary node
+Element 2 has 10 nodes 
+Node n = 0 at -1 1.22465e-16  is on boundaries:2 
+Node n = 1 at -0.92388 -0.382683  is on boundaries:2 
+Node n = 2 at -0.75 -0.149184  is not a boundary node
+Node n = 3 at -0.991445 -0.130526  is on boundaries:2 
+Node n = 4 at -0.965926 -0.258819  is on boundaries:2 
+Node n = 5 at -0.86592 -0.30485  is not a boundary node
+Node n = 6 at -0.80796 -0.227017  is not a boundary node
+Node n = 7 at -0.833333 -0.0994562  is not a boundary node
+Node n = 8 at -0.916667 -0.0497281  is not a boundary node
+Node n = 9 at -0.891293 -0.177289  is not a boundary node
+Element 3 has 10 nodes 
+Node n = 0 at -0.147831 -0.743198  is not a boundary node
+Node n = 1 at -0.382683 -0.92388  is on boundaries:2 
+Node n = 2 at -1.83697e-16 -1  is on boundaries:2 
+Node n = 3 at -0.226115 -0.803425  is not a boundary node
+Node n = 4 at -0.304399 -0.863652  is not a boundary node
+Node n = 5 at -0.258819 -0.965926  is on boundaries:2 
+Node n = 6 at -0.130526 -0.991445  is on boundaries:2 
+Node n = 7 at -0.0492771 -0.914399  is not a boundary node
+Node n = 8 at -0.0985542 -0.828799  is not a boundary node
+Node n = 9 at -0.176838 -0.889026  is not a boundary node
+Element 4 has 10 nodes 
+Node n = 0 at -0.551811 -0.368708  is not a boundary node
+Node n = 1 at -0.92388 -0.382683  is on boundaries:2 
+Node n = 2 at -0.83147 -0.55557  is on boundaries:2 
+Node n = 3 at -0.675834 -0.373367  is not a boundary node
+Node n = 4 at -0.799857 -0.378025  is not a boundary node
+Node n = 5 at -0.896873 -0.442289  is on boundaries:2 
+Node n = 6 at -0.866025 -0.5  is on boundaries:2 
+Node n = 7 at -0.727599 -0.486166  is not a boundary node
+Node n = 8 at -0.639705 -0.427437  is not a boundary node
+Node n = 9 at -0.763728 -0.432096  is not a boundary node
+Checking boundary 3
+Number of elements on boundary 3 : 5
+Element 0 has 10 nodes 
+Node n = 0 at 0.92388 -0.382683  is on boundaries:3 
+Node n = 1 at 1 -2.44929e-16  is on boundaries:3 
+Node n = 2 at 0.75 -0.149184  is not a boundary node
+Node n = 3 at 0.965926 -0.258819  is on boundaries:3 
+Node n = 4 at 0.991445 -0.130526  is on boundaries:3 
+Node n = 5 at 0.916667 -0.0497281  is not a boundary node
+Node n = 6 at 0.833333 -0.0994562  is not a boundary node
+Node n = 7 at 0.80796 -0.227017  is not a boundary node
+Node n = 8 at 0.86592 -0.30485  is not a boundary node
+Node n = 9 at 0.891293 -0.177289  is not a boundary node
+Element 1 has 10 nodes 
+Node n = 0 at 0.382683 -0.92388  is on boundaries:3 
+Node n = 1 at 0.153281 -0.770598  is not a boundary node
+Node n = 2 at -1.83697e-16 -1  is on boundaries:3 
+Node n = 3 at 0.306216 -0.872786  is not a boundary node
+Node n = 4 at 0.229749 -0.821692  is not a boundary node
+Node n = 5 at 0.102188 -0.847065  is not a boundary node
+Node n = 6 at 0.0510938 -0.923533  is not a boundary node
+Node n = 7 at 0.130526 -0.991445  is on boundaries:3 
+Node n = 8 at 0.258819 -0.965926  is on boundaries:3 
+Node n = 9 at 0.178655 -0.898159  is not a boundary node
+Element 2 has 10 nodes 
+Node n = 0 at 0.92388 -0.382683  is on boundaries:3 
+Node n = 1 at 0.551811 -0.368708  is not a boundary node
+Node n = 2 at 0.83147 -0.55557  is on boundaries:3 
+Node n = 3 at 0.799857 -0.378025  is not a boundary node
+Node n = 4 at 0.675834 -0.373367  is not a boundary node
+Node n = 5 at 0.639705 -0.427437  is not a boundary node
+Node n = 6 at 0.727599 -0.486166  is not a boundary node
+Node n = 7 at 0.866025 -0.5  is on boundaries:3 
+Node n = 8 at 0.896873 -0.442289  is on boundaries:3 
+Node n = 9 at 0.763728 -0.432096  is not a boundary node
+Element 3 has 10 nodes 
+Node n = 0 at 0.707107 -0.707107  is on boundaries:3 
+Node n = 1 at 0.413242 -0.629842  is not a boundary node
+Node n = 2 at 0.382683 -0.92388  is on boundaries:3 
+Node n = 3 at 0.609152 -0.681352  is not a boundary node
+Node n = 4 at 0.511197 -0.655597  is not a boundary node
+Node n = 5 at 0.403056 -0.727854  is not a boundary node
+Node n = 6 at 0.39287 -0.825867  is not a boundary node
+Node n = 7 at 0.5 -0.866025  is on boundaries:3 
+Node n = 8 at 0.608761 -0.793353  is on boundaries:3 
+Node n = 9 at 0.501011 -0.753609  is not a boundary node
+Element 4 has 10 nodes 
+Node n = 0 at 0.551811 -0.368708  is not a boundary node
+Node n = 1 at 0.707107 -0.707107  is on boundaries:3 
+Node n = 2 at 0.83147 -0.55557  is on boundaries:3 
+Node n = 3 at 0.603576 -0.481508  is not a boundary node
+Node n = 4 at 0.655342 -0.594307  is not a boundary node
+Node n = 5 at 0.75184 -0.659346  is on boundaries:3 
+Node n = 6 at 0.793353 -0.608761  is on boundaries:3 
+Node n = 7 at 0.727599 -0.486166  is not a boundary node
+Node n = 8 at 0.639705 -0.427437  is not a boundary node
+Node n = 9 at 0.69147 -0.540237  is not a boundary node
+Checking boundary 4
+Number of elements on boundary 4 : 8
+Element 0 has 10 nodes 
+Node n = 0 at 3.33067e-16 0  is on boundaries:4 
+Node n = 1 at -0.125 0.284756  is not a boundary node
+Node n = 2 at -0.25 0  is on boundaries:4 
+Node n = 3 at -0.0416667 0.0949185  is not a boundary node
+Node n = 4 at -0.0833333 0.189837  is not a boundary node
+Node n = 5 at -0.166667 0.189837  is not a boundary node
+Node n = 6 at -0.208333 0.0949185  is not a boundary node
+Node n = 7 at -0.166667 0  is on boundaries:4 
+Node n = 8 at -0.0833333 0  is on boundaries:4 
+Node n = 9 at -0.125 0.0949185  is not a boundary node
+Element 1 has 10 nodes 
+Node n = 0 at 0.107358 0.267107  is not a boundary node
+Node n = 1 at 3.33067e-16 0  is on boundaries:4 
+Node n = 2 at 0.25 0  is on boundaries:4 
+Node n = 3 at 0.0715718 0.178071  is not a boundary node
+Node n = 4 at 0.0357859 0.0890357  is not a boundary node
+Node n = 5 at 0.0833333 0  is on boundaries:4 
+Node n = 6 at 0.166667 0  is on boundaries:4 
+Node n = 7 at 0.202453 0.0890357  is not a boundary node
+Node n = 8 at 0.154905 0.178071  is not a boundary node
+Node n = 9 at 0.119119 0.0890357  is not a boundary node
+Element 2 has 10 nodes 
+Node n = 0 at 0.0193408 -0.256044  is not a boundary node
+Node n = 1 at 0.25 0  is on boundaries:4 
+Node n = 2 at 3.33067e-16 0  is on boundaries:4 
+Node n = 3 at 0.0962272 -0.170696  is not a boundary node
+Node n = 4 at 0.173114 -0.0853481  is not a boundary node
+Node n = 5 at 0.166667 0  is on boundaries:4 
+Node n = 6 at 0.0833333 0  is on boundaries:4 
+Node n = 7 at 0.00644693 -0.0853481  is not a boundary node
+Node n = 8 at 0.0128939 -0.170696  is not a boundary node
+Node n = 9 at 0.0897803 -0.0853481  is not a boundary node
+Element 3 has 10 nodes 
+Node n = 0 at -0.25 0  is on boundaries:4 
+Node n = 1 at -0.5 0  is on boundaries:4 
+Node n = 2 at -0.383237 -0.204402  is not a boundary node
+Node n = 3 at -0.333333 0  is on boundaries:4 
+Node n = 4 at -0.416667 0  is on boundaries:4 
+Node n = 5 at -0.461079 -0.068134  is not a boundary node
+Node n = 6 at -0.422158 -0.136268  is not a boundary node
+Node n = 7 at -0.338825 -0.136268  is not a boundary node
+Node n = 8 at -0.294412 -0.068134  is not a boundary node
+Node n = 9 at -0.377746 -0.068134  is not a boundary node
+Element 4 has 10 nodes 
+Node n = 0 at 0.25 0  is on boundaries:4 
+Node n = 1 at 0.287539 -0.303101  is not a boundary node
+Node n = 2 at 0.5 0  is on boundaries:4 
+Node n = 3 at 0.262513 -0.101034  is not a boundary node
+Node n = 4 at 0.275026 -0.202067  is not a boundary node
+Node n = 5 at 0.358359 -0.202067  is not a boundary node
+Node n = 6 at 0.42918 -0.101034  is not a boundary node
+Node n = 7 at 0.416667 0  is on boundaries:4 
+Node n = 8 at 0.333333 0  is on boundaries:4 
+Node n = 9 at 0.345846 -0.101034  is not a boundary node
+Element 5 has 10 nodes 
+Node n = 0 at 0.0193408 -0.256044  is not a boundary node
+Node n = 1 at 3.33067e-16 0  is on boundaries:4 
+Node n = 2 at -0.25 0  is on boundaries:4 
+Node n = 3 at 0.0128939 -0.170696  is not a boundary node
+Node n = 4 at 0.00644693 -0.0853481  is not a boundary node
+Node n = 5 at -0.0833333 0  is on boundaries:4 
+Node n = 6 at -0.166667 0  is on boundaries:4 
+Node n = 7 at -0.16022 -0.0853481  is not a boundary node
+Node n = 8 at -0.0704395 -0.170696  is not a boundary node
+Node n = 9 at -0.0768864 -0.0853481  is not a boundary node
+Element 6 has 10 nodes 
+Node n = 0 at -0.5 0  is on boundaries:4 
+Node n = 1 at -0.25 0  is on boundaries:4 
+Node n = 2 at -0.375 0.186668  is not a boundary node
+Node n = 3 at -0.416667 0  is on boundaries:4 
+Node n = 4 at -0.333333 0  is on boundaries:4 
+Node n = 5 at -0.291667 0.0622225  is not a boundary node
+Node n = 6 at -0.333333 0.124445  is not a boundary node
+Node n = 7 at -0.416667 0.124445  is not a boundary node
+Node n = 8 at -0.458333 0.0622225  is not a boundary node
+Node n = 9 at -0.375 0.0622225  is not a boundary node
+Element 7 has 10 nodes 
+Node n = 0 at 0.5 0  is on boundaries:4 
+Node n = 1 at 0.338251 0.235641  is not a boundary node
+Node n = 2 at 0.25 0  is on boundaries:4 
+Node n = 3 at 0.446084 0.0785471  is not a boundary node
+Node n = 4 at 0.392167 0.157094  is not a boundary node
+Node n = 5 at 0.308834 0.157094  is not a boundary node
+Node n = 6 at 0.279417 0.0785471  is not a boundary node
+Node n = 7 at 0.333333 0  is on boundaries:4 
+Node n = 8 at 0.416667 0  is on boundaries:4 
+Node n = 9 at 0.36275 0.0785471  is not a boundary node
+Number of boundaries: 5
+Boundary: 0 is adjacent to 5 elements
+Boundary element:0x63229b786648 Face index of boundary is 2
+Boundary element:0x63229b786e68 Face index of boundary is 1
+Boundary element:0x63229b787ea8 Face index of boundary is 0
+Boundary element:0x63229b7a0b68 Face index of boundary is 1
+Boundary element:0x63229b7a64c8 Face index of boundary is 0
+Boundary: 1 is adjacent to 4 elements
+Boundary element:0x63229b77cbe8 Face index of boundary is 2
+Boundary element:0x63229b77d408 Face index of boundary is 1
+Boundary element:0x63229b77e448 Face index of boundary is 2
+Boundary element:0x63229b79c248 Face index of boundary is 0
+Boundary: 2 is adjacent to 5 elements
+Boundary element:0x63229b765e78 Face index of boundary is 2
+Boundary element:0x63229b77c428 Face index of boundary is 1
+Boundary element:0x63229b77f488 Face index of boundary is 2
+Boundary element:0x63229b78e848 Face index of boundary is 0
+Boundary element:0x63229b78f068 Face index of boundary is 0
+Boundary: 3 is adjacent to 5 elements
+Boundary element:0x63229b780ce8 Face index of boundary is 2
+Boundary element:0x63229b781d28 Face index of boundary is 1
+Boundary element:0x63229b783da8 Face index of boundary is 1
+Boundary element:0x63229b7a4c68 Face index of boundary is 1
+Boundary element:0x63229b7a5ca8 Face index of boundary is 0
+Boundary: 4 is adjacent to 8 elements
+Boundary element:0x63229b788ee8 Face index of boundary is 1
+Boundary element:0x63229b78bfa8 Face index of boundary is 0
+Boundary element:0x63229b78cfe8 Face index of boundary is 0
+Boundary element:0x63229b791908 Face index of boundary is 2
+Boundary element:0x63229b7949c8 Face index of boundary is 1
+Boundary element:0x63229b7960e8 Face index of boundary is 0
+Boundary element:0x63229b797928 Face index of boundary is 2
+Boundary element:0x63229b7a23c8 Face index of boundary is 1
+Pinning (FvK dofs 0,1,2,3,4)  at 3.33067e-16 0 
+Pinning (FvK dofs 1)  at 0.5 0 
+eqn 0 depends on dof R0
+eqn 1 depends on dof R1
+eqn 2 depends on dof R2
+eqn 3 depends on dof R3
+eqn 4 depends on dof R4
+eqn 5 depends on dof R5
+eqn 6 depends on dof R6
+eqn 7 depends on dof R7
+eqn 0 depends on dof R0
+eqn 1 depends on dof R1
+eqn 2 depends on dof R2
+eqn 3 depends on dof R3
+eqn 4 depends on dof R4
+eqn 5 depends on dof R5
+eqn 6 depends on dof R6
+eqn 7 depends on dof R7
+eqn 0 depends on dof R0
+eqn 1 depends on dof R1
+eqn 2 depends on dof R2
+eqn 3 depends on dof R3
+eqn 4 depends on dof R4
+eqn 5 depends on dof R5
+eqn 6 depends on dof R6
+eqn 7 depends on dof R7
+eqn 0 depends on dof R0
+eqn 1 depends on dof R1
+eqn 2 depends on dof R2
+eqn 3 depends on dof R3
+eqn 4 depends on dof R4
+eqn 5 depends on dof R5
+eqn 6 depends on dof R6
+eqn 7 depends on dof R7
+Number of equations: 1518
+Nphi = 105Nr = 50
+Number of points not found locally: 0
+Number of plot points not found (with max search radius=1.79769e+308)]: 0
+Total time for LineVisualiser setup [sec]: 0.110278
+Element_area = 0.05
+Dimensional (SI) parameters: g = 9.81 // rho = 900 // E = 1.44e+06 // R = 0.1 // h = 0.0008 
+Final P to reach = 86.2207 
+Initial state - Nondimensional parameters: P_mag (RHS) = 0 // Eta = 141000 // 
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Initial Maximum residuals 0
+
+Total time for linear solver (ndof=1518): 0.0s
+Total time for Newton solver (ndof=1518): 0.8s
+Time outside linear solver        : 100 %
+
+Trying P_mag = 1 
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Initial Maximum residuals 0.0800111
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.7s
+Time for LU factorisation : 0.0s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.0s
+
+Time for linear solver (ndof=1518): 3.7s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 1: Maximum residuals 35.1262
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.5s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.6s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 2: Maximum residuals 5.77086
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.5s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.6s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 3: Maximum residuals 2.71512
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.5s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.5s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 4: Maximum residuals 0.8543
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.4s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.4s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 5: Maximum residuals 0.348599
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.4s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.4s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 6: Maximum residuals 0.0606931
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.3s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.4s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 7: Maximum residuals 0.0346448
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.4s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.4s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 8: Maximum residuals 0.0027365
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.4s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.4s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 9: Maximum residuals 0.000512725
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.4s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.4s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 10: Maximum residuals 7.30366e-07
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.5s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.5s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 11: Maximum residuals 6.75615e-10
+
+
+Total time for linear solver (ndof=1518): 38.5s
+Total time for Newton solver (ndof=1518): 48.4s
+Time outside linear solver        : 20.4479 %
+
+Trying P_mag = 2 
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Initial Maximum residuals 0.0800111
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.6s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.7s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 1: Maximum residuals 0.136848
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.6s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.7s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 2: Maximum residuals 0.0132557
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.6s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.7s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 3: Maximum residuals 0.00229152
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.4s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.5s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 4: Maximum residuals 8.83034e-06
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.7s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.8s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 5: Maximum residuals 1.47228e-09
+
+
+Total time for linear solver (ndof=1518): 18.4s
+Total time for Newton solver (ndof=1518): 23.6s
+Time outside linear solver        : 22.1285 %
+
+Trying P_mag = 3 
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Initial Maximum residuals 0.0800111
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.6s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.7s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 1: Maximum residuals 0.0690648
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.5s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.5s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 2: Maximum residuals 0.00490887
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.4s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.5s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 3: Maximum residuals 0.000125748
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.5s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.5s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 4: Maximum residuals 1.78049e-08
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.6s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.6s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 5: Maximum residuals 1.33004e-12
+
+
+Total time for linear solver (ndof=1518): 17.8s
+Total time for Newton solver (ndof=1518): 23.0s
+Time outside linear solver        : 22.4435 %
+
+Trying P_mag = 4 
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Initial Maximum residuals 0.0800111
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.6s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.7s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 1: Maximum residuals 0.0447649
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.5s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.5s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 2: Maximum residuals 0.00218782
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.5s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.5s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 3: Maximum residuals 3.83751e-05
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.6s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.6s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 4: Maximum residuals 1.01222e-09
+
+
+Total time for linear solver (ndof=1518): 14.4s
+Total time for Newton solver (ndof=1518): 18.8s
+Time outside linear solver        : 23.6489 %
+
+Trying P_mag = 5 
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Initial Maximum residuals 0.0800111
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.6s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.6s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 1: Maximum residuals 0.034666
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.6s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.6s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 2: Maximum residuals 0.000359642
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.5s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.6s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 3: Maximum residuals 2.15806e-06
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.6s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.7s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 4: Maximum residuals 6.00221e-12
+
+
+Total time for linear solver (ndof=1518): 14.5s
+Total time for Newton solver (ndof=1518): 18.9s
+Time outside linear solver        : 23.1335 %
+
+Trying P_mag = 6 
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Initial Maximum residuals 0.0800111
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.5s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.6s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 1: Maximum residuals 0.0280781
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.4s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.4s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 2: Maximum residuals 0.000180849
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.4s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.5s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 3: Maximum residuals 8.40912e-07
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.6s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.6s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 4: Maximum residuals 1.3302e-12
+
+
+Total time for linear solver (ndof=1518): 14.1s
+Total time for Newton solver (ndof=1518): 18.4s
+Time outside linear solver        : 23.1522 %
+
+Trying P_mag = 7 
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Initial Maximum residuals 0.0800111
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.7s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.7s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 1: Maximum residuals 0.023444
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.7s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.7s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 2: Maximum residuals 0.000938147
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.3s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.4s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 3: Maximum residuals 2.85352e-06
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.4s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.4s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 4: Maximum residuals 5.14699e-11
+
+
+Total time for linear solver (ndof=1518): 14.3s
+Total time for Newton solver (ndof=1518): 18.5s
+Time outside linear solver        : 22.6222 %
+
+Trying P_mag = 8 
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Initial Maximum residuals 0.0800111
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.4s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.4s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 1: Maximum residuals 0.0200147
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.7s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.7s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 2: Maximum residuals 9.34401e-05
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.7s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.7s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 3: Maximum residuals 1.30857e-07
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.7s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.8s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 4: Maximum residuals 1.60903e-12
+
+
+Total time for linear solver (ndof=1518): 14.7s
+Total time for Newton solver (ndof=1518): 18.9s
+Time outside linear solver        : 22.3081 %
+
+Trying P_mag = 9 
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Initial Maximum residuals 0.0800111
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.6s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.7s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 1: Maximum residuals 0.0173804
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.6s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.7s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 2: Maximum residuals 0.000861925
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.6s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.6s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 3: Maximum residuals 2.62177e-06
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.5s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.6s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 4: Maximum residuals 1.11225e-10
+
+
+Total time for linear solver (ndof=1518): 14.6s
+Total time for Newton solver (ndof=1518): 18.8s
+Time outside linear solver        : 22.4536 %
+
+Trying P_mag = 10 
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Initial Maximum residuals 0.0800111
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.6s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.7s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 1: Maximum residuals 0.0152988
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.6s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.7s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 2: Maximum residuals 7.61879e-05
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.6s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.6s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 3: Maximum residuals 2.17317e-08
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.6s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.6s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 4: Maximum residuals 1.51363e-12
+
+
+Total time for linear solver (ndof=1518): 14.6s
+Total time for Newton solver (ndof=1518): 18.9s
+Time outside linear solver        : 22.688 %
+
+Trying P_mag (last) = 86.2207 
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Initial Maximum residuals 6.0985
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.6s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.7s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 1: Maximum residuals 257.524
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.6s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.7s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 2: Maximum residuals 54.0308
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.6s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.6s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 3: Maximum residuals 27.0462
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.6s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.6s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 4: Maximum residuals 1.62606
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.6s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.7s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 5: Maximum residuals 3.38315
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.4s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.5s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 6: Maximum residuals 245.203
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.5s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.6s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 7: Maximum residuals 32.537
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.4s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.5s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 8: Maximum residuals 15.9552
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.4s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.4s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 9: Maximum residuals 102.484
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Time to set up CRDoubleMatrix Jacobian : 3.3s
+Time for LU factorisation : 0.1s
+Time for back-substitution: 0.0s
+Time for SuperLUSolver solve (ndof=1518): 0.1s
+
+Time for linear solver (ndof=1518): 3.4s
+
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+Newton Step 10: Maximum residuals 83668.7
+
+Max. residual (1000) has been exceeded in Newton solver.

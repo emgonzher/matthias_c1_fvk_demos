@@ -1,0 +1,45 @@
+Executable : test_disk_fvk
+make: 'test_disk_fvk' is up to date.
+_free
+ 
+ 
+Running: 
+-rwxrwxr-x 1 emiliano emiliano 7272072 Aug  4 12:40 test_disk_fvk
+--nplot 5 --use_polyline_for_internal_boundaries --use_free_bc
+ in /home/emiliano/oomph-lib_new/oomph-lib/user_drivers/matthias_c1_fvk_demos/Run_ea0001_nseg4_Eta_141e5_pinc1_polyline_test/Case_straight_rotated_coords_no_t_shape_fvk_free
+ 
+ 
+
+
+======================================================================
+Oomph-lib WARNING
+
+ at /home/emiliano/oomph-lib_new/oomph-lib/build/include/generic/c1_plate_helper.h:904
+
+ in void oomph::C1PlateHelper::upgrade_triangle_mesh_for_c1_plate_bending(oomph::TriangleMeshBase*, oomph::Mesh*, const bool&) [with ELEMENT = oomph::FoepplVonKarmanC1CurvableBellElement<4>]
+
+--------------------------------------------------------
+
+Black box helper function upgrade_triangle_mesh_for_c1_plate_bending()
+will only rotate coordinates on boundaries that are described
+by TriangleMeshCurviLine. It seems that in your triangle mesh only
+4 of 5 boundaries are of this type. 
+ Specifically here's are the boundaries and theircurviness:
+Boundary 0 is curvilinear.
+Boundary 1 is curvilinear.
+Boundary 2 is curvilinear.
+Boundary 3 is curvilinear.
+Boundary 4 is polygonal.
+This only matters if you want to apply clamping-type
+boundary conditions along those boundaries. Continue at your own risk
+and/or make this message disappear by setting
+
+     C1PlateHelper::Do_not_warn_about_polygonal_boundaries
+
+to false. More intelligently, replace the polygonal boundaries
+by TriangleMeshCurviLines. Alternatively, you can do the setup
+yourself, of course. The black box function is only provided for
+convenience and looking inside it will show you what needs to be done.
+
+======================================================================
+

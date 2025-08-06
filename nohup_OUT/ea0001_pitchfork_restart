@@ -1,0 +1,69 @@
+Executable : test_disk_restart_fvk
+g++ -DHAVE_CONFIG_H -I. -I../..  -isystem /home/emiliano/oomph-lib_new/oomph-lib/external_distributions/boost/boost_default_installation/include -DOOMPH_HAS_BOOST -isystem /home/emiliano/oomph-lib_new/oomph-lib/external_distributions/gmp/gmp_default_installation/include -DOOMPH_HAS_GMP -isystem /home/emiliano/oomph-lib_new/oomph-lib/external_distributions/mpfr/mpfr_default_installation/include -DOOMPH_HAS_MPFR -isystem /home/emiliano/oomph-lib_new/oomph-lib/external_distributions/cgal/cgal_default_installation/include -DOOMPH_HAS_CGAL -DOOMPH_HAS_STACKTRACE -DOOMPH_HAS_UNISTDH -DOOMPH_HAS_FPUCONTROLH -DOOMPH_HAS_MALLOCH -DOOMPH_HAS_TRIANGLE_LIB -DOOMPH_HAS_TETGEN_LIB -DUSING_OOMPH_SUPERLU -DUSING_OOMPH_SUPERLU_DIST -I/home/emiliano/oomph-lib_new/oomph-lib/build/include -I/home/emiliano/oomph-lib_new/oomph-lib/build/include -Wall -ggdb3 -O0  -DgFortran -O3 -Wall -MT test_disk_restart.o -MD -MP -MF .deps/test_disk_restart.Tpo -c -o test_disk_restart.o test_disk_restart.cc
+In file included from /home/emiliano/oomph-lib_new/oomph-lib/build/include/generic/Qelements.h:46,
+                 from /home/emiliano/oomph-lib_new/oomph-lib/build/include/generic.h:4,
+                 from test_disk_restart.cc:33:
+/home/emiliano/oomph-lib_new/oomph-lib/build/include/generic/elements.h:3428:44: warning: ‘virtual void (* oomph::FiniteElement::bulk_coordinate_derivatives_fct_pt(const int&) const)(const oomph::Vector<double>&, oomph::DenseMatrix<double>&, unsigned int&)’ was hidden [-Woverloaded-virtual=]
+ 3428 |     virtual BulkCoordinateDerivativesFctPt bulk_coordinate_derivatives_fct_pt(
+      |                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/emiliano/oomph-lib_new/oomph-lib/build/include/generic/elements.h:4786:36: note:   by ‘oomph::FaceElement::bulk_coordinate_derivatives_fct_pt’
+ 4786 |     BulkCoordinateDerivativesFctPt bulk_coordinate_derivatives_fct_pt() const
+      |                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/emiliano/oomph-lib_new/oomph-lib/build/include/generic/elements.h:3418:36: warning: ‘virtual void (* oomph::FiniteElement::face_to_bulk_coordinate_fct_pt(const int&) const)(const oomph::Vector<double>&, oomph::Vector<double>&)’ was hidden [-Woverloaded-virtual=]
+ 3418 |     virtual CoordinateMappingFctPt face_to_bulk_coordinate_fct_pt(
+      |                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/emiliano/oomph-lib_new/oomph-lib/build/include/generic/elements.h:4771:28: note:   by ‘oomph::FaceElement::face_to_bulk_coordinate_fct_pt’
+ 4771 |     CoordinateMappingFctPt face_to_bulk_coordinate_fct_pt() const
+      |                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/emiliano/oomph-lib_new/oomph-lib/build/include/generic.h:30:
+/home/emiliano/oomph-lib_new/oomph-lib/build/include/generic/subparametric_Telement.h: In instantiation of ‘void oomph::CurvableBellElement<NNODE_1D>::upgrade_element_to_curved(const oomph::C1PlateHelper::CurvedEdgeEnumeration&, const double&, const double&, oomph::C1CurviLine*, const unsigned int&) [with unsigned int NNODE_1D = 4]’:
+/home/emiliano/oomph-lib_new/oomph-lib/build/include/c1_foeppl_von_karman/foeppl_von_karman_curvable_bell_elements.h:894:9:   required from here
+/home/emiliano/oomph-lib_new/oomph-lib/build/include/generic/subparametric_Telement.h:850:17: warning: variable ‘new_integral_pt’ set but not used [-Wunused-but-set-variable]
+  850 |       Integral* new_integral_pt;
+      |                 ^~~~~~~~~~~~~~~
+mv -f .deps/test_disk_restart.Tpo .deps/test_disk_restart.Po
+/bin/bash ../../libtool  --tag=CXX   --mode=link g++ -DgFortran -O3 -Wall -L/home/emiliano/oomph-lib_new/oomph-lib/external_distributions/boost/boost_default_installation/lib -Wl,-rpath,/home/emiliano/oomph-lib_new/oomph-lib/external_distributions/boost/boost_default_installation/lib -L/home/emiliano/oomph-lib_new/oomph-lib/external_distributions/gmp/gmp_default_installation/lib -L/home/emiliano/oomph-lib_new/oomph-lib/external_distributions/mpfr/mpfr_default_installation/lib -L/home/emiliano/oomph-lib_new/oomph-lib/external_distributions/cgal/cgal_default_installation/lib -Wl,-rpath,/home/emiliano/oomph-lib_new/oomph-lib/external_distributions/cgal/cgal_default_installation/lib  -o test_disk_restart_fvk test_disk_restart.o -L/home/emiliano/oomph-lib_new/oomph-lib/build/lib -lc1_foeppl_von_karman -lgeneric -lpthread -lboost_thread -lboost_system -lgmp -lmpfr -lCGAL_Core -lCGAL -loomph_hsl -loomph_crbond_bessel -loomph_triangle -loomph_tetgen -loomph_superlu_4.3 -loomph_metis_from_parmetis_3.1.1 -loomph_lapack -loomph_flapack -loomph_blas -L/usr/lib/gcc/x86_64-linux-gnu/13 -L/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/13/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/13/../../.. -lgfortran -lm -lquadmath 
+libtool: link: g++ -DgFortran -O3 -Wall -Wl,-rpath -Wl,/home/emiliano/oomph-lib_new/oomph-lib/external_distributions/boost/boost_default_installation/lib -Wl,-rpath -Wl,/home/emiliano/oomph-lib_new/oomph-lib/external_distributions/cgal/cgal_default_installation/lib -o test_disk_restart_fvk test_disk_restart.o  -L/home/emiliano/oomph-lib_new/oomph-lib/external_distributions/boost/boost_default_installation/lib -L/home/emiliano/oomph-lib_new/oomph-lib/external_distributions/gmp/gmp_default_installation/lib -L/home/emiliano/oomph-lib_new/oomph-lib/external_distributions/mpfr/mpfr_default_installation/lib -L/home/emiliano/oomph-lib_new/oomph-lib/external_distributions/cgal/cgal_default_installation/lib -L/home/emiliano/oomph-lib_new/oomph-lib/build/lib /home/emiliano/oomph-lib_new/oomph-lib/build/lib/libc1_foeppl_von_karman.so /home/emiliano/oomph-lib_new/oomph-lib/build/lib/libgeneric.so -lpthread -lboost_thread -lboost_system /home/emiliano/oomph-lib_new/oomph-lib/external_distributions/gmp/gmp_default_installation/lib/libgmp.so /home/emiliano/oomph-lib_new/oomph-lib/external_distributions/mpfr/mpfr_default_installation/lib/libmpfr.so -lCGAL_Core -lCGAL /home/emiliano/oomph-lib_new/oomph-lib/build/lib/liboomph_hsl.so /home/emiliano/oomph-lib_new/oomph-lib/build/lib/liboomph_crbond_bessel.so /home/emiliano/oomph-lib_new/oomph-lib/build/lib/liboomph_triangle.a /home/emiliano/oomph-lib_new/oomph-lib/build/lib/liboomph_tetgen.so /home/emiliano/oomph-lib_new/oomph-lib/build/lib/liboomph_superlu_4.3.a /home/emiliano/oomph-lib_new/oomph-lib/build/lib/liboomph_metis_from_parmetis_3.1.1.a /home/emiliano/oomph-lib_new/oomph-lib/build/lib/liboomph_lapack.a /home/emiliano/oomph-lib_new/oomph-lib/build/lib/liboomph_flapack.so /home/emiliano/oomph-lib_new/oomph-lib/build/lib/liboomph_blas.so -L/usr/lib/gcc/x86_64-linux-gnu/13 -L/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/13/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/13/../../.. -lgfortran -lm -lquadmath -Wl,-rpath -Wl,/home/emiliano/oomph-lib_new/oomph-lib/build/lib -Wl,-rpath -Wl,/home/emiliano/oomph-lib_new/oomph-lib/external_distributions/gmp/gmp_default_installation/lib -Wl,-rpath -Wl,/home/emiliano/oomph-lib_new/oomph-lib/external_distributions/mpfr/mpfr_default_installation/lib -Wl,-rpath -Wl,/home/emiliano/oomph-lib_new/oomph-lib/build/lib -Wl,-rpath -Wl,/home/emiliano/oomph-lib_new/oomph-lib/external_distributions/gmp/gmp_default_installation/lib -Wl,-rpath -Wl,/home/emiliano/oomph-lib_new/oomph-lib/external_distributions/mpfr/mpfr_default_installation/lib
+_free
+ 
+ 
+Running: 
+-rwxrwxr-x 1 emiliano emiliano 8460056 Aug  6 08:20 test_disk_restart_fvk
+--nplot 5 --use_polyline_for_internal_boundaries --use_free_bc
+ in /home/emiliano/oomph-lib_new/oomph-lib/user_drivers/matthias_c1_fvk_demos/Run_ea0001_nseg4_Eta_141e5_pinc1_polyline_restartest/Case_straight_rotated_coords_no_t_shape_fvk_free
+ 
+ 
+
+
+======================================================================
+Oomph-lib WARNING
+
+ at /home/emiliano/oomph-lib_new/oomph-lib/build/include/generic/c1_plate_helper.h:904
+
+ in void oomph::C1PlateHelper::upgrade_triangle_mesh_for_c1_plate_bending(oomph::TriangleMeshBase*, oomph::Mesh*, const bool&) [with ELEMENT = oomph::FoepplVonKarmanC1CurvableBellElement<4>]
+
+--------------------------------------------------------
+
+Black box helper function upgrade_triangle_mesh_for_c1_plate_bending()
+will only rotate coordinates on boundaries that are described
+by TriangleMeshCurviLine. It seems that in your triangle mesh only
+4 of 5 boundaries are of this type. 
+ Specifically here's are the boundaries and theircurviness:
+Boundary 0 is curvilinear.
+Boundary 1 is curvilinear.
+Boundary 2 is curvilinear.
+Boundary 3 is curvilinear.
+Boundary 4 is polygonal.
+This only matters if you want to apply clamping-type
+boundary conditions along those boundaries. Continue at your own risk
+and/or make this message disappear by setting
+
+     C1PlateHelper::Do_not_warn_about_polygonal_boundaries
+
+to false. More intelligently, replace the polygonal boundaries
+by TriangleMeshCurviLines. Alternatively, you can do the setup
+yourself, of course. The black box function is only provided for
+convenience and looking inside it will show you what needs to be done.
+
+======================================================================
+

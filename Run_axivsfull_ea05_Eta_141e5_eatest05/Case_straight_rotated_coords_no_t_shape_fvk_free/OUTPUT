@@ -1,0 +1,1199 @@
+
+Specified (and recognised) command line flags:
+----------------------------------------------
+--use_free_bc
+
+hierher ellipse geom obj: 0x55590c3e9bc0
+nsegment = 10
+hierher flat outer geom obj: 0x55590c3ec3b0
+Constructing Delaunay triangulation by divide-and-conquer method.
+Delaunay milliseconds:  0
+Recovering segments in Delaunay triangulation.
+Segment milliseconds:  0
+Removing unwanted triangles.
+Hole milliseconds:  0
+Adding Steiner points to enforce quality.
+Quality milliseconds:  0
+
+Writing vertices.
+Writing triangles.
+Writing segments.
+
+Output milliseconds:  0
+Total running milliseconds:  0
+
+Statistics:
+
+  Input vertices: 43
+  Input segments: 42
+  Input holes: 0
+
+  Mesh vertices: 87
+  Mesh triangles: 132
+  Mesh edges: 218
+  Mesh exterior boundary edges: 40
+  Mesh interior boundary edges: 4
+  Mesh subsegments (constrained edges): 44
+
+
+
+Starting upgrade_triangle_mesh_for_c1_plate_bending(...)
+Stats before: 
+-------------
+- Number of elements/nodes in bulk mesh: 132 655 
+- Number of elements in constraint mesh: 0 
+- Pin status of data in constraint elements: 
+Boundary 0 is curvilinear.
+Boundary 1 is curvilinear.
+Boundary 2 is curvilinear.
+Boundary 3 is curvilinear.
+Boundary 4 is curvilinear.
+
+No elements needed splitting
+Rotating coordinates on all curvilinear boundaries
+therefore also duplicating corner nodes
+Testing if element 0 of 10 : 0x55590c3f5758 with vertices at 
+1 -2.44929e-16
+0.987688 0.156434
+0.845495 -0.0665419
+contains the to be replaced node 0x55590c448b50 on boundary 0
+    YES: replace and build 
+Testing if element 1 of 10 : 0x55590c418788 with vertices at 
+0.81884 0.196586
+0.987688 0.156434
+0.951057 0.309017
+contains the to be replaced node 0x55590c448b50 on boundary 0
+Testing if element 2 of 10 : 0x55590c423228 with vertices at 
+0.587785 0.809017
+0.45399 0.891007
+0.322261 0.778006
+contains the to be replaced node 0x55590c448b50 on boundary 0
+Testing if element 3 of 10 : 0x55590c4262e8 with vertices at 
+0.322261 0.778006
+0.45399 0.891007
+0.309017 0.951057
+contains the to be replaced node 0x55590c448b50 on boundary 0
+Testing if element 4 of 10 : 0x55590c427b48 with vertices at 
+0.707107 0.707107
+0.586539 0.500952
+0.809017 0.587785
+contains the to be replaced node 0x55590c448b50 on boundary 0
+Testing if element 5 of 10 : 0x55590c429bc8 with vertices at 
+0.587785 0.809017
+0.586539 0.500952
+0.707107 0.707107
+contains the to be replaced node 0x55590c448b50 on boundary 0
+Testing if element 6 of 10 : 0x55590c42ac08 with vertices at 
+0.586539 0.500952
+0.891007 0.45399
+0.809017 0.587785
+contains the to be replaced node 0x55590c448b50 on boundary 0
+Testing if element 7 of 10 : 0x55590c42bc48 with vertices at 
+0.891007 0.45399
+0.81884 0.196586
+0.951057 0.309017
+contains the to be replaced node 0x55590c448b50 on boundary 0
+Testing if element 8 of 10 : 0x55590c4315a8 with vertices at 
+0.309017 0.951057
+0.156434 0.987688
+0.322261 0.778006
+contains the to be replaced node 0x55590c448b50 on boundary 0
+Testing if element 9 of 10 : 0x55590c431dc8 with vertices at 
+0.066071 0.839512
+0.156434 0.987688
+-3.82857e-16 1
+contains the to be replaced node 0x55590c448b50 on boundary 0
+Dealing with boundaries (dupl,left) 0 3  Replacing node 0 0x55590c448b50 in element 0x55590c3f5758 with vertices at 
+0 0
+0.987688 0.156434
+0.845495 -0.0665419
+ with new node 0x55590c3ff450
+hierher BEFORE
+to be duplicated: 0x55590c448b50
+new             : 0x55590c3ff450
+Node 0x55590c3ff450 at 1 -2.44929e-16  is on boundaries: 
+Node 0x55590c448b50 at 1 -2.44929e-16  is on boundaries: 0 0 ; 3 6.28319 ; 
+Getting boundary coordinate on boundary 0 from 0x55590c448b50
+Adding boundary coordinate on boundary 0 to 0x55590c3ff450
+hierher AFTER
+to be duplicated: 0x55590c448b50
+new             : 0x55590c3ff450
+Node 0x55590c3ff450 at 1 -2.44929e-16  is on boundaries: 0 0 ; 
+Node 0x55590c448b50 at 1 -2.44929e-16  is on boundaries: 3 6.28319 ; 
+Testing if element 0 of 10 : 0x55590c40f168 with vertices at 
+-0.845495 0.0665419
+-0.987688 0.156434
+-1 1.22465e-16
+contains the to be replaced node 0x55590c44c9f0 on boundary 1
+    YES: replace and build 
+Testing if element 1 of 10 : 0x55590c40f6a8 with vertices at 
+-0.845495 0.0665419
+-0.951057 0.309017
+-0.987688 0.156434
+contains the to be replaced node 0x55590c44c9f0 on boundary 1
+Testing if element 2 of 10 : 0x55590c40fbe8 with vertices at 
+-0.657999 0.403222
+-0.891007 0.45399
+-0.951057 0.309017
+contains the to be replaced node 0x55590c44c9f0 on boundary 1
+Testing if element 3 of 10 : 0x55590c412608 with vertices at 
+-0.891007 0.45399
+-0.657999 0.403222
+-0.809017 0.587785
+contains the to be replaced node 0x55590c44c9f0 on boundary 1
+Testing if element 4 of 10 : 0x55590c412e28 with vertices at 
+-0.707107 0.707107
+-0.546905 0.640344
+-0.587785 0.809017
+contains the to be replaced node 0x55590c44c9f0 on boundary 1
+Testing if element 5 of 10 : 0x55590c414688 with vertices at 
+-0.322261 0.778006
+-0.309017 0.951057
+-0.45399 0.891007
+contains the to be replaced node 0x55590c44c9f0 on boundary 1
+Testing if element 6 of 10 : 0x55590c415ee8 with vertices at 
+-0.45399 0.891007
+-0.587785 0.809017
+-0.546905 0.640344
+contains the to be replaced node 0x55590c44c9f0 on boundary 1
+Testing if element 7 of 10 : 0x55590c4197c8 with vertices at 
+-0.809017 0.587785
+-0.546905 0.640344
+-0.707107 0.707107
+contains the to be replaced node 0x55590c44c9f0 on boundary 1
+Testing if element 8 of 10 : 0x55590c424a88 with vertices at 
+-3.82857e-16 1
+-0.156434 0.987688
+0.066071 0.839512
+contains the to be replaced node 0x55590c44c9f0 on boundary 1
+Testing if element 9 of 10 : 0x55590c42dcc8 with vertices at 
+-0.322261 0.778006
+-0.156434 0.987688
+-0.309017 0.951057
+contains the to be replaced node 0x55590c44c9f0 on boundary 1
+Dealing with boundaries (dupl,left) 1 2  Replacing node 2 0x55590c44c9f0 in element 0x55590c40f168 with vertices at 
+-0.845495 0.0665419
+-0.987688 0.156434
+0 0
+ with new node 0x55590c402060
+hierher BEFORE
+to be duplicated: 0x55590c44c9f0
+new             : 0x55590c402060
+Node 0x55590c402060 at -1 1.22465e-16  is on boundaries: 
+Node 0x55590c44c9f0 at -1 1.22465e-16  is on boundaries: 1 3.14159 ; 2 3.14159 ; 
+Getting boundary coordinate on boundary 1 from 0x55590c44c9f0
+Adding boundary coordinate on boundary 1 to 0x55590c402060
+hierher AFTER
+to be duplicated: 0x55590c44c9f0
+new             : 0x55590c402060
+Node 0x55590c402060 at -1 1.22465e-16  is on boundaries: 1 3.14159 ; 
+Node 0x55590c44c9f0 at -1 1.22465e-16  is on boundaries: 2 3.14159 ; 
+Testing if element 0 of 10 : 0x55590c3ece78 with vertices at 
+-0.891007 -0.45399
+-0.809017 -0.587785
+-0.640344 -0.546905
+contains the to be replaced node 0x55590c44d660 on boundary 2
+Testing if element 1 of 10 : 0x55590c3f4738 with vertices at 
+-0.891007 -0.45399
+-0.750038 -0.180068
+-0.951057 -0.309017
+contains the to be replaced node 0x55590c44d660 on boundary 2
+Testing if element 2 of 10 : 0x55590c3f4da8 with vertices at 
+-0.750038 -0.180068
+-0.987688 -0.156434
+-0.951057 -0.309017
+contains the to be replaced node 0x55590c44d660 on boundary 2
+Testing if element 3 of 10 : 0x55590c40d728 with vertices at 
+-0.45399 -0.891007
+-0.309017 -0.951057
+-0.403029 -0.657684
+contains the to be replaced node 0x55590c44d660 on boundary 2
+Testing if element 4 of 10 : 0x55590c40ec28 with vertices at 
+-0.707107 -0.707107
+-0.640344 -0.546905
+-0.809017 -0.587785
+contains the to be replaced node 0x55590c44d660 on boundary 2
+Testing if element 5 of 10 : 0x55590c410128 with vertices at 
+-0.066071 -0.839512
+-0.156434 -0.987688
+-1.83697e-16 -1
+contains the to be replaced node 0x55590c44d660 on boundary 2
+    YES: replace and build 
+Testing if element 6 of 10 : 0x55590c410668 with vertices at 
+-0.156434 -0.987688
+-0.066071 -0.839512
+-0.309017 -0.951057
+contains the to be replaced node 0x55590c44d660 on boundary 2
+Testing if element 7 of 10 : 0x55590c41d8c8 with vertices at 
+-0.987688 -0.156434
+-0.845495 0.0665419
+-1 1.22465e-16
+contains the to be replaced node 0x55590c44d660 on boundary 2
+Testing if element 8 of 10 : 0x55590c428368 with vertices at 
+-0.707107 -0.707107
+-0.587785 -0.809017
+-0.640344 -0.546905
+contains the to be replaced node 0x55590c44d660 on boundary 2
+Testing if element 9 of 10 : 0x55590c42d4a8 with vertices at 
+-0.403029 -0.657684
+-0.587785 -0.809017
+-0.45399 -0.891007
+contains the to be replaced node 0x55590c44d660 on boundary 2
+Dealing with boundaries (dupl,left) 2 3  Replacing node 2 0x55590c44d660 in element 0x55590c410128 with vertices at 
+-0.066071 -0.839512
+-0.156434 -0.987688
+0 0
+ with new node 0x55590c400770
+hierher BEFORE
+to be duplicated: 0x55590c44d660
+new             : 0x55590c400770
+Node 0x55590c400770 at -1.83697e-16 -1  is on boundaries: 
+Node 0x55590c44d660 at -1.83697e-16 -1  is on boundaries: 2 4.71239 ; 3 4.71239 ; 
+Getting boundary coordinate on boundary 2 from 0x55590c44d660
+Adding boundary coordinate on boundary 2 to 0x55590c400770
+hierher AFTER
+to be duplicated: 0x55590c44d660
+new             : 0x55590c400770
+Node 0x55590c400770 at -1.83697e-16 -1  is on boundaries: 2 4.71239 ; 
+Node 0x55590c44d660 at -1.83697e-16 -1  is on boundaries: 3 4.71239 ; 
+Testing if element 0 of 10 : 0x55590c3f5758 with vertices at 
+1 -2.44929e-16
+0.987688 0.156434
+0.845495 -0.0665419
+contains the to be replaced node 0x55590c4514c0 on boundary 0
+Testing if element 1 of 10 : 0x55590c418788 with vertices at 
+0.81884 0.196586
+0.987688 0.156434
+0.951057 0.309017
+contains the to be replaced node 0x55590c4514c0 on boundary 0
+Testing if element 2 of 10 : 0x55590c423228 with vertices at 
+0.587785 0.809017
+0.45399 0.891007
+0.322261 0.778006
+contains the to be replaced node 0x55590c4514c0 on boundary 0
+Testing if element 3 of 10 : 0x55590c4262e8 with vertices at 
+0.322261 0.778006
+0.45399 0.891007
+0.309017 0.951057
+contains the to be replaced node 0x55590c4514c0 on boundary 0
+Testing if element 4 of 10 : 0x55590c427b48 with vertices at 
+0.707107 0.707107
+0.586539 0.500952
+0.809017 0.587785
+contains the to be replaced node 0x55590c4514c0 on boundary 0
+Testing if element 5 of 10 : 0x55590c429bc8 with vertices at 
+0.587785 0.809017
+0.586539 0.500952
+0.707107 0.707107
+contains the to be replaced node 0x55590c4514c0 on boundary 0
+Testing if element 6 of 10 : 0x55590c42ac08 with vertices at 
+0.586539 0.500952
+0.891007 0.45399
+0.809017 0.587785
+contains the to be replaced node 0x55590c4514c0 on boundary 0
+Testing if element 7 of 10 : 0x55590c42bc48 with vertices at 
+0.891007 0.45399
+0.81884 0.196586
+0.951057 0.309017
+contains the to be replaced node 0x55590c4514c0 on boundary 0
+Testing if element 8 of 10 : 0x55590c4315a8 with vertices at 
+0.309017 0.951057
+0.156434 0.987688
+0.322261 0.778006
+contains the to be replaced node 0x55590c4514c0 on boundary 0
+Testing if element 9 of 10 : 0x55590c431dc8 with vertices at 
+0.066071 0.839512
+0.156434 0.987688
+-3.82857e-16 1
+contains the to be replaced node 0x55590c4514c0 on boundary 0
+    YES: replace and build 
+Dealing with boundaries (dupl,left) 0 1  Replacing node 2 0x55590c4514c0 in element 0x55590c431dc8 with vertices at 
+0.066071 0.839512
+0.156434 0.987688
+0 0
+ with new node 0x55590c472b10
+hierher BEFORE
+to be duplicated: 0x55590c4514c0
+new             : 0x55590c472b10
+Node 0x55590c4514c0 at -3.82857e-16 1  is on boundaries: 0 1.5708 ; 1 1.5708 ; 
+Node 0x55590c472b10 at -3.82857e-16 1  is on boundaries: 
+Getting boundary coordinate on boundary 0 from 0x55590c4514c0
+Adding boundary coordinate on boundary 0 to 0x55590c472b10
+hierher AFTER
+to be duplicated: 0x55590c4514c0
+new             : 0x55590c472b10
+Node 0x55590c4514c0 at -3.82857e-16 1  is on boundaries: 1 1.5708 ; 
+Node 0x55590c472b10 at -3.82857e-16 1  is on boundaries: 0 1.5708 ; 
+Node 0x55590c3ff450 at 1 -2.44929e-16 is on curved boundary 0
+Node 0x55590c448db0 at 0.987688 0.156434 is on curved boundary 0
+Node 0x55590c448ff0 at 0.845495 -0.0665419 is not on curved boundary 0
+Upgrading to a 5-er
+Node 0x55590c44f240 at 0.81884 0.196586 is not on curved boundary 0
+Node 0x55590c448db0 at 0.987688 0.156434 is on curved boundary 0
+Node 0x55590c44f420 at 0.951057 0.309017 is on curved boundary 0
+Upgrading to a 5-er
+Node 0x55590c450f90 at 0.587785 0.809017 is on curved boundary 0
+Node 0x55590c451200 at 0.45399 0.891007 is on curved boundary 0
+Node 0x55590c44b900 at 0.322261 0.778006 is not on curved boundary 0
+Upgrading to a 5-er
+Node 0x55590c44b900 at 0.322261 0.778006 is not on curved boundary 0
+Node 0x55590c451200 at 0.45399 0.891007 is on curved boundary 0
+Node 0x55590c451730 at 0.309017 0.951057 is on curved boundary 0
+Upgrading to a 5-er
+Node 0x55590c451fd0 at 0.707107 0.707107 is on curved boundary 0
+Node 0x55590c4522d0 at 0.586539 0.500952 is not on curved boundary 0
+Node 0x55590c452460 at 0.809017 0.587785 is on curved boundary 0
+Upgrading to a 5-er
+Node 0x55590c450f90 at 0.587785 0.809017 is on curved boundary 0
+Node 0x55590c4522d0 at 0.586539 0.500952 is not on curved boundary 0
+Node 0x55590c451fd0 at 0.707107 0.707107 is on curved boundary 0
+Upgrading to a 5-er
+Node 0x55590c4522d0 at 0.586539 0.500952 is not on curved boundary 0
+Node 0x55590c451d60 at 0.891007 0.45399 is on curved boundary 0
+Node 0x55590c452460 at 0.809017 0.587785 is on curved boundary 0
+Upgrading to a 5-er
+Node 0x55590c451d60 at 0.891007 0.45399 is on curved boundary 0
+Node 0x55590c44f240 at 0.81884 0.196586 is not on curved boundary 0
+Node 0x55590c44f420 at 0.951057 0.309017 is on curved boundary 0
+Upgrading to a 5-er
+Node 0x55590c451730 at 0.309017 0.951057 is on curved boundary 0
+Node 0x55590c452b40 at 0.156434 0.987688 is on curved boundary 0
+Node 0x55590c44b900 at 0.322261 0.778006 is not on curved boundary 0
+Upgrading to a 5-er
+Node 0x55590c44bae0 at 0.066071 0.839512 is not on curved boundary 0
+Node 0x55590c452b40 at 0.156434 0.987688 is on curved boundary 0
+Node 0x55590c472b10 at -3.82857e-16 1 is on curved boundary 0
+Upgrading to a 5-er
+Node 0x55590c44c580 at -0.845495 0.0665419 is not on curved boundary 1
+Node 0x55590c44c760 at -0.987688 0.156434 is on curved boundary 1
+Node 0x55590c402060 at -1 1.22465e-16 is on curved boundary 1
+Upgrading to a 5-er
+Node 0x55590c44c580 at -0.845495 0.0665419 is not on curved boundary 1
+Node 0x55590c44cca0 at -0.951057 0.309017 is on curved boundary 1
+Node 0x55590c44c760 at -0.987688 0.156434 is on curved boundary 1
+Upgrading to a 5-er
+Node 0x55590c44cef0 at -0.657999 0.403222 is not on curved boundary 1
+Node 0x55590c44d0d0 at -0.891007 0.45399 is on curved boundary 1
+Node 0x55590c44cca0 at -0.951057 0.309017 is on curved boundary 1
+Upgrading to a 5-er
+Node 0x55590c44d0d0 at -0.891007 0.45399 is on curved boundary 1
+Node 0x55590c44cef0 at -0.657999 0.403222 is not on curved boundary 1
+Node 0x55590c44da90 at -0.809017 0.587785 is on curved boundary 1
+Upgrading to a 5-er
+Node 0x55590c44dd00 at -0.707107 0.707107 is on curved boundary 1
+Node 0x55590c44d8b0 at -0.546905 0.640344 is not on curved boundary 1
+Node 0x55590c44df70 at -0.587785 0.809017 is on curved boundary 1
+Upgrading to a 5-er
+Node 0x55590c44ae60 at -0.322261 0.778006 is not on curved boundary 1
+Node 0x55590c44e6c0 at -0.309017 0.951057 is on curved boundary 1
+Node 0x55590c44e3c0 at -0.45399 0.891007 is on curved boundary 1
+Upgrading to a 5-er
+Node 0x55590c44e3c0 at -0.45399 0.891007 is on curved boundary 1
+Node 0x55590c44df70 at -0.587785 0.809017 is on curved boundary 1
+Node 0x55590c44d8b0 at -0.546905 0.640344 is not on curved boundary 1
+Upgrading to a 5-er
+Node 0x55590c44da90 at -0.809017 0.587785 is on curved boundary 1
+Node 0x55590c44d8b0 at -0.546905 0.640344 is not on curved boundary 1
+Node 0x55590c44dd00 at -0.707107 0.707107 is on curved boundary 1
+Upgrading to a 5-er
+Node 0x55590c4514c0 at -3.82857e-16 1 is on curved boundary 1
+Node 0x55590c44abd0 at -0.156434 0.987688 is on curved boundary 1
+Node 0x55590c44bae0 at 0.066071 0.839512 is not on curved boundary 1
+Upgrading to a 5-er
+Node 0x55590c44ae60 at -0.322261 0.778006 is not on curved boundary 1
+Node 0x55590c44abd0 at -0.156434 0.987688 is on curved boundary 1
+Node 0x55590c44e6c0 at -0.309017 0.951057 is on curved boundary 1
+Upgrading to a 5-er
+Node 0x55590c447a90 at -0.891007 -0.45399 is on curved boundary 2
+Node 0x55590c447cf0 at -0.809017 -0.587785 is on curved boundary 2
+Node 0x55590c447f50 at -0.640344 -0.546905 is not on curved boundary 2
+Upgrading to a 5-er
+Node 0x55590c447a90 at -0.891007 -0.45399 is on curved boundary 2
+Node 0x55590c448970 at -0.750038 -0.180068 is not on curved boundary 2
+Node 0x55590c4497e0 at -0.951057 -0.309017 is on curved boundary 2
+Upgrading to a 5-er
+Node 0x55590c448970 at -0.750038 -0.180068 is not on curved boundary 2
+Node 0x55590c449a80 at -0.987688 -0.156434 is on curved boundary 2
+Node 0x55590c4497e0 at -0.951057 -0.309017 is on curved boundary 2
+Upgrading to a 5-er
+Node 0x55590c44b6c0 at -0.45399 -0.891007 is on curved boundary 2
+Node 0x55590c44b220 at -0.309017 -0.951057 is on curved boundary 2
+Node 0x55590c44a090 at -0.403029 -0.657684 is not on curved boundary 2
+Upgrading to a 5-er
+Node 0x55590c44c340 at -0.707107 -0.707107 is on curved boundary 2
+Node 0x55590c447f50 at -0.640344 -0.546905 is not on curved boundary 2
+Node 0x55590c447cf0 at -0.809017 -0.587785 is on curved boundary 2
+Upgrading to a 5-er
+Node 0x55590c4491b0 at -0.066071 -0.839512 is not on curved boundary 2
+Node 0x55590c44d390 at -0.156434 -0.987688 is on curved boundary 2
+Node 0x55590c400770 at -1.83697e-16 -1 is on curved boundary 2
+Upgrading to a 5-er
+Node 0x55590c44d390 at -0.156434 -0.987688 is on curved boundary 2
+Node 0x55590c4491b0 at -0.066071 -0.839512 is not on curved boundary 2
+Node 0x55590c44b220 at -0.309017 -0.951057 is on curved boundary 2
+Upgrading to a 5-er
+Node 0x55590c449a80 at -0.987688 -0.156434 is on curved boundary 2
+Node 0x55590c44c580 at -0.845495 0.0665419 is not on curved boundary 2
+Node 0x55590c44c9f0 at -1 1.22465e-16 is on curved boundary 2
+Upgrading to a 5-er
+Node 0x55590c44c340 at -0.707107 -0.707107 is on curved boundary 2
+Node 0x55590c4504f0 at -0.587785 -0.809017 is on curved boundary 2
+Node 0x55590c447f50 at -0.640344 -0.546905 is not on curved boundary 2
+Upgrading to a 5-er
+Node 0x55590c44a090 at -0.403029 -0.657684 is not on curved boundary 2
+Node 0x55590c4504f0 at -0.587785 -0.809017 is on curved boundary 2
+Node 0x55590c44b6c0 at -0.45399 -0.891007 is on curved boundary 2
+Upgrading to a 5-er
+Node 0x55590c448110 at 0.657999 -0.403222 is not on curved boundary 3
+Node 0x55590c4482f0 at 0.809017 -0.587785 is on curved boundary 3
+Node 0x55590c448550 at 0.891007 -0.45399 is on curved boundary 3
+Upgrading to a 5-er
+Node 0x55590c44bea0 at 0.707107 -0.707107 is on curved boundary 3
+Node 0x55590c4482f0 at 0.809017 -0.587785 is on curved boundary 3
+Node 0x55590c44c160 at 0.546905 -0.640344 is not on curved boundary 3
+Upgrading to a 5-er
+Node 0x55590c44faf0 at 0.587785 -0.809017 is on curved boundary 3
+Node 0x55590c44c160 at 0.546905 -0.640344 is not on curved boundary 3
+Node 0x55590c44f6c0 at 0.45399 -0.891007 is on curved boundary 3
+Upgrading to a 5-er
+Node 0x55590c44faf0 at 0.587785 -0.809017 is on curved boundary 3
+Node 0x55590c44bea0 at 0.707107 -0.707107 is on curved boundary 3
+Node 0x55590c44c160 at 0.546905 -0.640344 is not on curved boundary 3
+Upgrading to a 5-er
+Node 0x55590c44f6c0 at 0.45399 -0.891007 is on curved boundary 3
+Node 0x55590c449600 at 0.180068 -0.750038 is not on curved boundary 3
+Node 0x55590c44fd60 at 0.309017 -0.951057 is on curved boundary 3
+Upgrading to a 5-er
+Node 0x55590c448110 at 0.657999 -0.403222 is not on curved boundary 3
+Node 0x55590c448550 at 0.891007 -0.45399 is on curved boundary 3
+Node 0x55590c450060 at 0.951057 -0.309017 is on curved boundary 3
+Upgrading to a 5-er
+Node 0x55590c449600 at 0.180068 -0.750038 is not on curved boundary 3
+Node 0x55590c449390 at 0.156434 -0.987688 is on curved boundary 3
+Node 0x55590c44fd60 at 0.309017 -0.951057 is on curved boundary 3
+Upgrading to a 5-er
+Node 0x55590c448ff0 at 0.845495 -0.0665419 is not on curved boundary 3
+Node 0x55590c450280 at 0.987688 -0.156434 is on curved boundary 3
+Node 0x55590c448b50 at 1 -2.44929e-16 is on curved boundary 3
+Upgrading to a 5-er
+Node 0x55590c448ff0 at 0.845495 -0.0665419 is not on curved boundary 3
+Node 0x55590c450060 at 0.951057 -0.309017 is on curved boundary 3
+Node 0x55590c450280 at 0.987688 -0.156434 is on curved boundary 3
+Upgrading to a 5-er
+Node 0x55590c44d660 at -1.83697e-16 -1 is on curved boundary 3
+Node 0x55590c449390 at 0.156434 -0.987688 is on curved boundary 3
+Node 0x55590c4491b0 at -0.066071 -0.839512 is not on curved boundary 3
+Upgrading to a 5-er
+Node 0x55590c44f060 at -0.49984 0.242386 is not on curved boundary 4
+Node 0x55590c450b20 at -0.5 0 is on curved boundary 4
+Node 0x55590c452d90 at -0.25 0 is on curved boundary 4
+Upgrading to a 5-er
+Node 0x55590c44a810 at -0.173654 0.343058 is not on curved boundary 4
+Node 0x55590c452d90 at -0.25 0 is on curved boundary 4
+Node 0x55590c4533d0 at 9.99201e-16 0 is on curved boundary 4
+Upgrading to a 5-er
+Node 0x55590c4533d0 at 9.99201e-16 0 is on curved boundary 4
+Node 0x55590c453640 at 0.25 0 is on curved boundary 4
+Node 0x55590c4526d0 at 0.339507 0.289967 is not on curved boundary 4
+Upgrading to a 5-er
+Node 0x55590c44eac0 at 0.49984 -0.242386 is not on curved boundary 4
+Node 0x55590c4528b0 at 0.5 0 is on curved boundary 4
+Node 0x55590c453640 at 0.25 0 is on curved boundary 4
+Upgrading to a 5-er
+hierher element edge is inverted
+Node 0x55590c4528b0 at 0.5 0 is on curved boundary 4
+Node 0x55590c4526d0 at 0.339507 0.289967 is not on curved boundary 4
+Node 0x55590c453640 at 0.25 0 is on curved boundary 4
+Upgrading to a 5-er
+Node 0x55590c44eca0 at 0.296247 -0.343531 is not on curved boundary 4
+Node 0x55590c453640 at 0.25 0 is on curved boundary 4
+Node 0x55590c4533d0 at 9.99201e-16 0 is on curved boundary 4
+Upgrading to a 5-er
+hierher element edge is inverted
+Node 0x55590c450b20 at -0.5 0 is on curved boundary 4
+Node 0x55590c44a9f0 at -0.391713 -0.237256 is not on curved boundary 4
+Node 0x55590c452d90 at -0.25 0 is on curved boundary 4
+Upgrading to a 5-er
+hierher element edge is inverted
+Node 0x55590c4533d0 at 9.99201e-16 0 is on curved boundary 4
+Node 0x55590c452d90 at -0.25 0 is on curved boundary 4
+Node 0x55590c4531f0 at -0.125 -0.218814 is not on curved boundary 4
+Upgrading to a 5-er
+hierher element edge is inverted
+Rotating coordinates on all curvilinear boundaries!
+
+
+End upgrade_triangle_mesh_for_c1_plate_bending(...)
+Stats after: 
+-------------
+- Number of elements/nodes in bulk mesh: 132 659 
+- Number of elements in constraint mesh: 4 
+- Pin status of data in constraint elements: 
+Element 0:
+1 -2.44929e-16 :  0  0  0  0  0  0  0  0 
+Element 1:
+-1 1.22465e-16 :  0  0  0  0  0  0  0  0 
+Element 2:
+-1.83697e-16 -1 :  0  0  0  0  0  0  0  0 
+Element 3:
+-3.82857e-16 1 :  0  0  0  0  0  0  0  0 
+Checking boundary 0
+Number of elements on boundary 0 : 10
+Element 0 has 10 nodes 
+Node n = 0 at 1 -2.44929e-16  is on boundaries:0 
+Node n = 1 at 0.987688 0.156434  is on boundaries:0 
+Node n = 2 at 0.845495 -0.0665419  is not a boundary node
+Node n = 3 at 0.99863 0.052336  is on boundaries:0 
+Node n = 4 at 0.994522 0.104528  is on boundaries:0 
+Node n = 5 at 0.940291 0.082109  is not a boundary node
+Node n = 6 at 0.892893 0.00778356  is not a boundary node
+Node n = 7 at 0.896997 -0.0443613  is not a boundary node
+Node n = 8 at 0.948498 -0.0221806  is not a boundary node
+Node n = 9 at 0.944394 0.0299642  is not a boundary node
+Element 1 has 10 nodes 
+Node n = 0 at 0.81884 0.196586  is not a boundary node
+Node n = 1 at 0.987688 0.156434  is on boundaries:0 
+Node n = 2 at 0.951057 0.309017  is on boundaries:0 
+Node n = 3 at 0.875123 0.183202  is not a boundary node
+Node n = 4 at 0.931406 0.169818  is not a boundary node
+Node n = 5 at 0.978148 0.207912  is on boundaries:0 
+Node n = 6 at 0.965926 0.258819  is on boundaries:0 
+Node n = 7 at 0.906984 0.27154  is not a boundary node
+Node n = 8 at 0.862912 0.234063  is not a boundary node
+Node n = 9 at 0.919195 0.220679  is not a boundary node
+Element 2 has 10 nodes 
+Node n = 0 at 0.587785 0.809017  is on boundaries:0 
+Node n = 1 at 0.45399 0.891007  is on boundaries:0 
+Node n = 2 at 0.322261 0.778006  is not a boundary node
+Node n = 3 at 0.544639 0.838671  is on boundaries:0 
+Node n = 4 at 0.5 0.866025  is on boundaries:0 
+Node n = 5 at 0.410081 0.85334  is not a boundary node
+Node n = 6 at 0.366171 0.815673  is not a boundary node
+Node n = 7 at 0.410769 0.788343  is not a boundary node
+Node n = 8 at 0.499277 0.79868  is not a boundary node
+Node n = 9 at 0.454679 0.82601  is not a boundary node
+Element 3 has 10 nodes 
+Node n = 0 at 0.322261 0.778006  is not a boundary node
+Node n = 1 at 0.45399 0.891007  is on boundaries:0 
+Node n = 2 at 0.309017 0.951057  is on boundaries:0 
+Node n = 3 at 0.366171 0.815673  is not a boundary node
+Node n = 4 at 0.410081 0.85334  is not a boundary node
+Node n = 5 at 0.406737 0.913545  is on boundaries:0 
+Node n = 6 at 0.358368 0.93358  is on boundaries:0 
+Node n = 7 at 0.313432 0.893373  is not a boundary node
+Node n = 8 at 0.317846 0.835689  is not a boundary node
+Node n = 9 at 0.361756 0.873356  is not a boundary node
+Element 4 has 10 nodes 
+Node n = 0 at 0.707107 0.707107  is on boundaries:0 
+Node n = 1 at 0.586539 0.500952  is not a boundary node
+Node n = 2 at 0.809017 0.587785  is on boundaries:0 
+Node n = 3 at 0.666918 0.638389  is not a boundary node
+Node n = 4 at 0.626729 0.56967  is not a boundary node
+Node n = 5 at 0.660699 0.529896  is not a boundary node
+Node n = 6 at 0.734858 0.558841  is not a boundary node
+Node n = 7 at 0.777146 0.62932  is on boundaries:0 
+Node n = 8 at 0.743145 0.669131  is on boundaries:0 
+Node n = 9 at 0.700888 0.598615  is not a boundary node
+Element 5 has 10 nodes 
+Node n = 0 at 0.587785 0.809017  is on boundaries:0 
+Node n = 1 at 0.586539 0.500952  is not a boundary node
+Node n = 2 at 0.707107 0.707107  is on boundaries:0 
+Node n = 3 at 0.58737 0.706329  is not a boundary node
+Node n = 4 at 0.586955 0.60364  is not a boundary node
+Node n = 5 at 0.626729 0.56967  is not a boundary node
+Node n = 6 at 0.666918 0.638389  is not a boundary node
+Node n = 7 at 0.669131 0.743145  is on boundaries:0 
+Node n = 8 at 0.62932 0.777146  is on boundaries:0 
+Node n = 9 at 0.627144 0.672359  is not a boundary node
+Element 6 has 10 nodes 
+Node n = 0 at 0.586539 0.500952  is not a boundary node
+Node n = 1 at 0.891007 0.45399  is on boundaries:0 
+Node n = 2 at 0.809017 0.587785  is on boundaries:0 
+Node n = 3 at 0.688028 0.485298  is not a boundary node
+Node n = 4 at 0.789517 0.469644  is not a boundary node
+Node n = 5 at 0.866025 0.5  is on boundaries:0 
+Node n = 6 at 0.838671 0.544639  is on boundaries:0 
+Node n = 7 at 0.734858 0.558841  is not a boundary node
+Node n = 8 at 0.660699 0.529896  is not a boundary node
+Node n = 9 at 0.762188 0.514243  is not a boundary node
+Element 7 has 10 nodes 
+Node n = 0 at 0.891007 0.45399  is on boundaries:0 
+Node n = 1 at 0.81884 0.196586  is not a boundary node
+Node n = 2 at 0.951057 0.309017  is on boundaries:0 
+Node n = 3 at 0.866951 0.368189  is not a boundary node
+Node n = 4 at 0.842896 0.282388  is not a boundary node
+Node n = 5 at 0.862912 0.234063  is not a boundary node
+Node n = 6 at 0.906984 0.27154  is not a boundary node
+Node n = 7 at 0.93358 0.358368  is on boundaries:0 
+Node n = 8 at 0.913545 0.406737  is on boundaries:0 
+Node n = 9 at 0.886968 0.319865  is not a boundary node
+Element 8 has 10 nodes 
+Node n = 0 at 0.309017 0.951057  is on boundaries:0 
+Node n = 1 at 0.156434 0.987688  is on boundaries:0 
+Node n = 2 at 0.322261 0.778006  is not a boundary node
+Node n = 3 at 0.258819 0.965926  is on boundaries:0 
+Node n = 4 at 0.207912 0.978148  is on boundaries:0 
+Node n = 5 at 0.21171 0.917794  is not a boundary node
+Node n = 6 at 0.266985 0.8479  is not a boundary node
+Node n = 7 at 0.317846 0.835689  is not a boundary node
+Node n = 8 at 0.313432 0.893373  is not a boundary node
+Node n = 9 at 0.262571 0.905584  is not a boundary node
+Element 9 has 10 nodes 
+Node n = 0 at 0.066071 0.839512  is not a boundary node
+Node n = 1 at 0.156434 0.987688  is on boundaries:0 
+Node n = 2 at -3.82857e-16 1  is on boundaries:0 
+Node n = 3 at 0.0961922 0.888904  is not a boundary node
+Node n = 4 at 0.126313 0.938296  is not a boundary node
+Node n = 5 at 0.104528 0.994522  is on boundaries:0 
+Node n = 6 at 0.052336 0.99863  is on boundaries:0 
+Node n = 7 at 0.0220237 0.946504  is not a boundary node
+Node n = 8 at 0.0440473 0.893008  is not a boundary node
+Node n = 9 at 0.0741685 0.9424  is not a boundary node
+Checking boundary 1
+Number of elements on boundary 1 : 10
+Element 0 has 10 nodes 
+Node n = 0 at -0.845495 0.0665419  is not a boundary node
+Node n = 1 at -0.987688 0.156434  is on boundaries:1 
+Node n = 2 at -1 1.22465e-16  is on boundaries:1 
+Node n = 3 at -0.892893 0.0965061  is not a boundary node
+Node n = 4 at -0.940291 0.12647  is not a boundary node
+Node n = 5 at -0.994522 0.104528  is on boundaries:1 
+Node n = 6 at -0.99863 0.052336  is on boundaries:1 
+Node n = 7 at -0.948498 0.0221806  is not a boundary node
+Node n = 8 at -0.896997 0.0443613  is not a boundary node
+Node n = 9 at -0.944394 0.0743255  is not a boundary node
+Element 1 has 10 nodes 
+Node n = 0 at -0.845495 0.0665419  is not a boundary node
+Node n = 1 at -0.951057 0.309017  is on boundaries:1 
+Node n = 2 at -0.987688 0.156434  is on boundaries:1 
+Node n = 3 at -0.880682 0.147367  is not a boundary node
+Node n = 4 at -0.915869 0.228192  is not a boundary node
+Node n = 5 at -0.965926 0.258819  is on boundaries:1 
+Node n = 6 at -0.978148 0.207912  is on boundaries:1 
+Node n = 7 at -0.940291 0.12647  is not a boundary node
+Node n = 8 at -0.892893 0.0965061  is not a boundary node
+Node n = 9 at -0.92808 0.177331  is not a boundary node
+Element 2 has 10 nodes 
+Node n = 0 at -0.657999 0.403222  is not a boundary node
+Node n = 1 at -0.891007 0.45399  is on boundaries:1 
+Node n = 2 at -0.951057 0.309017  is on boundaries:1 
+Node n = 3 at -0.735668 0.420145  is not a boundary node
+Node n = 4 at -0.813337 0.437068  is not a boundary node
+Node n = 5 at -0.913545 0.406737  is on boundaries:1 
+Node n = 6 at -0.93358 0.358368  is on boundaries:1 
+Node n = 7 at -0.853371 0.340419  is not a boundary node
+Node n = 8 at -0.755685 0.37182  is not a boundary node
+Node n = 9 at -0.833354 0.388743  is not a boundary node
+Element 3 has 10 nodes 
+Node n = 0 at -0.891007 0.45399  is on boundaries:1 
+Node n = 1 at -0.657999 0.403222  is not a boundary node
+Node n = 2 at -0.809017 0.587785  is on boundaries:1 
+Node n = 3 at -0.813337 0.437068  is not a boundary node
+Node n = 4 at -0.735668 0.420145  is not a boundary node
+Node n = 5 at -0.708338 0.464743  is not a boundary node
+Node n = 6 at -0.758678 0.526264  is not a boundary node
+Node n = 7 at -0.838671 0.544639  is on boundaries:1 
+Node n = 8 at -0.866025 0.5  is on boundaries:1 
+Node n = 9 at -0.786007 0.481666  is not a boundary node
+Element 4 has 10 nodes 
+Node n = 0 at -0.707107 0.707107  is on boundaries:1 
+Node n = 1 at -0.546905 0.640344  is not a boundary node
+Node n = 2 at -0.587785 0.809017  is on boundaries:1 
+Node n = 3 at -0.653706 0.684852  is not a boundary node
+Node n = 4 at -0.600306 0.662598  is not a boundary node
+Node n = 5 at -0.560532 0.696568  is not a boundary node
+Node n = 6 at -0.574159 0.752793  is not a boundary node
+Node n = 7 at -0.62932 0.777146  is on boundaries:1 
+Node n = 8 at -0.669131 0.743145  is on boundaries:1 
+Node n = 9 at -0.613932 0.718822  is not a boundary node
+Element 5 has 10 nodes 
+Node n = 0 at -0.322261 0.778006  is not a boundary node
+Node n = 1 at -0.309017 0.951057  is on boundaries:1 
+Node n = 2 at -0.45399 0.891007  is on boundaries:1 
+Node n = 3 at -0.317846 0.835689  is not a boundary node
+Node n = 4 at -0.313432 0.893373  is not a boundary node
+Node n = 5 at -0.358368 0.93358  is on boundaries:1 
+Node n = 6 at -0.406737 0.913545  is on boundaries:1 
+Node n = 7 at -0.410081 0.85334  is not a boundary node
+Node n = 8 at -0.366171 0.815673  is not a boundary node
+Node n = 9 at -0.361756 0.873356  is not a boundary node
+Element 6 has 10 nodes 
+Node n = 0 at -0.45399 0.891007  is on boundaries:1 
+Node n = 1 at -0.587785 0.809017  is on boundaries:1 
+Node n = 2 at -0.546905 0.640344  is not a boundary node
+Node n = 3 at -0.5 0.866025  is on boundaries:1 
+Node n = 4 at -0.544639 0.838671  is on boundaries:1 
+Node n = 5 at -0.574159 0.752793  is not a boundary node
+Node n = 6 at -0.560532 0.696568  is not a boundary node
+Node n = 7 at -0.515934 0.723898  is not a boundary node
+Node n = 8 at -0.484962 0.807452  is not a boundary node
+Node n = 9 at -0.52956 0.780122  is not a boundary node
+Element 7 has 10 nodes 
+Node n = 0 at -0.809017 0.587785  is on boundaries:1 
+Node n = 1 at -0.546905 0.640344  is not a boundary node
+Node n = 2 at -0.707107 0.707107  is on boundaries:1 
+Node n = 3 at -0.721646 0.605305  is not a boundary node
+Node n = 4 at -0.634276 0.622824  is not a boundary node
+Node n = 5 at -0.600306 0.662598  is not a boundary node
+Node n = 6 at -0.653706 0.684852  is not a boundary node
+Node n = 7 at -0.743145 0.669131  is on boundaries:1 
+Node n = 8 at -0.777146 0.62932  is on boundaries:1 
+Node n = 9 at -0.687676 0.645079  is not a boundary node
+Element 8 has 10 nodes 
+Node n = 0 at -3.82857e-16 1  is on boundaries:1 
+Node n = 1 at -0.156434 0.987688  is on boundaries:1 
+Node n = 2 at 0.066071 0.839512  is not a boundary node
+Node n = 3 at -0.052336 0.99863  is on boundaries:1 
+Node n = 4 at -0.104528 0.994522  is on boundaries:1 
+Node n = 5 at -0.082266 0.938296  is not a boundary node
+Node n = 6 at -0.00809749 0.888904  is not a boundary node
+Node n = 7 at 0.0440473 0.893008  is not a boundary node
+Node n = 8 at 0.0220237 0.946504  is not a boundary node
+Node n = 9 at -0.0301212 0.9424  is not a boundary node
+Element 9 has 10 nodes 
+Node n = 0 at -0.322261 0.778006  is not a boundary node
+Node n = 1 at -0.156434 0.987688  is on boundaries:1 
+Node n = 2 at -0.309017 0.951057  is on boundaries:1 
+Node n = 3 at -0.266985 0.8479  is not a boundary node
+Node n = 4 at -0.21171 0.917794  is not a boundary node
+Node n = 5 at -0.207912 0.978148  is on boundaries:1 
+Node n = 6 at -0.258819 0.965926  is on boundaries:1 
+Node n = 7 at -0.313432 0.893373  is not a boundary node
+Node n = 8 at -0.317846 0.835689  is not a boundary node
+Node n = 9 at -0.262571 0.905584  is not a boundary node
+Checking boundary 2
+Number of elements on boundary 2 : 10
+Element 0 has 10 nodes 
+Node n = 0 at -0.891007 -0.45399  is on boundaries:2 
+Node n = 1 at -0.809017 -0.587785  is on boundaries:2 
+Node n = 2 at -0.640344 -0.546905  is not a boundary node
+Node n = 3 at -0.866025 -0.5  is on boundaries:2 
+Node n = 4 at -0.838671 -0.544639  is on boundaries:2 
+Node n = 5 at -0.752793 -0.574159  is not a boundary node
+Node n = 6 at -0.696568 -0.560532  is not a boundary node
+Node n = 7 at -0.723898 -0.515934  is not a boundary node
+Node n = 8 at -0.807452 -0.484962  is not a boundary node
+Node n = 9 at -0.780122 -0.52956  is not a boundary node
+Element 1 has 10 nodes 
+Node n = 0 at -0.891007 -0.45399  is on boundaries:2 
+Node n = 1 at -0.750038 -0.180068  is not a boundary node
+Node n = 2 at -0.951057 -0.309017  is on boundaries:2 
+Node n = 3 at -0.844017 -0.362683  is not a boundary node
+Node n = 4 at -0.797027 -0.271376  is not a boundary node
+Node n = 5 at -0.817044 -0.223051  is not a boundary node
+Node n = 6 at -0.88405 -0.266034  is not a boundary node
+Node n = 7 at -0.93358 -0.358368  is on boundaries:2 
+Node n = 8 at -0.913545 -0.406737  is on boundaries:2 
+Node n = 9 at -0.864034 -0.314359  is not a boundary node
+Element 2 has 10 nodes 
+Node n = 0 at -0.750038 -0.180068  is not a boundary node
+Node n = 1 at -0.987688 -0.156434  is on boundaries:2 
+Node n = 2 at -0.951057 -0.309017  is on boundaries:2 
+Node n = 3 at -0.829255 -0.17219  is not a boundary node
+Node n = 4 at -0.908472 -0.164312  is not a boundary node
+Node n = 5 at -0.978148 -0.207912  is on boundaries:2 
+Node n = 6 at -0.965926 -0.258819  is on boundaries:2 
+Node n = 7 at -0.88405 -0.266034  is not a boundary node
+Node n = 8 at -0.817044 -0.223051  is not a boundary node
+Node n = 9 at -0.896261 -0.215173  is not a boundary node
+Element 3 has 10 nodes 
+Node n = 0 at -0.45399 -0.891007  is on boundaries:2 
+Node n = 1 at -0.309017 -0.951057  is on boundaries:2 
+Node n = 2 at -0.403029 -0.657684  is not a boundary node
+Node n = 3 at -0.406737 -0.913545  is on boundaries:2 
+Node n = 4 at -0.358368 -0.93358  is on boundaries:2 
+Node n = 5 at -0.340354 -0.853266  is not a boundary node
+Node n = 6 at -0.371692 -0.755475  is not a boundary node
+Node n = 7 at -0.420016 -0.735458  is not a boundary node
+Node n = 8 at -0.437003 -0.813232  is not a boundary node
+Node n = 9 at -0.388679 -0.833249  is not a boundary node
+Element 4 has 10 nodes 
+Node n = 0 at -0.707107 -0.707107  is on boundaries:2 
+Node n = 1 at -0.640344 -0.546905  is not a boundary node
+Node n = 2 at -0.809017 -0.587785  is on boundaries:2 
+Node n = 3 at -0.684852 -0.653706  is not a boundary node
+Node n = 4 at -0.662598 -0.600306  is not a boundary node
+Node n = 5 at -0.696568 -0.560532  is not a boundary node
+Node n = 6 at -0.752793 -0.574159  is not a boundary node
+Node n = 7 at -0.777146 -0.62932  is on boundaries:2 
+Node n = 8 at -0.743145 -0.669131  is on boundaries:2 
+Node n = 9 at -0.718822 -0.613932  is not a boundary node
+Element 5 has 10 nodes 
+Node n = 0 at -0.066071 -0.839512  is not a boundary node
+Node n = 1 at -0.156434 -0.987688  is on boundaries:2 
+Node n = 2 at -1.83697e-16 -1  is on boundaries:2 
+Node n = 3 at -0.0961922 -0.888904  is not a boundary node
+Node n = 4 at -0.126313 -0.938296  is not a boundary node
+Node n = 5 at -0.104528 -0.994522  is on boundaries:2 
+Node n = 6 at -0.052336 -0.99863  is on boundaries:2 
+Node n = 7 at -0.0220237 -0.946504  is not a boundary node
+Node n = 8 at -0.0440473 -0.893008  is not a boundary node
+Node n = 9 at -0.0741685 -0.9424  is not a boundary node
+Element 6 has 10 nodes 
+Node n = 0 at -0.156434 -0.987688  is on boundaries:2 
+Node n = 1 at -0.066071 -0.839512  is not a boundary node
+Node n = 2 at -0.309017 -0.951057  is on boundaries:2 
+Node n = 3 at -0.126313 -0.938296  is not a boundary node
+Node n = 4 at -0.0961922 -0.888904  is not a boundary node
+Node n = 5 at -0.147053 -0.876693  is not a boundary node
+Node n = 6 at -0.228035 -0.913875  is not a boundary node
+Node n = 7 at -0.258819 -0.965926  is on boundaries:2 
+Node n = 8 at -0.207912 -0.978148  is on boundaries:2 
+Node n = 9 at -0.177174 -0.926085  is not a boundary node
+Element 7 has 10 nodes 
+Node n = 0 at -0.987688 -0.156434  is on boundaries:2 
+Node n = 1 at -0.845495 0.0665419  is not a boundary node
+Node n = 2 at -1 1.22465e-16  is on boundaries:2 
+Node n = 3 at -0.940291 -0.082109  is not a boundary node
+Node n = 4 at -0.892893 -0.00778356  is not a boundary node
+Node n = 5 at -0.896997 0.0443613  is not a boundary node
+Node n = 6 at -0.948498 0.0221806  is not a boundary node
+Node n = 7 at -0.99863 -0.052336  is on boundaries:2 
+Node n = 8 at -0.994522 -0.104528  is on boundaries:2 
+Node n = 9 at -0.944394 -0.0299642  is not a boundary node
+Element 8 has 10 nodes 
+Node n = 0 at -0.707107 -0.707107  is on boundaries:2 
+Node n = 1 at -0.587785 -0.809017  is on boundaries:2 
+Node n = 2 at -0.640344 -0.546905  is not a boundary node
+Node n = 3 at -0.669131 -0.743145  is on boundaries:2 
+Node n = 4 at -0.62932 -0.777146  is on boundaries:2 
+Node n = 5 at -0.605305 -0.721646  is not a boundary node
+Node n = 6 at -0.622824 -0.634276  is not a boundary node
+Node n = 7 at -0.662598 -0.600306  is not a boundary node
+Node n = 8 at -0.684852 -0.653706  is not a boundary node
+Node n = 9 at -0.645079 -0.687676  is not a boundary node
+Element 9 has 10 nodes 
+Node n = 0 at -0.403029 -0.657684  is not a boundary node
+Node n = 1 at -0.587785 -0.809017  is on boundaries:2 
+Node n = 2 at -0.45399 -0.891007  is on boundaries:2 
+Node n = 3 at -0.464615 -0.708129  is not a boundary node
+Node n = 4 at -0.5262 -0.758573  is not a boundary node
+Node n = 5 at -0.544639 -0.838671  is on boundaries:2 
+Node n = 6 at -0.5 -0.866025  is on boundaries:2 
+Node n = 7 at -0.437003 -0.813232  is not a boundary node
+Node n = 8 at -0.420016 -0.735458  is not a boundary node
+Node n = 9 at -0.481602 -0.785903  is not a boundary node
+Checking boundary 3
+Number of elements on boundary 3 : 10
+Element 0 has 10 nodes 
+Node n = 0 at 0.657999 -0.403222  is not a boundary node
+Node n = 1 at 0.809017 -0.587785  is on boundaries:3 
+Node n = 2 at 0.891007 -0.45399  is on boundaries:3 
+Node n = 3 at 0.708338 -0.464743  is not a boundary node
+Node n = 4 at 0.758678 -0.526264  is not a boundary node
+Node n = 5 at 0.838671 -0.544639  is on boundaries:3 
+Node n = 6 at 0.866025 -0.5  is on boundaries:3 
+Node n = 7 at 0.813337 -0.437068  is not a boundary node
+Node n = 8 at 0.735668 -0.420145  is not a boundary node
+Node n = 9 at 0.786007 -0.481666  is not a boundary node
+Element 1 has 10 nodes 
+Node n = 0 at 0.707107 -0.707107  is on boundaries:3 
+Node n = 1 at 0.809017 -0.587785  is on boundaries:3 
+Node n = 2 at 0.546905 -0.640344  is not a boundary node
+Node n = 3 at 0.743145 -0.669131  is on boundaries:3 
+Node n = 4 at 0.777146 -0.62932  is on boundaries:3 
+Node n = 5 at 0.721646 -0.605305  is not a boundary node
+Node n = 6 at 0.634276 -0.622824  is not a boundary node
+Node n = 7 at 0.600306 -0.662598  is not a boundary node
+Node n = 8 at 0.653706 -0.684852  is not a boundary node
+Node n = 9 at 0.687676 -0.645079  is not a boundary node
+Element 2 has 10 nodes 
+Node n = 0 at 0.587785 -0.809017  is on boundaries:3 
+Node n = 1 at 0.546905 -0.640344  is not a boundary node
+Node n = 2 at 0.45399 -0.891007  is on boundaries:3 
+Node n = 3 at 0.574159 -0.752793  is not a boundary node
+Node n = 4 at 0.560532 -0.696568  is not a boundary node
+Node n = 5 at 0.515934 -0.723898  is not a boundary node
+Node n = 6 at 0.484962 -0.807452  is not a boundary node
+Node n = 7 at 0.5 -0.866025  is on boundaries:3 
+Node n = 8 at 0.544639 -0.838671  is on boundaries:3 
+Node n = 9 at 0.52956 -0.780122  is not a boundary node
+Element 3 has 10 nodes 
+Node n = 0 at 0.587785 -0.809017  is on boundaries:3 
+Node n = 1 at 0.707107 -0.707107  is on boundaries:3 
+Node n = 2 at 0.546905 -0.640344  is not a boundary node
+Node n = 3 at 0.62932 -0.777146  is on boundaries:3 
+Node n = 4 at 0.669131 -0.743145  is on boundaries:3 
+Node n = 5 at 0.653706 -0.684852  is not a boundary node
+Node n = 6 at 0.600306 -0.662598  is not a boundary node
+Node n = 7 at 0.560532 -0.696568  is not a boundary node
+Node n = 8 at 0.574159 -0.752793  is not a boundary node
+Node n = 9 at 0.613932 -0.718822  is not a boundary node
+Element 4 has 10 nodes 
+Node n = 0 at 0.45399 -0.891007  is on boundaries:3 
+Node n = 1 at 0.180068 -0.750038  is not a boundary node
+Node n = 2 at 0.309017 -0.951057  is on boundaries:3 
+Node n = 3 at 0.362683 -0.844017  is not a boundary node
+Node n = 4 at 0.271376 -0.797027  is not a boundary node
+Node n = 5 at 0.223051 -0.817044  is not a boundary node
+Node n = 6 at 0.266034 -0.88405  is not a boundary node
+Node n = 7 at 0.358368 -0.93358  is on boundaries:3 
+Node n = 8 at 0.406737 -0.913545  is on boundaries:3 
+Node n = 9 at 0.314359 -0.864034  is not a boundary node
+Element 5 has 10 nodes 
+Node n = 0 at 0.657999 -0.403222  is not a boundary node
+Node n = 1 at 0.891007 -0.45399  is on boundaries:3 
+Node n = 2 at 0.951057 -0.309017  is on boundaries:3 
+Node n = 3 at 0.735668 -0.420145  is not a boundary node
+Node n = 4 at 0.813337 -0.437068  is not a boundary node
+Node n = 5 at 0.913545 -0.406737  is on boundaries:3 
+Node n = 6 at 0.93358 -0.358368  is on boundaries:3 
+Node n = 7 at 0.853371 -0.340419  is not a boundary node
+Node n = 8 at 0.755685 -0.37182  is not a boundary node
+Node n = 9 at 0.833354 -0.388743  is not a boundary node
+Element 6 has 10 nodes 
+Node n = 0 at 0.180068 -0.750038  is not a boundary node
+Node n = 1 at 0.156434 -0.987688  is on boundaries:3 
+Node n = 2 at 0.309017 -0.951057  is on boundaries:3 
+Node n = 3 at 0.17219 -0.829255  is not a boundary node
+Node n = 4 at 0.164312 -0.908472  is not a boundary node
+Node n = 5 at 0.207912 -0.978148  is on boundaries:3 
+Node n = 6 at 0.258819 -0.965926  is on boundaries:3 
+Node n = 7 at 0.266034 -0.88405  is not a boundary node
+Node n = 8 at 0.223051 -0.817044  is not a boundary node
+Node n = 9 at 0.215173 -0.896261  is not a boundary node
+Element 7 has 10 nodes 
+Node n = 0 at 0.845495 -0.0665419  is not a boundary node
+Node n = 1 at 0.987688 -0.156434  is on boundaries:3 
+Node n = 2 at 1 -2.44929e-16  is on boundaries:3 
+Node n = 3 at 0.892893 -0.0965061  is not a boundary node
+Node n = 4 at 0.940291 -0.12647  is not a boundary node
+Node n = 5 at 0.994522 -0.104528  is on boundaries:3 
+Node n = 6 at 0.99863 -0.052336  is on boundaries:3 
+Node n = 7 at 0.948498 -0.0221806  is not a boundary node
+Node n = 8 at 0.896997 -0.0443613  is not a boundary node
+Node n = 9 at 0.944394 -0.0743255  is not a boundary node
+Element 8 has 10 nodes 
+Node n = 0 at 0.845495 -0.0665419  is not a boundary node
+Node n = 1 at 0.951057 -0.309017  is on boundaries:3 
+Node n = 2 at 0.987688 -0.156434  is on boundaries:3 
+Node n = 3 at 0.880682 -0.147367  is not a boundary node
+Node n = 4 at 0.915869 -0.228192  is not a boundary node
+Node n = 5 at 0.965926 -0.258819  is on boundaries:3 
+Node n = 6 at 0.978148 -0.207912  is on boundaries:3 
+Node n = 7 at 0.940291 -0.12647  is not a boundary node
+Node n = 8 at 0.892893 -0.0965061  is not a boundary node
+Node n = 9 at 0.92808 -0.177331  is not a boundary node
+Element 9 has 10 nodes 
+Node n = 0 at -1.83697e-16 -1  is on boundaries:3 
+Node n = 1 at 0.156434 -0.987688  is on boundaries:3 
+Node n = 2 at -0.066071 -0.839512  is not a boundary node
+Node n = 3 at 0.052336 -0.99863  is on boundaries:3 
+Node n = 4 at 0.104528 -0.994522  is on boundaries:3 
+Node n = 5 at 0.082266 -0.938296  is not a boundary node
+Node n = 6 at 0.00809749 -0.888904  is not a boundary node
+Node n = 7 at -0.0440473 -0.893008  is not a boundary node
+Node n = 8 at -0.0220237 -0.946504  is not a boundary node
+Node n = 9 at 0.0301212 -0.9424  is not a boundary node
+Checking boundary 4
+Number of elements on boundary 4 : 8
+Element 0 has 10 nodes 
+Node n = 0 at -0.49984 0.242386  is not a boundary node
+Node n = 1 at -0.5 0  is on boundaries:4 
+Node n = 2 at -0.25 0  is on boundaries:4 
+Node n = 3 at -0.499893 0.161591  is not a boundary node
+Node n = 4 at -0.499947 0.0807953  is not a boundary node
+Node n = 5 at -0.416667 0  is on boundaries:4 
+Node n = 6 at -0.333333 0  is on boundaries:4 
+Node n = 7 at -0.33328 0.0807953  is not a boundary node
+Node n = 8 at -0.41656 0.161591  is not a boundary node
+Node n = 9 at -0.416613 0.0807953  is not a boundary node
+Element 1 has 10 nodes 
+Node n = 0 at -0.173654 0.343058  is not a boundary node
+Node n = 1 at -0.25 0  is on boundaries:4 
+Node n = 2 at 9.99201e-16 0  is on boundaries:4 
+Node n = 3 at -0.199103 0.228705  is not a boundary node
+Node n = 4 at -0.224551 0.114353  is not a boundary node
+Node n = 5 at -0.166667 0  is on boundaries:4 
+Node n = 6 at -0.0833333 0  is on boundaries:4 
+Node n = 7 at -0.0578848 0.114353  is not a boundary node
+Node n = 8 at -0.11577 0.228705  is not a boundary node
+Node n = 9 at -0.141218 0.114353  is not a boundary node
+Element 2 has 10 nodes 
+Node n = 0 at 9.99201e-16 0  is on boundaries:4 
+Node n = 1 at 0.25 0  is on boundaries:4 
+Node n = 2 at 0.339507 0.289967  is not a boundary node
+Node n = 3 at 0.0833333 0  is on boundaries:4 
+Node n = 4 at 0.166667 0  is on boundaries:4 
+Node n = 5 at 0.279836 0.0966555  is not a boundary node
+Node n = 6 at 0.309672 0.193311  is not a boundary node
+Node n = 7 at 0.226338 0.193311  is not a boundary node
+Node n = 8 at 0.113169 0.0966555  is not a boundary node
+Node n = 9 at 0.196502 0.0966555  is not a boundary node
+Element 3 has 10 nodes 
+Node n = 0 at 0.49984 -0.242386  is not a boundary node
+Node n = 1 at 0.5 0  is on boundaries:4 
+Node n = 2 at 0.25 0  is on boundaries:4 
+Node n = 3 at 0.499893 -0.161591  is not a boundary node
+Node n = 4 at 0.499947 -0.0807953  is not a boundary node
+Node n = 5 at 0.416667 0  is on boundaries:4 
+Node n = 6 at 0.333333 0  is on boundaries:4 
+Node n = 7 at 0.33328 -0.0807953  is not a boundary node
+Node n = 8 at 0.41656 -0.161591  is not a boundary node
+Node n = 9 at 0.416613 -0.0807953  is not a boundary node
+Element 4 has 10 nodes 
+Node n = 0 at 0.5 0  is on boundaries:4 
+Node n = 1 at 0.339507 0.289967  is not a boundary node
+Node n = 2 at 0.25 0  is on boundaries:4 
+Node n = 3 at 0.446502 0.0966555  is not a boundary node
+Node n = 4 at 0.393005 0.193311  is not a boundary node
+Node n = 5 at 0.309672 0.193311  is not a boundary node
+Node n = 6 at 0.279836 0.0966555  is not a boundary node
+Node n = 7 at 0.333333 0  is on boundaries:4 
+Node n = 8 at 0.416667 0  is on boundaries:4 
+Node n = 9 at 0.363169 0.0966555  is not a boundary node
+Element 5 has 10 nodes 
+Node n = 0 at 0.296247 -0.343531  is not a boundary node
+Node n = 1 at 0.25 0  is on boundaries:4 
+Node n = 2 at 9.99201e-16 0  is on boundaries:4 
+Node n = 3 at 0.280831 -0.22902  is not a boundary node
+Node n = 4 at 0.265416 -0.11451  is not a boundary node
+Node n = 5 at 0.166667 0  is on boundaries:4 
+Node n = 6 at 0.0833333 0  is on boundaries:4 
+Node n = 7 at 0.098749 -0.11451  is not a boundary node
+Node n = 8 at 0.197498 -0.22902  is not a boundary node
+Node n = 9 at 0.182082 -0.11451  is not a boundary node
+Element 6 has 10 nodes 
+Node n = 0 at -0.5 0  is on boundaries:4 
+Node n = 1 at -0.391713 -0.237256  is not a boundary node
+Node n = 2 at -0.25 0  is on boundaries:4 
+Node n = 3 at -0.463904 -0.0790852  is not a boundary node
+Node n = 4 at -0.427809 -0.15817  is not a boundary node
+Node n = 5 at -0.344475 -0.15817  is not a boundary node
+Node n = 6 at -0.297238 -0.0790852  is not a boundary node
+Node n = 7 at -0.333333 0  is on boundaries:4 
+Node n = 8 at -0.416667 0  is on boundaries:4 
+Node n = 9 at -0.380571 -0.0790852  is not a boundary node
+Element 7 has 10 nodes 
+Node n = 0 at 9.99201e-16 0  is on boundaries:4 
+Node n = 1 at -0.25 0  is on boundaries:4 
+Node n = 2 at -0.125 -0.218814  is not a boundary node
+Node n = 3 at -0.0833333 0  is on boundaries:4 
+Node n = 4 at -0.166667 0  is on boundaries:4 
+Node n = 5 at -0.208333 -0.0729379  is not a boundary node
+Node n = 6 at -0.166667 -0.145876  is not a boundary node
+Node n = 7 at -0.0833333 -0.145876  is not a boundary node
+Node n = 8 at -0.0416667 -0.0729379  is not a boundary node
+Node n = 9 at -0.125 -0.0729379  is not a boundary node
+Number of boundaries: 5
+Boundary: 0 is adjacent to 10 elements
+Boundary element:0x55590c3f5758 Face index of boundary is 2
+Boundary element:0x55590c418788 Face index of boundary is 0
+Boundary element:0x55590c423228 Face index of boundary is 2
+Boundary element:0x55590c4262e8 Face index of boundary is 0
+Boundary element:0x55590c427b48 Face index of boundary is 1
+Boundary element:0x55590c429bc8 Face index of boundary is 1
+Boundary element:0x55590c42ac08 Face index of boundary is 0
+Boundary element:0x55590c42bc48 Face index of boundary is 1
+Boundary element:0x55590c4315a8 Face index of boundary is 2
+Boundary element:0x55590c431dc8 Face index of boundary is 0
+Boundary: 1 is adjacent to 10 elements
+Boundary element:0x55590c40f168 Face index of boundary is 0
+Boundary element:0x55590c40f6a8 Face index of boundary is 0
+Boundary element:0x55590c40fbe8 Face index of boundary is 0
+Boundary element:0x55590c412608 Face index of boundary is 1
+Boundary element:0x55590c412e28 Face index of boundary is 1
+Boundary element:0x55590c414688 Face index of boundary is 0
+Boundary element:0x55590c415ee8 Face index of boundary is 2
+Boundary element:0x55590c4197c8 Face index of boundary is 1
+Boundary element:0x55590c424a88 Face index of boundary is 2
+Boundary element:0x55590c42dcc8 Face index of boundary is 0
+Boundary: 2 is adjacent to 10 elements
+Boundary element:0x55590c3ece78 Face index of boundary is 2
+Boundary element:0x55590c3f4738 Face index of boundary is 1
+Boundary element:0x55590c3f4da8 Face index of boundary is 0
+Boundary element:0x55590c40d728 Face index of boundary is 2
+Boundary element:0x55590c40ec28 Face index of boundary is 1
+Boundary element:0x55590c410128 Face index of boundary is 0
+Boundary element:0x55590c410668 Face index of boundary is 1
+Boundary element:0x55590c41d8c8 Face index of boundary is 1
+Boundary element:0x55590c428368 Face index of boundary is 2
+Boundary element:0x55590c42d4a8 Face index of boundary is 0
+Boundary: 3 is adjacent to 10 elements
+Boundary element:0x55590c3f30a8 Face index of boundary is 0
+Boundary element:0x55590c40e1a8 Face index of boundary is 2
+Boundary element:0x55590c41a808 Face index of boundary is 1
+Boundary element:0x55590c41b848 Face index of boundary is 2
+Boundary element:0x55590c41c888 Face index of boundary is 1
+Boundary element:0x55590c41d0a8 Face index of boundary is 0
+Boundary element:0x55590c41e0e8 Face index of boundary is 0
+Boundary element:0x55590c41f128 Face index of boundary is 0
+Boundary element:0x55590c420988 Face index of boundary is 0
+Boundary element:0x55590c4211a8 Face index of boundary is 2
+Boundary: 4 is adjacent to 8 elements
+Boundary element:0x55590c435e88 Face index of boundary is 0
+Boundary element:0x55590c43e088 Face index of boundary is 0
+Boundary element:0x55590c442188 Face index of boundary is 2
+Boundary element:0x55590c4439e8 Face index of boundary is 0
+Boundary element:0x55590c444208 Face index of boundary is 1
+Boundary element:0x55590c445248 Face index of boundary is 0
+Boundary element:0x55590c446288 Face index of boundary is 1
+Boundary element:0x55590c446aa8 Face index of boundary is 2
+Pinning (FvK dofs 0,1,2,3,4)  at 9.99201e-16 0 
+Pinning (FvK dofs 1)  at -0.5 0 
+eqn 0 depends on dof R0
+eqn 1 depends on dof R1
+eqn 2 depends on dof R2
+eqn 3 depends on dof R3
+eqn 4 depends on dof R4
+eqn 5 depends on dof R5
+eqn 6 depends on dof R6
+eqn 7 depends on dof R7
+eqn 0 depends on dof R0
+eqn 1 depends on dof R1
+eqn 2 depends on dof R2
+eqn 3 depends on dof R3
+eqn 4 depends on dof R4
+eqn 5 depends on dof R5
+eqn 6 depends on dof R6
+eqn 7 depends on dof R7
+eqn 0 depends on dof R0
+eqn 1 depends on dof R1
+eqn 2 depends on dof R2
+eqn 3 depends on dof R3
+eqn 4 depends on dof R4
+eqn 5 depends on dof R5
+eqn 6 depends on dof R6
+eqn 7 depends on dof R7
+eqn 0 depends on dof R0
+eqn 1 depends on dof R1
+eqn 2 depends on dof R2
+eqn 3 depends on dof R3
+eqn 4 depends on dof R4
+eqn 5 depends on dof R5
+eqn 6 depends on dof R6
+eqn 7 depends on dof R7
+Number of equations: 2370
+Nphi = 105Nr = 50
+Number of points not found locally: 0
+Number of plot points not found (with max search radius=1.79769e+308)]: 0
+Total time for LineVisualiser setup [sec]: 0.075828
+Element_area = 0.5
+Dimensional (SI) parameters: g = 9.81 // rho = 900 // E = 1.44e+06 // R = 0.2 // h = 0.0008 
+Initial thickness (SI) // h0 = 0.008 
+Initial state - Nondimensional parameters: P_mag (RHS) = 0 // Thickness = 0.04 // Nu = 0.5 // Eta = 141000 // gamma = 0 
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+
+ADD CONTRIBUTION FROM CONSTRAINTS
+=============================================
+
+Initial Maximum residuals 0
+
+Total time for linear solver (ndof=2370): 0.0s
+Total time for Newton solver (ndof=2370): 0.9s
+Time outside linear solver        : 100 %
+
+gamma_inc = 0 
+h_inc = 0 

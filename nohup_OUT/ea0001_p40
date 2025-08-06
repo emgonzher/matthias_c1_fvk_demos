@@ -1,0 +1,2475 @@
+Executable : test_disk_fvk
+g++ -DHAVE_CONFIG_H -I. -I../..  -isystem /home/emiliano/oomph-lib_new/oomph-lib/external_distributions/boost/boost_default_installation/include -DOOMPH_HAS_BOOST -isystem /home/emiliano/oomph-lib_new/oomph-lib/external_distributions/gmp/gmp_default_installation/include -DOOMPH_HAS_GMP -isystem /home/emiliano/oomph-lib_new/oomph-lib/external_distributions/mpfr/mpfr_default_installation/include -DOOMPH_HAS_MPFR -isystem /home/emiliano/oomph-lib_new/oomph-lib/external_distributions/cgal/cgal_default_installation/include -DOOMPH_HAS_CGAL -DOOMPH_HAS_STACKTRACE -DOOMPH_HAS_UNISTDH -DOOMPH_HAS_FPUCONTROLH -DOOMPH_HAS_MALLOCH -DOOMPH_HAS_TRIANGLE_LIB -DOOMPH_HAS_TETGEN_LIB -DUSING_OOMPH_SUPERLU -DUSING_OOMPH_SUPERLU_DIST -I/home/emiliano/oomph-lib_new/oomph-lib/build/include -I/home/emiliano/oomph-lib_new/oomph-lib/build/include -Wall -ggdb3 -O0  -DgFortran -g -DPARANOID -DRANGE_CHECKING -Wall -MT test_disk.o -MD -MP -MF .deps/test_disk.Tpo -c -o test_disk.o test_disk.cc
+In file included from /home/emiliano/oomph-lib_new/oomph-lib/build/include/generic/Qelements.h:46,
+                 from /home/emiliano/oomph-lib_new/oomph-lib/build/include/generic.h:4,
+                 from test_disk.cc:33:
+/home/emiliano/oomph-lib_new/oomph-lib/build/include/generic/elements.h:3428:44: warning: ‘virtual void (* oomph::FiniteElement::bulk_coordinate_derivatives_fct_pt(const int&) const)(const oomph::Vector<double>&, oomph::DenseMatrix<double>&, unsigned int&)’ was hidden [-Woverloaded-virtual=]
+ 3428 |     virtual BulkCoordinateDerivativesFctPt bulk_coordinate_derivatives_fct_pt(
+      |                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/emiliano/oomph-lib_new/oomph-lib/build/include/generic/elements.h:4786:36: note:   by ‘oomph::FaceElement::bulk_coordinate_derivatives_fct_pt’
+ 4786 |     BulkCoordinateDerivativesFctPt bulk_coordinate_derivatives_fct_pt() const
+      |                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/emiliano/oomph-lib_new/oomph-lib/build/include/generic/elements.h:3418:36: warning: ‘virtual void (* oomph::FiniteElement::face_to_bulk_coordinate_fct_pt(const int&) const)(const oomph::Vector<double>&, oomph::Vector<double>&)’ was hidden [-Woverloaded-virtual=]
+ 3418 |     virtual CoordinateMappingFctPt face_to_bulk_coordinate_fct_pt(
+      |                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/emiliano/oomph-lib_new/oomph-lib/build/include/generic/elements.h:4771:28: note:   by ‘oomph::FaceElement::face_to_bulk_coordinate_fct_pt’
+ 4771 |     CoordinateMappingFctPt face_to_bulk_coordinate_fct_pt() const
+      |                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/emiliano/oomph-lib_new/oomph-lib/build/include/generic.h:30:
+/home/emiliano/oomph-lib_new/oomph-lib/build/include/generic/subparametric_Telement.h: In instantiation of ‘void oomph::CurvableBellElement<NNODE_1D>::upgrade_element_to_curved(const oomph::C1PlateHelper::CurvedEdgeEnumeration&, const double&, const double&, oomph::C1CurviLine*, const unsigned int&) [with unsigned int NNODE_1D = 4]’:
+/home/emiliano/oomph-lib_new/oomph-lib/build/include/c1_foeppl_von_karman/foeppl_von_karman_curvable_bell_elements.h:894:9:   required from here
+/home/emiliano/oomph-lib_new/oomph-lib/build/include/generic/subparametric_Telement.h:850:17: warning: variable ‘new_integral_pt’ set but not used [-Wunused-but-set-variable]
+  850 |       Integral* new_integral_pt;
+      |                 ^~~~~~~~~~~~~~~
+mv -f .deps/test_disk.Tpo .deps/test_disk.Po
+/bin/bash ../../libtool  --tag=CXX   --mode=link g++ -DgFortran -g -DPARANOID -DRANGE_CHECKING -Wall -L/home/emiliano/oomph-lib_new/oomph-lib/external_distributions/boost/boost_default_installation/lib -Wl,-rpath,/home/emiliano/oomph-lib_new/oomph-lib/external_distributions/boost/boost_default_installation/lib -L/home/emiliano/oomph-lib_new/oomph-lib/external_distributions/gmp/gmp_default_installation/lib -L/home/emiliano/oomph-lib_new/oomph-lib/external_distributions/mpfr/mpfr_default_installation/lib -L/home/emiliano/oomph-lib_new/oomph-lib/external_distributions/cgal/cgal_default_installation/lib -Wl,-rpath,/home/emiliano/oomph-lib_new/oomph-lib/external_distributions/cgal/cgal_default_installation/lib  -o test_disk_fvk test_disk.o -L/home/emiliano/oomph-lib_new/oomph-lib/build/lib -lc1_foeppl_von_karman -lgeneric -lpthread -lboost_thread -lboost_system -lgmp -lmpfr -lCGAL_Core -lCGAL -loomph_hsl -loomph_crbond_bessel -loomph_triangle -loomph_tetgen -loomph_superlu_4.3 -loomph_metis_from_parmetis_3.1.1 -loomph_lapack -loomph_flapack -loomph_blas -L/usr/lib/gcc/x86_64-linux-gnu/13 -L/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/13/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/13/../../.. -lgfortran -lm -lquadmath 
+libtool: link: g++ -DgFortran -g -DPARANOID -DRANGE_CHECKING -Wall -Wl,-rpath -Wl,/home/emiliano/oomph-lib_new/oomph-lib/external_distributions/boost/boost_default_installation/lib -Wl,-rpath -Wl,/home/emiliano/oomph-lib_new/oomph-lib/external_distributions/cgal/cgal_default_installation/lib -o test_disk_fvk test_disk.o  -L/home/emiliano/oomph-lib_new/oomph-lib/external_distributions/boost/boost_default_installation/lib -L/home/emiliano/oomph-lib_new/oomph-lib/external_distributions/gmp/gmp_default_installation/lib -L/home/emiliano/oomph-lib_new/oomph-lib/external_distributions/mpfr/mpfr_default_installation/lib -L/home/emiliano/oomph-lib_new/oomph-lib/external_distributions/cgal/cgal_default_installation/lib -L/home/emiliano/oomph-lib_new/oomph-lib/build/lib /home/emiliano/oomph-lib_new/oomph-lib/build/lib/libc1_foeppl_von_karman.so /home/emiliano/oomph-lib_new/oomph-lib/build/lib/libgeneric.so -lpthread -lboost_thread -lboost_system /home/emiliano/oomph-lib_new/oomph-lib/external_distributions/gmp/gmp_default_installation/lib/libgmp.so /home/emiliano/oomph-lib_new/oomph-lib/external_distributions/mpfr/mpfr_default_installation/lib/libmpfr.so -lCGAL_Core -lCGAL /home/emiliano/oomph-lib_new/oomph-lib/build/lib/liboomph_hsl.so /home/emiliano/oomph-lib_new/oomph-lib/build/lib/liboomph_crbond_bessel.so /home/emiliano/oomph-lib_new/oomph-lib/build/lib/liboomph_triangle.a /home/emiliano/oomph-lib_new/oomph-lib/build/lib/liboomph_tetgen.so /home/emiliano/oomph-lib_new/oomph-lib/build/lib/liboomph_superlu_4.3.a /home/emiliano/oomph-lib_new/oomph-lib/build/lib/liboomph_metis_from_parmetis_3.1.1.a /home/emiliano/oomph-lib_new/oomph-lib/build/lib/liboomph_lapack.a /home/emiliano/oomph-lib_new/oomph-lib/build/lib/liboomph_flapack.so /home/emiliano/oomph-lib_new/oomph-lib/build/lib/liboomph_blas.so -L/usr/lib/gcc/x86_64-linux-gnu/13 -L/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/13/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/13/../../.. -lgfortran -lm -lquadmath -Wl,-rpath -Wl,/home/emiliano/oomph-lib_new/oomph-lib/build/lib -Wl,-rpath -Wl,/home/emiliano/oomph-lib_new/oomph-lib/external_distributions/gmp/gmp_default_installation/lib -Wl,-rpath -Wl,/home/emiliano/oomph-lib_new/oomph-lib/external_distributions/mpfr/mpfr_default_installation/lib -Wl,-rpath -Wl,/home/emiliano/oomph-lib_new/oomph-lib/build/lib -Wl,-rpath -Wl,/home/emiliano/oomph-lib_new/oomph-lib/external_distributions/gmp/gmp_default_installation/lib -Wl,-rpath -Wl,/home/emiliano/oomph-lib_new/oomph-lib/external_distributions/mpfr/mpfr_default_installation/lib
+_free
+./emitest.bash: línea 90: [: demasiados argumentos
+ 
+ 
+Running: 
+-rwxrwxr-x 1 emiliano emiliano 7271672 jul 31 15:52 test_disk_fvk
+--nplot 5 --use_polyline_for_internal_boundaries --use_free_bc
+ in /home/emiliano/oomph-lib_new/oomph-lib/user_drivers/matthias_c1_fvk_demos/Run_ea0001_nseg4_Eta_141e5_pinc1_polyline_p40/Case_straight_rotated_coords_no_t_shape_fvk_free
+ 
+ 
+
+
+======================================================================
+Oomph-lib WARNING
+
+ at /home/emiliano/oomph-lib_new/oomph-lib/build/include/generic/c1_plate_helper.h:904
+
+ in void oomph::C1PlateHelper::upgrade_triangle_mesh_for_c1_plate_bending(oomph::TriangleMeshBase*, oomph::Mesh*, const bool&) [with ELEMENT = oomph::FoepplVonKarmanC1CurvableBellElement<4>]
+
+--------------------------------------------------------
+
+Black box helper function upgrade_triangle_mesh_for_c1_plate_bending()
+will only rotate coordinates on boundaries that are described
+by TriangleMeshCurviLine. It seems that in your triangle mesh only
+4 of 5 boundaries are of this type. 
+ Specifically here's are the boundaries and theircurviness:
+Boundary 0 is curvilinear.
+Boundary 1 is curvilinear.
+Boundary 2 is curvilinear.
+Boundary 3 is curvilinear.
+Boundary 4 is polygonal.
+This only matters if you want to apply clamping-type
+boundary conditions along those boundaries. Continue at your own risk
+and/or make this message disappear by setting
+
+     C1PlateHelper::Do_not_warn_about_polygonal_boundaries
+
+to false. More intelligently, replace the polygonal boundaries
+by TriangleMeshCurviLines. Alternatively, you can do the setup
+yourself, of course. The black box function is only provided for
+convenience and looking inside it will show you what needs to be done.
+
+======================================================================
+
+
+
+-- Processing mesh_black_box_upgrade.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: mesh_black_box_upgrade.vtu 
+
+
+-- Processing mesh_before_black_box_upgrade.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: mesh_before_black_box_upgrade.vtu 
+
+
+-- Processing duplicated_nodes.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for points........done
+Write points coordinates...................done
+Write field 01/02.........................done
+Write field 02/02.........................done
+* Conversion done in 0 seconds
+* Output file name: duplicated_nodes.vtp 
+
+
+-- Processing rotated_nodes.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for points........done
+Write points coordinates...................done
+Write field 01/02.........................done
+Write field 02/02.........................done
+* Conversion done in 0 seconds
+* Output file name: rotated_nodes.vtp 
+
+
+-- Processing elements_upgraded_to_curved.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 2048 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: elements_upgraded_to_curved.vtu 
+
+
+-- Processing rotated_elements.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 4816 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: rotated_elements.vtu 
+
+
+-- Processing split_elements.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........
+CONVERSION FAILED
+*** The input file split_elements.dat
+***  does not contain any Tecplot zone! Created an empty file... 
+***  You may want to try converting this file to point 
+***  data with -p2 option if dim == 2 or -p3 option if dim == 3
+done
+* 0 lines ignored
+
+
+-- Processing boundary_coordinate0.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for points........done
+Write points coordinates...................done
+Write field 01/01.........................done
+* Conversion done in 0 seconds
+* Output file name: boundary_coordinate0.vtp 
+
+
+-- Processing boundary_coordinate1.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for points........done
+Write points coordinates...................done
+Write field 01/01.........................done
+* Conversion done in 0 seconds
+* Output file name: boundary_coordinate1.vtp 
+
+
+-- Processing boundary_coordinate2.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for points........done
+Write points coordinates...................done
+Write field 01/01.........................done
+* Conversion done in 0 seconds
+* Output file name: boundary_coordinate2.vtp 
+
+
+-- Processing boundary_coordinate3.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for points........done
+Write points coordinates...................done
+Write field 01/01.........................done
+* Conversion done in 0 seconds
+* Output file name: boundary_coordinate3.vtp 
+
+
+-- Processing boundary_coordinate4.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for points........done
+Write points coordinates...................done
+Write field 01/01.........................done
+* Conversion done in 0 seconds
+* Output file name: boundary_coordinate4.vtp 
+
+
+-- Processing test_bulk_elements_on_boundary0.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 288 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: test_bulk_elements_on_boundary0.vtu 
+
+
+-- Processing test_bulk_elements_on_boundary1.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 288 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: test_bulk_elements_on_boundary1.vtu 
+
+
+-- Processing test_bulk_elements_on_boundary2.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 288 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: test_bulk_elements_on_boundary2.vtu 
+
+
+-- Processing test_bulk_elements_on_boundary3.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 288 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: test_bulk_elements_on_boundary3.vtu 
+
+
+-- Processing test_bulk_elements_on_boundary4.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 576 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: test_bulk_elements_on_boundary4.vtu 
+
+
+-- Processing test_face_elements_on_boundary0.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for points........done
+Write points coordinates...................done
+* Conversion done in 0 seconds
+* Output file name: test_face_elements_on_boundary0.vtp 
+
+
+-- Processing test_face_elements_on_boundary1.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for points........done
+Write points coordinates...................done
+* Conversion done in 0 seconds
+* Output file name: test_face_elements_on_boundary1.vtp 
+
+
+-- Processing test_face_elements_on_boundary2.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for points........done
+Write points coordinates...................done
+* Conversion done in 0 seconds
+* Output file name: test_face_elements_on_boundary2.vtp 
+
+
+-- Processing test_face_elements_on_boundary3.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for points........done
+Write points coordinates...................done
+* Conversion done in 0 seconds
+* Output file name: test_face_elements_on_boundary3.vtp 
+
+
+-- Processing test_face_elements_on_boundary4.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for points........done
+Write points coordinates...................done
+* Conversion done in 0 seconds
+* Output file name: test_face_elements_on_boundary4.vtp 
+
+
+-- Processing soln0.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: soln0.vtu 
+
+
+-- Processing soln10.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: soln10.vtu 
+
+
+-- Processing soln11.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: soln11.vtu 
+
+
+-- Processing soln12.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: soln12.vtu 
+
+
+-- Processing soln13.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: soln13.vtu 
+
+
+-- Processing soln14.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: soln14.vtu 
+
+
+-- Processing soln15.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: soln15.vtu 
+
+
+-- Processing soln16.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: soln16.vtu 
+
+
+-- Processing soln17.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: soln17.vtu 
+
+
+-- Processing soln18.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: soln18.vtu 
+
+
+-- Processing soln19.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: soln19.vtu 
+
+
+-- Processing soln1.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: soln1.vtu 
+
+
+-- Processing soln20.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: soln20.vtu 
+
+
+-- Processing soln21.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: soln21.vtu 
+
+
+-- Processing soln22.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: soln22.vtu 
+
+
+-- Processing soln23.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: soln23.vtu 
+
+
+-- Processing soln24.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: soln24.vtu 
+
+
+-- Processing soln25.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: soln25.vtu 
+
+
+-- Processing soln26.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: soln26.vtu 
+
+
+-- Processing soln27.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: soln27.vtu 
+
+
+-- Processing soln28.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: soln28.vtu 
+
+
+-- Processing soln29.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: soln29.vtu 
+
+
+-- Processing soln2.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: soln2.vtu 
+
+
+-- Processing soln30.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: soln30.vtu 
+
+
+-- Processing soln31.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: soln31.vtu 
+
+
+-- Processing soln32.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: soln32.vtu 
+
+
+-- Processing soln33.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: soln33.vtu 
+
+
+-- Processing soln34.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: soln34.vtu 
+
+
+-- Processing soln35.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: soln35.vtu 
+
+
+-- Processing soln36.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: soln36.vtu 
+
+
+-- Processing soln37.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: soln37.vtu 
+
+
+-- Processing soln38.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: soln38.vtu 
+
+
+-- Processing soln39.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: soln39.vtu 
+
+
+-- Processing soln3.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: soln3.vtu 
+
+
+-- Processing soln40.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: soln40.vtu 
+
+
+-- Processing soln4.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: soln4.vtu 
+
+
+-- Processing soln5.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: soln5.vtu 
+
+
+-- Processing soln6.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: soln6.vtu 
+
+
+-- Processing soln7.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: soln7.vtu 
+
+
+-- Processing soln8.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: soln8.vtu 
+
+
+-- Processing soln9.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/04.........................done
+Write field 02/04.........................done
+Write field 03/04.........................done
+Write field 04/04.........................done
+* Conversion done in 0 seconds
+* Output file name: soln9.vtu 
+ 
+ --> File soln.pvd created
+ 
+
+
+-- Processing full_soln0.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/24.........................done
+Write field 02/24.........................done
+Write field 03/24.........................done
+Write field 04/24.........................done
+Write field 05/24.........................done
+Write field 06/24.........................done
+Write field 07/24.........................done
+Write field 08/24.........................done
+Write field 09/24.........................done
+Write field 10/24.........................done
+Write field 11/24.........................done
+Write field 12/24.........................done
+Write field 13/24.........................done
+Write field 14/24.........................done
+Write field 15/24.........................done
+Write field 16/24.........................done
+Write field 17/24.........................done
+Write field 18/24.........................done
+Write field 19/24.........................done
+Write field 20/24.........................done
+Write field 21/24.........................done
+Write field 22/24.........................done
+Write field 23/24.........................done
+Write field 24/24.........................done
+* Conversion done in 0 seconds
+* Output file name: full_soln0.vtu 
+
+
+-- Processing full_soln10.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/24.........................done
+Write field 02/24.........................done
+Write field 03/24.........................done
+Write field 04/24.........................done
+Write field 05/24.........................done
+Write field 06/24.........................done
+Write field 07/24.........................done
+Write field 08/24.........................done
+Write field 09/24.........................done
+Write field 10/24.........................done
+Write field 11/24.........................done
+Write field 12/24.........................done
+Write field 13/24.........................done
+Write field 14/24.........................done
+Write field 15/24.........................done
+Write field 16/24.........................done
+Write field 17/24.........................done
+Write field 18/24.........................done
+Write field 19/24.........................done
+Write field 20/24.........................done
+Write field 21/24.........................done
+Write field 22/24.........................done
+Write field 23/24.........................done
+Write field 24/24.........................done
+* Conversion done in 1 seconds
+* Output file name: full_soln10.vtu 
+
+
+-- Processing full_soln11.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/24.........................done
+Write field 02/24.........................done
+Write field 03/24.........................done
+Write field 04/24.........................done
+Write field 05/24.........................done
+Write field 06/24.........................done
+Write field 07/24.........................done
+Write field 08/24.........................done
+Write field 09/24.........................done
+Write field 10/24.........................done
+Write field 11/24.........................done
+Write field 12/24.........................done
+Write field 13/24.........................done
+Write field 14/24.........................done
+Write field 15/24.........................done
+Write field 16/24.........................done
+Write field 17/24.........................done
+Write field 18/24.........................done
+Write field 19/24.........................done
+Write field 20/24.........................done
+Write field 21/24.........................done
+Write field 22/24.........................done
+Write field 23/24.........................done
+Write field 24/24.........................done
+* Conversion done in 1 seconds
+* Output file name: full_soln11.vtu 
+
+
+-- Processing full_soln12.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/24.........................done
+Write field 02/24.........................done
+Write field 03/24.........................done
+Write field 04/24.........................done
+Write field 05/24.........................done
+Write field 06/24.........................done
+Write field 07/24.........................done
+Write field 08/24.........................done
+Write field 09/24.........................done
+Write field 10/24.........................done
+Write field 11/24.........................done
+Write field 12/24.........................done
+Write field 13/24.........................done
+Write field 14/24.........................done
+Write field 15/24.........................done
+Write field 16/24.........................done
+Write field 17/24.........................done
+Write field 18/24.........................done
+Write field 19/24.........................done
+Write field 20/24.........................done
+Write field 21/24.........................done
+Write field 22/24.........................done
+Write field 23/24.........................done
+Write field 24/24.........................done
+* Conversion done in 0 seconds
+* Output file name: full_soln12.vtu 
+
+
+-- Processing full_soln13.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/24.........................done
+Write field 02/24.........................done
+Write field 03/24.........................done
+Write field 04/24.........................done
+Write field 05/24.........................done
+Write field 06/24.........................done
+Write field 07/24.........................done
+Write field 08/24.........................done
+Write field 09/24.........................done
+Write field 10/24.........................done
+Write field 11/24.........................done
+Write field 12/24.........................done
+Write field 13/24.........................done
+Write field 14/24.........................done
+Write field 15/24.........................done
+Write field 16/24.........................done
+Write field 17/24.........................done
+Write field 18/24.........................done
+Write field 19/24.........................done
+Write field 20/24.........................done
+Write field 21/24.........................done
+Write field 22/24.........................done
+Write field 23/24.........................done
+Write field 24/24.........................done
+* Conversion done in 1 seconds
+* Output file name: full_soln13.vtu 
+
+
+-- Processing full_soln14.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/24.........................done
+Write field 02/24.........................done
+Write field 03/24.........................done
+Write field 04/24.........................done
+Write field 05/24.........................done
+Write field 06/24.........................done
+Write field 07/24.........................done
+Write field 08/24.........................done
+Write field 09/24.........................done
+Write field 10/24.........................done
+Write field 11/24.........................done
+Write field 12/24.........................done
+Write field 13/24.........................done
+Write field 14/24.........................done
+Write field 15/24.........................done
+Write field 16/24.........................done
+Write field 17/24.........................done
+Write field 18/24.........................done
+Write field 19/24.........................done
+Write field 20/24.........................done
+Write field 21/24.........................done
+Write field 22/24.........................done
+Write field 23/24.........................done
+Write field 24/24.........................done
+* Conversion done in 1 seconds
+* Output file name: full_soln14.vtu 
+
+
+-- Processing full_soln15.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/24.........................done
+Write field 02/24.........................done
+Write field 03/24.........................done
+Write field 04/24.........................done
+Write field 05/24.........................done
+Write field 06/24.........................done
+Write field 07/24.........................done
+Write field 08/24.........................done
+Write field 09/24.........................done
+Write field 10/24.........................done
+Write field 11/24.........................done
+Write field 12/24.........................done
+Write field 13/24.........................done
+Write field 14/24.........................done
+Write field 15/24.........................done
+Write field 16/24.........................done
+Write field 17/24.........................done
+Write field 18/24.........................done
+Write field 19/24.........................done
+Write field 20/24.........................done
+Write field 21/24.........................done
+Write field 22/24.........................done
+Write field 23/24.........................done
+Write field 24/24.........................done
+* Conversion done in 1 seconds
+* Output file name: full_soln15.vtu 
+
+
+-- Processing full_soln16.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/24.........................done
+Write field 02/24.........................done
+Write field 03/24.........................done
+Write field 04/24.........................done
+Write field 05/24.........................done
+Write field 06/24.........................done
+Write field 07/24.........................done
+Write field 08/24.........................done
+Write field 09/24.........................done
+Write field 10/24.........................done
+Write field 11/24.........................done
+Write field 12/24.........................done
+Write field 13/24.........................done
+Write field 14/24.........................done
+Write field 15/24.........................done
+Write field 16/24.........................done
+Write field 17/24.........................done
+Write field 18/24.........................done
+Write field 19/24.........................done
+Write field 20/24.........................done
+Write field 21/24.........................done
+Write field 22/24.........................done
+Write field 23/24.........................done
+Write field 24/24.........................done
+* Conversion done in 0 seconds
+* Output file name: full_soln16.vtu 
+
+
+-- Processing full_soln17.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/24.........................done
+Write field 02/24.........................done
+Write field 03/24.........................done
+Write field 04/24.........................done
+Write field 05/24.........................done
+Write field 06/24.........................done
+Write field 07/24.........................done
+Write field 08/24.........................done
+Write field 09/24.........................done
+Write field 10/24.........................done
+Write field 11/24.........................done
+Write field 12/24.........................done
+Write field 13/24.........................done
+Write field 14/24.........................done
+Write field 15/24.........................done
+Write field 16/24.........................done
+Write field 17/24.........................done
+Write field 18/24.........................done
+Write field 19/24.........................done
+Write field 20/24.........................done
+Write field 21/24.........................done
+Write field 22/24.........................done
+Write field 23/24.........................done
+Write field 24/24.........................done
+* Conversion done in 1 seconds
+* Output file name: full_soln17.vtu 
+
+
+-- Processing full_soln18.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/24.........................done
+Write field 02/24.........................done
+Write field 03/24.........................done
+Write field 04/24.........................done
+Write field 05/24.........................done
+Write field 06/24.........................done
+Write field 07/24.........................done
+Write field 08/24.........................done
+Write field 09/24.........................done
+Write field 10/24.........................done
+Write field 11/24.........................done
+Write field 12/24.........................done
+Write field 13/24.........................done
+Write field 14/24.........................done
+Write field 15/24.........................done
+Write field 16/24.........................done
+Write field 17/24.........................done
+Write field 18/24.........................done
+Write field 19/24.........................done
+Write field 20/24.........................done
+Write field 21/24.........................done
+Write field 22/24.........................done
+Write field 23/24.........................done
+Write field 24/24.........................done
+* Conversion done in 0 seconds
+* Output file name: full_soln18.vtu 
+
+
+-- Processing full_soln19.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/24.........................done
+Write field 02/24.........................done
+Write field 03/24.........................done
+Write field 04/24.........................done
+Write field 05/24.........................done
+Write field 06/24.........................done
+Write field 07/24.........................done
+Write field 08/24.........................done
+Write field 09/24.........................done
+Write field 10/24.........................done
+Write field 11/24.........................done
+Write field 12/24.........................done
+Write field 13/24.........................done
+Write field 14/24.........................done
+Write field 15/24.........................done
+Write field 16/24.........................done
+Write field 17/24.........................done
+Write field 18/24.........................done
+Write field 19/24.........................done
+Write field 20/24.........................done
+Write field 21/24.........................done
+Write field 22/24.........................done
+Write field 23/24.........................done
+Write field 24/24.........................done
+* Conversion done in 0 seconds
+* Output file name: full_soln19.vtu 
+
+
+-- Processing full_soln1.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/24.........................done
+Write field 02/24.........................done
+Write field 03/24.........................done
+Write field 04/24.........................done
+Write field 05/24.........................done
+Write field 06/24.........................done
+Write field 07/24.........................done
+Write field 08/24.........................done
+Write field 09/24.........................done
+Write field 10/24.........................done
+Write field 11/24.........................done
+Write field 12/24.........................done
+Write field 13/24.........................done
+Write field 14/24.........................done
+Write field 15/24.........................done
+Write field 16/24.........................done
+Write field 17/24.........................done
+Write field 18/24.........................done
+Write field 19/24.........................done
+Write field 20/24.........................done
+Write field 21/24.........................done
+Write field 22/24.........................done
+Write field 23/24.........................done
+Write field 24/24.........................done
+* Conversion done in 0 seconds
+* Output file name: full_soln1.vtu 
+
+
+-- Processing full_soln20.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/24.........................done
+Write field 02/24.........................done
+Write field 03/24.........................done
+Write field 04/24.........................done
+Write field 05/24.........................done
+Write field 06/24.........................done
+Write field 07/24.........................done
+Write field 08/24.........................done
+Write field 09/24.........................done
+Write field 10/24.........................done
+Write field 11/24.........................done
+Write field 12/24.........................done
+Write field 13/24.........................done
+Write field 14/24.........................done
+Write field 15/24.........................done
+Write field 16/24.........................done
+Write field 17/24.........................done
+Write field 18/24.........................done
+Write field 19/24.........................done
+Write field 20/24.........................done
+Write field 21/24.........................done
+Write field 22/24.........................done
+Write field 23/24.........................done
+Write field 24/24.........................done
+* Conversion done in 1 seconds
+* Output file name: full_soln20.vtu 
+
+
+-- Processing full_soln21.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/24.........................done
+Write field 02/24.........................done
+Write field 03/24.........................done
+Write field 04/24.........................done
+Write field 05/24.........................done
+Write field 06/24.........................done
+Write field 07/24.........................done
+Write field 08/24.........................done
+Write field 09/24.........................done
+Write field 10/24.........................done
+Write field 11/24.........................done
+Write field 12/24.........................done
+Write field 13/24.........................done
+Write field 14/24.........................done
+Write field 15/24.........................done
+Write field 16/24.........................done
+Write field 17/24.........................done
+Write field 18/24.........................done
+Write field 19/24.........................done
+Write field 20/24.........................done
+Write field 21/24.........................done
+Write field 22/24.........................done
+Write field 23/24.........................done
+Write field 24/24.........................done
+* Conversion done in 0 seconds
+* Output file name: full_soln21.vtu 
+
+
+-- Processing full_soln22.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/24.........................done
+Write field 02/24.........................done
+Write field 03/24.........................done
+Write field 04/24.........................done
+Write field 05/24.........................done
+Write field 06/24.........................done
+Write field 07/24.........................done
+Write field 08/24.........................done
+Write field 09/24.........................done
+Write field 10/24.........................done
+Write field 11/24.........................done
+Write field 12/24.........................done
+Write field 13/24.........................done
+Write field 14/24.........................done
+Write field 15/24.........................done
+Write field 16/24.........................done
+Write field 17/24.........................done
+Write field 18/24.........................done
+Write field 19/24.........................done
+Write field 20/24.........................done
+Write field 21/24.........................done
+Write field 22/24.........................done
+Write field 23/24.........................done
+Write field 24/24.........................done
+* Conversion done in 1 seconds
+* Output file name: full_soln22.vtu 
+
+
+-- Processing full_soln23.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/24.........................done
+Write field 02/24.........................done
+Write field 03/24.........................done
+Write field 04/24.........................done
+Write field 05/24.........................done
+Write field 06/24.........................done
+Write field 07/24.........................done
+Write field 08/24.........................done
+Write field 09/24.........................done
+Write field 10/24.........................done
+Write field 11/24.........................done
+Write field 12/24.........................done
+Write field 13/24.........................done
+Write field 14/24.........................done
+Write field 15/24.........................done
+Write field 16/24.........................done
+Write field 17/24.........................done
+Write field 18/24.........................done
+Write field 19/24.........................done
+Write field 20/24.........................done
+Write field 21/24.........................done
+Write field 22/24.........................done
+Write field 23/24.........................done
+Write field 24/24.........................done
+* Conversion done in 0 seconds
+* Output file name: full_soln23.vtu 
+
+
+-- Processing full_soln24.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/24.........................done
+Write field 02/24.........................done
+Write field 03/24.........................done
+Write field 04/24.........................done
+Write field 05/24.........................done
+Write field 06/24.........................done
+Write field 07/24.........................done
+Write field 08/24.........................done
+Write field 09/24.........................done
+Write field 10/24.........................done
+Write field 11/24.........................done
+Write field 12/24.........................done
+Write field 13/24.........................done
+Write field 14/24.........................done
+Write field 15/24.........................done
+Write field 16/24.........................done
+Write field 17/24.........................done
+Write field 18/24.........................done
+Write field 19/24.........................done
+Write field 20/24.........................done
+Write field 21/24.........................done
+Write field 22/24.........................done
+Write field 23/24.........................done
+Write field 24/24.........................done
+* Conversion done in 0 seconds
+* Output file name: full_soln24.vtu 
+
+
+-- Processing full_soln25.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/24.........................done
+Write field 02/24.........................done
+Write field 03/24.........................done
+Write field 04/24.........................done
+Write field 05/24.........................done
+Write field 06/24.........................done
+Write field 07/24.........................done
+Write field 08/24.........................done
+Write field 09/24.........................done
+Write field 10/24.........................done
+Write field 11/24.........................done
+Write field 12/24.........................done
+Write field 13/24.........................done
+Write field 14/24.........................done
+Write field 15/24.........................done
+Write field 16/24.........................done
+Write field 17/24.........................done
+Write field 18/24.........................done
+Write field 19/24.........................done
+Write field 20/24.........................done
+Write field 21/24.........................done
+Write field 22/24.........................done
+Write field 23/24.........................done
+Write field 24/24.........................done
+* Conversion done in 1 seconds
+* Output file name: full_soln25.vtu 
+
+
+-- Processing full_soln26.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/24.........................done
+Write field 02/24.........................done
+Write field 03/24.........................done
+Write field 04/24.........................done
+Write field 05/24.........................done
+Write field 06/24.........................done
+Write field 07/24.........................done
+Write field 08/24.........................done
+Write field 09/24.........................done
+Write field 10/24.........................done
+Write field 11/24.........................done
+Write field 12/24.........................done
+Write field 13/24.........................done
+Write field 14/24.........................done
+Write field 15/24.........................done
+Write field 16/24.........................done
+Write field 17/24.........................done
+Write field 18/24.........................done
+Write field 19/24.........................done
+Write field 20/24.........................done
+Write field 21/24.........................done
+Write field 22/24.........................done
+Write field 23/24.........................done
+Write field 24/24.........................done
+* Conversion done in 0 seconds
+* Output file name: full_soln26.vtu 
+
+
+-- Processing full_soln27.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/24.........................done
+Write field 02/24.........................done
+Write field 03/24.........................done
+Write field 04/24.........................done
+Write field 05/24.........................done
+Write field 06/24.........................done
+Write field 07/24.........................done
+Write field 08/24.........................done
+Write field 09/24.........................done
+Write field 10/24.........................done
+Write field 11/24.........................done
+Write field 12/24.........................done
+Write field 13/24.........................done
+Write field 14/24.........................done
+Write field 15/24.........................done
+Write field 16/24.........................done
+Write field 17/24.........................done
+Write field 18/24.........................done
+Write field 19/24.........................done
+Write field 20/24.........................done
+Write field 21/24.........................done
+Write field 22/24.........................done
+Write field 23/24.........................done
+Write field 24/24.........................done
+* Conversion done in 0 seconds
+* Output file name: full_soln27.vtu 
+
+
+-- Processing full_soln28.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/24.........................done
+Write field 02/24.........................done
+Write field 03/24.........................done
+Write field 04/24.........................done
+Write field 05/24.........................done
+Write field 06/24.........................done
+Write field 07/24.........................done
+Write field 08/24.........................done
+Write field 09/24.........................done
+Write field 10/24.........................done
+Write field 11/24.........................done
+Write field 12/24.........................done
+Write field 13/24.........................done
+Write field 14/24.........................done
+Write field 15/24.........................done
+Write field 16/24.........................done
+Write field 17/24.........................done
+Write field 18/24.........................done
+Write field 19/24.........................done
+Write field 20/24.........................done
+Write field 21/24.........................done
+Write field 22/24.........................done
+Write field 23/24.........................done
+Write field 24/24.........................done
+* Conversion done in 1 seconds
+* Output file name: full_soln28.vtu 
+
+
+-- Processing full_soln29.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/24.........................done
+Write field 02/24.........................done
+Write field 03/24.........................done
+Write field 04/24.........................done
+Write field 05/24.........................done
+Write field 06/24.........................done
+Write field 07/24.........................done
+Write field 08/24.........................done
+Write field 09/24.........................done
+Write field 10/24.........................done
+Write field 11/24.........................done
+Write field 12/24.........................done
+Write field 13/24.........................done
+Write field 14/24.........................done
+Write field 15/24.........................done
+Write field 16/24.........................done
+Write field 17/24.........................done
+Write field 18/24.........................done
+Write field 19/24.........................done
+Write field 20/24.........................done
+Write field 21/24.........................done
+Write field 22/24.........................done
+Write field 23/24.........................done
+Write field 24/24.........................done
+* Conversion done in 1 seconds
+* Output file name: full_soln29.vtu 
+
+
+-- Processing full_soln2.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/24.........................done
+Write field 02/24.........................done
+Write field 03/24.........................done
+Write field 04/24.........................done
+Write field 05/24.........................done
+Write field 06/24.........................done
+Write field 07/24.........................done
+Write field 08/24.........................done
+Write field 09/24.........................done
+Write field 10/24.........................done
+Write field 11/24.........................done
+Write field 12/24.........................done
+Write field 13/24.........................done
+Write field 14/24.........................done
+Write field 15/24.........................done
+Write field 16/24.........................done
+Write field 17/24.........................done
+Write field 18/24.........................done
+Write field 19/24.........................done
+Write field 20/24.........................done
+Write field 21/24.........................done
+Write field 22/24.........................done
+Write field 23/24.........................done
+Write field 24/24.........................done
+* Conversion done in 1 seconds
+* Output file name: full_soln2.vtu 
+
+
+-- Processing full_soln30.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/24.........................done
+Write field 02/24.........................done
+Write field 03/24.........................done
+Write field 04/24.........................done
+Write field 05/24.........................done
+Write field 06/24.........................done
+Write field 07/24.........................done
+Write field 08/24.........................done
+Write field 09/24.........................done
+Write field 10/24.........................done
+Write field 11/24.........................done
+Write field 12/24.........................done
+Write field 13/24.........................done
+Write field 14/24.........................done
+Write field 15/24.........................done
+Write field 16/24.........................done
+Write field 17/24.........................done
+Write field 18/24.........................done
+Write field 19/24.........................done
+Write field 20/24.........................done
+Write field 21/24.........................done
+Write field 22/24.........................done
+Write field 23/24.........................done
+Write field 24/24.........................done
+* Conversion done in 1 seconds
+* Output file name: full_soln30.vtu 
+
+
+-- Processing full_soln31.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/24.........................done
+Write field 02/24.........................done
+Write field 03/24.........................done
+Write field 04/24.........................done
+Write field 05/24.........................done
+Write field 06/24.........................done
+Write field 07/24.........................done
+Write field 08/24.........................done
+Write field 09/24.........................done
+Write field 10/24.........................done
+Write field 11/24.........................done
+Write field 12/24.........................done
+Write field 13/24.........................done
+Write field 14/24.........................done
+Write field 15/24.........................done
+Write field 16/24.........................done
+Write field 17/24.........................done
+Write field 18/24.........................done
+Write field 19/24.........................done
+Write field 20/24.........................done
+Write field 21/24.........................done
+Write field 22/24.........................done
+Write field 23/24.........................done
+Write field 24/24.........................done
+* Conversion done in 1 seconds
+* Output file name: full_soln31.vtu 
+
+
+-- Processing full_soln32.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/24.........................done
+Write field 02/24.........................done
+Write field 03/24.........................done
+Write field 04/24.........................done
+Write field 05/24.........................done
+Write field 06/24.........................done
+Write field 07/24.........................done
+Write field 08/24.........................done
+Write field 09/24.........................done
+Write field 10/24.........................done
+Write field 11/24.........................done
+Write field 12/24.........................done
+Write field 13/24.........................done
+Write field 14/24.........................done
+Write field 15/24.........................done
+Write field 16/24.........................done
+Write field 17/24.........................done
+Write field 18/24.........................done
+Write field 19/24.........................done
+Write field 20/24.........................done
+Write field 21/24.........................done
+Write field 22/24.........................done
+Write field 23/24.........................done
+Write field 24/24.........................done
+* Conversion done in 1 seconds
+* Output file name: full_soln32.vtu 
+
+
+-- Processing full_soln33.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/24.........................done
+Write field 02/24.........................done
+Write field 03/24.........................done
+Write field 04/24.........................done
+Write field 05/24.........................done
+Write field 06/24.........................done
+Write field 07/24.........................done
+Write field 08/24.........................done
+Write field 09/24.........................done
+Write field 10/24.........................done
+Write field 11/24.........................done
+Write field 12/24.........................done
+Write field 13/24.........................done
+Write field 14/24.........................done
+Write field 15/24.........................done
+Write field 16/24.........................done
+Write field 17/24.........................done
+Write field 18/24.........................done
+Write field 19/24.........................done
+Write field 20/24.........................done
+Write field 21/24.........................done
+Write field 22/24.........................done
+Write field 23/24.........................done
+Write field 24/24.........................done
+* Conversion done in 0 seconds
+* Output file name: full_soln33.vtu 
+
+
+-- Processing full_soln34.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/24.........................done
+Write field 02/24.........................done
+Write field 03/24.........................done
+Write field 04/24.........................done
+Write field 05/24.........................done
+Write field 06/24.........................done
+Write field 07/24.........................done
+Write field 08/24.........................done
+Write field 09/24.........................done
+Write field 10/24.........................done
+Write field 11/24.........................done
+Write field 12/24.........................done
+Write field 13/24.........................done
+Write field 14/24.........................done
+Write field 15/24.........................done
+Write field 16/24.........................done
+Write field 17/24.........................done
+Write field 18/24.........................done
+Write field 19/24.........................done
+Write field 20/24.........................done
+Write field 21/24.........................done
+Write field 22/24.........................done
+Write field 23/24.........................done
+Write field 24/24.........................done
+* Conversion done in 1 seconds
+* Output file name: full_soln34.vtu 
+
+
+-- Processing full_soln35.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/24.........................done
+Write field 02/24.........................done
+Write field 03/24.........................done
+Write field 04/24.........................done
+Write field 05/24.........................done
+Write field 06/24.........................done
+Write field 07/24.........................done
+Write field 08/24.........................done
+Write field 09/24.........................done
+Write field 10/24.........................done
+Write field 11/24.........................done
+Write field 12/24.........................done
+Write field 13/24.........................done
+Write field 14/24.........................done
+Write field 15/24.........................done
+Write field 16/24.........................done
+Write field 17/24.........................done
+Write field 18/24.........................done
+Write field 19/24.........................done
+Write field 20/24.........................done
+Write field 21/24.........................done
+Write field 22/24.........................done
+Write field 23/24.........................done
+Write field 24/24.........................done
+* Conversion done in 0 seconds
+* Output file name: full_soln35.vtu 
+
+
+-- Processing full_soln36.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/24.........................done
+Write field 02/24.........................done
+Write field 03/24.........................done
+Write field 04/24.........................done
+Write field 05/24.........................done
+Write field 06/24.........................done
+Write field 07/24.........................done
+Write field 08/24.........................done
+Write field 09/24.........................done
+Write field 10/24.........................done
+Write field 11/24.........................done
+Write field 12/24.........................done
+Write field 13/24.........................done
+Write field 14/24.........................done
+Write field 15/24.........................done
+Write field 16/24.........................done
+Write field 17/24.........................done
+Write field 18/24.........................done
+Write field 19/24.........................done
+Write field 20/24.........................done
+Write field 21/24.........................done
+Write field 22/24.........................done
+Write field 23/24.........................done
+Write field 24/24.........................done
+* Conversion done in 0 seconds
+* Output file name: full_soln36.vtu 
+
+
+-- Processing full_soln37.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/24.........................done
+Write field 02/24.........................done
+Write field 03/24.........................done
+Write field 04/24.........................done
+Write field 05/24.........................done
+Write field 06/24.........................done
+Write field 07/24.........................done
+Write field 08/24.........................done
+Write field 09/24.........................done
+Write field 10/24.........................done
+Write field 11/24.........................done
+Write field 12/24.........................done
+Write field 13/24.........................done
+Write field 14/24.........................done
+Write field 15/24.........................done
+Write field 16/24.........................done
+Write field 17/24.........................done
+Write field 18/24.........................done
+Write field 19/24.........................done
+Write field 20/24.........................done
+Write field 21/24.........................done
+Write field 22/24.........................done
+Write field 23/24.........................done
+Write field 24/24.........................done
+* Conversion done in 0 seconds
+* Output file name: full_soln37.vtu 
+
+
+-- Processing full_soln38.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/24.........................done
+Write field 02/24.........................done
+Write field 03/24.........................done
+Write field 04/24.........................done
+Write field 05/24.........................done
+Write field 06/24.........................done
+Write field 07/24.........................done
+Write field 08/24.........................done
+Write field 09/24.........................done
+Write field 10/24.........................done
+Write field 11/24.........................done
+Write field 12/24.........................done
+Write field 13/24.........................done
+Write field 14/24.........................done
+Write field 15/24.........................done
+Write field 16/24.........................done
+Write field 17/24.........................done
+Write field 18/24.........................done
+Write field 19/24.........................done
+Write field 20/24.........................done
+Write field 21/24.........................done
+Write field 22/24.........................done
+Write field 23/24.........................done
+Write field 24/24.........................done
+* Conversion done in 1 seconds
+* Output file name: full_soln38.vtu 
+
+
+-- Processing full_soln39.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/24.........................done
+Write field 02/24.........................done
+Write field 03/24.........................done
+Write field 04/24.........................done
+Write field 05/24.........................done
+Write field 06/24.........................done
+Write field 07/24.........................done
+Write field 08/24.........................done
+Write field 09/24.........................done
+Write field 10/24.........................done
+Write field 11/24.........................done
+Write field 12/24.........................done
+Write field 13/24.........................done
+Write field 14/24.........................done
+Write field 15/24.........................done
+Write field 16/24.........................done
+Write field 17/24.........................done
+Write field 18/24.........................done
+Write field 19/24.........................done
+Write field 20/24.........................done
+Write field 21/24.........................done
+Write field 22/24.........................done
+Write field 23/24.........................done
+Write field 24/24.........................done
+* Conversion done in 1 seconds
+* Output file name: full_soln39.vtu 
+
+
+-- Processing full_soln3.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/24.........................done
+Write field 02/24.........................done
+Write field 03/24.........................done
+Write field 04/24.........................done
+Write field 05/24.........................done
+Write field 06/24.........................done
+Write field 07/24.........................done
+Write field 08/24.........................done
+Write field 09/24.........................done
+Write field 10/24.........................done
+Write field 11/24.........................done
+Write field 12/24.........................done
+Write field 13/24.........................done
+Write field 14/24.........................done
+Write field 15/24.........................done
+Write field 16/24.........................done
+Write field 17/24.........................done
+Write field 18/24.........................done
+Write field 19/24.........................done
+Write field 20/24.........................done
+Write field 21/24.........................done
+Write field 22/24.........................done
+Write field 23/24.........................done
+Write field 24/24.........................done
+* Conversion done in 0 seconds
+* Output file name: full_soln3.vtu 
+
+
+-- Processing full_soln40.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/24.........................done
+Write field 02/24.........................done
+Write field 03/24.........................done
+Write field 04/24.........................done
+Write field 05/24.........................done
+Write field 06/24.........................done
+Write field 07/24.........................done
+Write field 08/24.........................done
+Write field 09/24.........................done
+Write field 10/24.........................done
+Write field 11/24.........................done
+Write field 12/24.........................done
+Write field 13/24.........................done
+Write field 14/24.........................done
+Write field 15/24.........................done
+Write field 16/24.........................done
+Write field 17/24.........................done
+Write field 18/24.........................done
+Write field 19/24.........................done
+Write field 20/24.........................done
+Write field 21/24.........................done
+Write field 22/24.........................done
+Write field 23/24.........................done
+Write field 24/24.........................done
+* Conversion done in 0 seconds
+* Output file name: full_soln40.vtu 
+
+
+-- Processing full_soln4.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/24.........................done
+Write field 02/24.........................done
+Write field 03/24.........................done
+Write field 04/24.........................done
+Write field 05/24.........................done
+Write field 06/24.........................done
+Write field 07/24.........................done
+Write field 08/24.........................done
+Write field 09/24.........................done
+Write field 10/24.........................done
+Write field 11/24.........................done
+Write field 12/24.........................done
+Write field 13/24.........................done
+Write field 14/24.........................done
+Write field 15/24.........................done
+Write field 16/24.........................done
+Write field 17/24.........................done
+Write field 18/24.........................done
+Write field 19/24.........................done
+Write field 20/24.........................done
+Write field 21/24.........................done
+Write field 22/24.........................done
+Write field 23/24.........................done
+Write field 24/24.........................done
+* Conversion done in 0 seconds
+* Output file name: full_soln4.vtu 
+
+
+-- Processing full_soln5.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/24.........................done
+Write field 02/24.........................done
+Write field 03/24.........................done
+Write field 04/24.........................done
+Write field 05/24.........................done
+Write field 06/24.........................done
+Write field 07/24.........................done
+Write field 08/24.........................done
+Write field 09/24.........................done
+Write field 10/24.........................done
+Write field 11/24.........................done
+Write field 12/24.........................done
+Write field 13/24.........................done
+Write field 14/24.........................done
+Write field 15/24.........................done
+Write field 16/24.........................done
+Write field 17/24.........................done
+Write field 18/24.........................done
+Write field 19/24.........................done
+Write field 20/24.........................done
+Write field 21/24.........................done
+Write field 22/24.........................done
+Write field 23/24.........................done
+Write field 24/24.........................done
+* Conversion done in 1 seconds
+* Output file name: full_soln5.vtu 
+
+
+-- Processing full_soln6.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/24.........................done
+Write field 02/24.........................done
+Write field 03/24.........................done
+Write field 04/24.........................done
+Write field 05/24.........................done
+Write field 06/24.........................done
+Write field 07/24.........................done
+Write field 08/24.........................done
+Write field 09/24.........................done
+Write field 10/24.........................done
+Write field 11/24.........................done
+Write field 12/24.........................done
+Write field 13/24.........................done
+Write field 14/24.........................done
+Write field 15/24.........................done
+Write field 16/24.........................done
+Write field 17/24.........................done
+Write field 18/24.........................done
+Write field 19/24.........................done
+Write field 20/24.........................done
+Write field 21/24.........................done
+Write field 22/24.........................done
+Write field 23/24.........................done
+Write field 24/24.........................done
+* Conversion done in 1 seconds
+* Output file name: full_soln6.vtu 
+
+
+-- Processing full_soln7.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/24.........................done
+Write field 02/24.........................done
+Write field 03/24.........................done
+Write field 04/24.........................done
+Write field 05/24.........................done
+Write field 06/24.........................done
+Write field 07/24.........................done
+Write field 08/24.........................done
+Write field 09/24.........................done
+Write field 10/24.........................done
+Write field 11/24.........................done
+Write field 12/24.........................done
+Write field 13/24.........................done
+Write field 14/24.........................done
+Write field 15/24.........................done
+Write field 16/24.........................done
+Write field 17/24.........................done
+Write field 18/24.........................done
+Write field 19/24.........................done
+Write field 20/24.........................done
+Write field 21/24.........................done
+Write field 22/24.........................done
+Write field 23/24.........................done
+Write field 24/24.........................done
+* Conversion done in 0 seconds
+* Output file name: full_soln7.vtu 
+
+
+-- Processing full_soln8.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/24.........................done
+Write field 02/24.........................done
+Write field 03/24.........................done
+Write field 04/24.........................done
+Write field 05/24.........................done
+Write field 06/24.........................done
+Write field 07/24.........................done
+Write field 08/24.........................done
+Write field 09/24.........................done
+Write field 10/24.........................done
+Write field 11/24.........................done
+Write field 12/24.........................done
+Write field 13/24.........................done
+Write field 14/24.........................done
+Write field 15/24.........................done
+Write field 16/24.........................done
+Write field 17/24.........................done
+Write field 18/24.........................done
+Write field 19/24.........................done
+Write field 20/24.........................done
+Write field 21/24.........................done
+Write field 22/24.........................done
+Write field 23/24.........................done
+Write field 24/24.........................done
+* Conversion done in 1 seconds
+* Output file name: full_soln8.vtu 
+
+
+-- Processing full_soln9.dat
+* oomph-convert.py, ver. 20110615
+Parse input file for Tecplot zones........done
+* 77824 lines ignored
+Write nodal coordinates...................done
+Write cell connectivity...................done
+Write cell offsets........................done
+Write cell types..........................done
+Write field 01/24.........................done
+Write field 02/24.........................done
+Write field 03/24.........................done
+Write field 04/24.........................done
+Write field 05/24.........................done
+Write field 06/24.........................done
+Write field 07/24.........................done
+Write field 08/24.........................done
+Write field 09/24.........................done
+Write field 10/24.........................done
+Write field 11/24.........................done
+Write field 12/24.........................done
+Write field 13/24.........................done
+Write field 14/24.........................done
+Write field 15/24.........................done
+Write field 16/24.........................done
+Write field 17/24.........................done
+Write field 18/24.........................done
+Write field 19/24.........................done
+Write field 20/24.........................done
+Write field 21/24.........................done
+Write field 22/24.........................done
+Write field 23/24.........................done
+Write field 24/24.........................done
+* Conversion done in 0 seconds
+* Output file name: full_soln9.vtu 
+ 
+ --> File full_soln.pvd created
+ 
+./emitest.bash: línea 133: ne: orden no encontrada
+ 
+ 
+Done!
+ 
+ 

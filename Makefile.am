@@ -19,9 +19,10 @@ noinst_PROGRAMS = unrotated_square \
                   axisym_displ_based_fvk \
                   element_test \
                   test_disk_fvk \
+                  test_disk_restart_fvk \
                   fvk_axisymmetric \
-                  test_disk_fvk_test \
-                  rupinder_fvk_axisymmetric
+                  rupinder_fvk_axisymmetric \
+                  find_wavenumber
 
 
 
@@ -29,8 +30,12 @@ noinst_PROGRAMS = unrotated_square \
 #-Odd ones out---------------------------------------------------------
 # Sources for axisym driver
 rupinder_fvk_axisymmetric_SOURCES = rupinder_fvk_axisymmetric.cc 
+find_wavenumber_SOURCES = find_wavenumber.cc
+
 # Required libraries: 
 rupinder_fvk_axisymmetric_LDADD = -L@libdir@ -lgeneric $(EXTERNAL_LIBS) $(FLIBS)
+find_wavenumber_LDADD = -L@libdir@ -lgeneric $(EXTERNAL_LIBS) $(FLIBS)
+
 
 
 
@@ -72,10 +77,10 @@ element_test_SOURCES = \
  element_test.cc
  test_disk_fvk_SOURCES = \
  test_disk.cc
+ test_disk_restart_fvk_SOURCES = \
+ test_disk_restart.cc
  fvk_axisymmetric_SOURCES = \
  fvk_axisymmetric.cc
- test_disk_fvk_test_SOURCES = \
- test_disk2.cc
  
 matthias_disk_explorer_ks_CXXFLAGS = -DUSE_KS
 
@@ -113,9 +118,10 @@ element_test_LDADD = -L@libdir@ -lc1_foeppl_von_karman \
  -lgeneric $(EXTERNAL_LIBS) $(FLIBS)
 test_disk_fvk_LDADD = -L@libdir@ -lc1_foeppl_von_karman \
  -lgeneric $(EXTERNAL_LIBS) $(FLIBS)
-fvk_axisymmetric_LDADD = -L@libdir@ -lgeneric $(EXTERNAL_LIBS) $(FLIBS) 
-test_disk_fvk_test_LDADD = -L@libdir@ -lc1_foeppl_von_karman \
+ test_disk_restart_fvk_LDADD = -L@libdir@ -lc1_foeppl_von_karman \
  -lgeneric $(EXTERNAL_LIBS) $(FLIBS)
+fvk_axisymmetric_LDADD = -L@libdir@ -lgeneric $(EXTERNAL_LIBS) $(FLIBS) 
+
 
 # Local sources that Jack's own code depends on: This code also uses
 # objects from Jack's own library. The source code for this library
