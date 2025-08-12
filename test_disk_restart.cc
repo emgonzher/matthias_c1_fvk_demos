@@ -749,6 +749,12 @@ private:
   /// Doc info object for labeling output
   DocInfo Doc_info;
 
+  public:
+    // Add this function to allow access to Doc_info but keep it on private
+    const DocInfo& get_doc_info() const {
+        return Doc_info;
+    }
+
 
 }; // end_of_problem_class
 
@@ -1765,12 +1771,22 @@ void UnstructuredC1PlateProblem<ELEMENT>::doc_solution()
 
  }
 
-  // Write restart file
+  // Write the restart file
  sprintf(filename,"%s/restart%i.dat",Doc_info.directory().c_str(),
          Doc_info.number());
  some_file.open(filename);
  dump_it(some_file);
  some_file.close();
+
+ // Write pressure in each simulation step
+ std::string pressure_filename = to_string(Doc_info.directory())+"/pressures.dat";                     
+ std::ofstream output_file;
+ output_file.open(pressure_filename,std::ios::app); // append new line
+ output_file.precision(16);
+ output_file << Parameters::P_mag << " "
+             << Doc_info.number() << " "
+             << std::endl;
+ output_file.close();
 
  // Increment the doc_info number
  Doc_info.number()++;
@@ -1842,10 +1858,9 @@ void UnstructuredC1PlateProblem<ELEMENT>::set_prev_solution()
  //-------------------
  if (restart_file_pt!=0)
   {
- 
    // Read the problem data from the restart file
-   unsigned n_element = Bulk_mesh_pt->nnode();
-   oomph_info << "blabla = " << n_element << std::endl;
+   unsigned n_node = Bulk_mesh_pt->nnode();
+   oomph_info << "blabla = " << n_node << std::endl;
    restart(*restart_file_pt);
  
   }
@@ -2191,7 +2206,8 @@ oomph_info << "Initial state - Nondimensional parameters: "
   // Document the current solution
   problem.doc_solution();
 
-  oomph_info << "P_mag = "  <<  Parameters::P_mag << " "
+  oomph_info << "P_mag = "  <<  Parameters::P_mag << "//"
+             << "at step " << problem.get_doc_info().number() << " "
              << std::endl;
   } 
   oomph_info << "pitchfork-2:" << "//"
@@ -2232,6 +2248,7 @@ oomph_info << "Initial state - Nondimensional parameters: "
   problem.doc_solution();
 
   oomph_info << "P_mag = "  <<  Parameters::P_mag << " "
+             << "at step " << problem.get_doc_info().number() << " "
              << std::endl;
   }
 
