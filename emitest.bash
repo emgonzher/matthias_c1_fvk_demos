@@ -2,7 +2,7 @@
 
 
 # Setup directories YOU MUST PICK A NAME FOR YOUR OURPUT DIRECTORY.
-main_dir=Run_ea0001_nseg4_Eta_141e5_pinc1_polyline_restartest2 #pcos1
+main_dir=RunTest #pcos1
 # main_dir=Run_pitchfork_ea005_nseg4_Eta_141e5_pcos01_pinc01
 if [ -e $main_dir ]; then
     echo " "

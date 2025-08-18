@@ -284,7 +284,7 @@ namespace Parameters
  unsigned N_mode = 6;
 
  /// Element area
- double Element_area = 0.001; // original 0.5 - tried with 0.2
+ double Element_area = 0.5; // original 0.5 - tried with 0.2
 
  #ifdef USE_KS
  
@@ -2150,7 +2150,7 @@ oomph_info << "Initial state - Nondimensional parameters: "
 
   Parameters::P_mag = 0.0;
   Parameters::P_cos = 0.1; //0.1
-  Parameters::N_mode = 3;
+  Parameters::N_mode = 6;
 
   // 1-Switch on p_cos:
   // Solve the system
@@ -2195,10 +2195,10 @@ oomph_info << "Initial state - Nondimensional parameters: "
 // ----------------------------------------------------------
 
   // 2-Loop to increment P_mag
-   while ( Parameters::P_mag < 20.0 ) 
+   while ( Parameters::P_mag < 40.0 ) 
   {
   // Bump
-  Parameters::P_mag += 0.1;
+  Parameters::P_mag += 1;
 
   // Solve the system
   problem.newton_solve();
