@@ -284,7 +284,7 @@ namespace Parameters
  unsigned N_mode = 6;
 
  /// Element area
- double Element_area = 0.001; // original 0.5 - tried with 0.2
+ double Element_area = 0.5; // original 0.5 - tried with 0.2
 
  #ifdef USE_KS
  
@@ -629,6 +629,7 @@ private:
 
  // The Line Visualiser - miraqui_line
   LineVisualiser* LV_pt_1;
+  LineVisualiser* LV_pt_2;
  
  /// Doc boundary elements and faces
  // hierher move this into triangle mesh and describe output and prefix
@@ -1439,18 +1440,31 @@ UnstructuredC1PlateProblem<ELEMENT>::UnstructuredC1PlateProblem(const double&
  // Evaluate solution along a specific line
  if (Parameters::Linesol == true)
  {
+ 
+  // line1: Radial lines for nphi angles each with npt points
   // Number of points in each line
   unsigned npt=50;
 
   // Number of lines
   unsigned nphi = 105;
-
-  oomph_info << "Nphi = " << nphi
-             << "Nr = " << npt
+  
+  // Write number of point in each line1 -- needed for postprocess
+  std::string nrnphi_file = to_string(Doc_info.directory())+"/nr_nphi_line1.txt";                     
+  std::ofstream output_file1(nrnphi_file);
+  output_file1.precision(8);
+  output_file1 << "# nr nphi" << std::endl;
+  output_file1 << npt << " " << nphi << std::endl;
+  output_file1.close();
+  
+  // Print info with number of points each simulation step
+  oomph_info << "line1 - number of points: "
+  			 << "Nphi = " << nphi 
+             << "Nr = " << npt 
              << std::endl;
-
+             
   // nphi lines with npt dots along r coordinate
   Vector<Vector<double> > coord_vec_1(npt*nphi);
+
 
   for (unsigned i=0;i<nphi;i++)
   {
@@ -1461,6 +1475,48 @@ UnstructuredC1PlateProblem<ELEMENT>::UnstructuredC1PlateProblem(const double&
     coord_vec_1[j+i*npt][1]=double(j)/double(npt-1)*sin(2*MathematicalConstants::Pi/double(nphi-1)*i);
     }
   }
+  
+  // line2: These are azimutal lines - we evaluate the sol in n_radius lines
+  // each with n_theta points
+  	
+  	// fixed radii to evaluate solutions
+    std::vector<double> r_vector;
+    r_vector = {0.5, 0.95}; // miraqui - problems if r=1?
+
+  	// Number of azimutal lines
+    unsigned n_radius = r_vector.size();
+  
+  	// Number of points in line
+  	unsigned n_theta = 210;
+  	
+  	// coordinates of lines with n_theta dots and given radius
+	Vector<Vector<double> > coord_vec_2(n_radius*n_theta);
+	
+	
+	// Write number of point in each line2 -- needed for postprocess
+  	std::string nrntheta_file = to_string(Doc_info.directory())+"/nr_nphi_line2.txt";                     
+  	std::ofstream output_file2(nrntheta_file);
+  	output_file2.precision(8);
+  	output_file2 << "# n_r2 n_phi2" << std::endl;
+  	output_file2 << n_radius << " " << n_theta << std::endl;
+  	output_file2.close();
+  	
+  	  // Print info with number of points each simulation step
+  	  oomph_info << "line2 - number of points: "
+  			     << "Nphi2 = " << nphi 
+                 << "Nr2 = " << npt 
+                 << std::endl;
+
+
+	for (unsigned i = 0; i < n_radius; ++i) {
+		for (unsigned j = 0; j < n_theta; ++j) {
+		    unsigned idx = j + i * n_theta; // flatten (i,j)
+		    double theta = 2 * MathematicalConstants::Pi * j / double(n_theta - 1);
+		    coord_vec_2[idx].resize(2);
+		    coord_vec_2[idx][0] = r_vector[i] * cos(theta);
+		    coord_vec_2[idx][1] = r_vector[i] * sin(theta);
+		}
+	}
 
   // Vector<Vector<double> > coord_vec_1(npt);
   // for (unsigned j=0;j<npt;j++)
@@ -1480,7 +1536,12 @@ UnstructuredC1PlateProblem<ELEMENT>::UnstructuredC1PlateProblem(const double&
   LV_pt_1=
     new LineVisualiser(Bulk_mesh_pt, //??
                      coord_vec_1);
+  // Setup line visualiser -- miraqui_line
+  LV_pt_2=
+    new LineVisualiser(Bulk_mesh_pt, //??
+                     coord_vec_2);                    
  }
+
 
 } // end Constructor
 
@@ -1737,7 +1798,7 @@ void UnstructuredC1PlateProblem<ELEMENT>::pin_for_balance_on_edge()
 template<class ELEMENT>
 void UnstructuredC1PlateProblem<ELEMENT>::doc_solution()
 {
- ofstream some_file,some_file2,some_file3; // miraqui - is enough with one some_file 
+ ofstream some_file,some_file2,some_file3,some_file4; // miraqui - is enough with one some_file 
  char filename[100];
  
  
@@ -1768,6 +1829,12 @@ void UnstructuredC1PlateProblem<ELEMENT>::doc_solution()
   some_file3.open(filename);
   LV_pt_1->output(some_file3);
   some_file3.close();
+
+  sprintf(filename,"%s/line2_soln%i.dat",Doc_info.directory().c_str(),
+          Doc_info.number());
+  some_file4.open(filename);
+  LV_pt_2->output(some_file4);
+  some_file4.close();
 
  }
 
@@ -2095,10 +2162,10 @@ oomph_info << "Initial state - Nondimensional parameters: "
 //  // ------------------------------------------------------------
 //  // === Loop to change P_mag
 //  // ------------------------------------------------------------
-//  while (Parameters::P_mag < 10) //10) 
+//  while (Parameters::P_mag < 40) //10) 
 // {
 //   // Bump
-//   Parameters::P_mag += 1;
+//   Parameters::P_mag += 11;
 
 //   oomph_info << "Trying P_mag = "  <<  Parameters::P_mag << " "
 //         << std::endl;
@@ -2110,7 +2177,8 @@ oomph_info << "Initial state - Nondimensional parameters: "
 //   problem.doc_solution();
 // }
 // // second part
-// while (Parameters::P_mag < 10) //10) 
+
+// while (Parameters::P_mag < 9) //10) 
 // {
 //   // Bump
 //   Parameters::P_mag += 0.1;
@@ -2126,19 +2194,19 @@ oomph_info << "Initial state - Nondimensional parameters: "
 // }
 
 
-// // // == Change manually after last step: 
-// // // -------------------------------------
-// //   Parameters::P_mag = 10; //86.23;//32.9025;
+// // == Change manually after last step: 
+// // -------------------------------------
+//   Parameters::P_mag = 10; //86.23;//32.9025;
 
-// //   oomph_info << "Trying P_mag (last) = "  <<  Parameters::P_mag << " "
-// //              << std::endl;
+//   oomph_info << "Trying P_mag (last) = "  <<  Parameters::P_mag << " "
+//              << std::endl;
 
-// //   // Solve the system
-// //   problem.newton_solve();
+//   // Solve the system
+//   problem.newton_solve();
       
-// //   // Document the current solution
-// //   problem.doc_solution();
-//  // --------------------------------------
+//   // Document the current solution
+//   problem.doc_solution();
+ // --------------------------------------
 
 // // ============================================================
 
@@ -2148,15 +2216,15 @@ oomph_info << "Initial state - Nondimensional parameters: "
   // Loop to track Pitchfork
   // ----------------------------------------------------------
 
+  // 1-Switch on p_cos:
   Parameters::P_mag = 0.0;
   Parameters::P_cos = 0.1; //0.1
-  Parameters::N_mode = 3;
+  Parameters::N_mode = 6;
 
-  // 1-Switch on p_cos:
   // Solve the system
   problem.newton_solve();
 
-  // Document the initial state
+  // Document the state
   problem.doc_solution();
 
     oomph_info << "pitchfork-1:" << "//"
@@ -2195,7 +2263,7 @@ oomph_info << "Initial state - Nondimensional parameters: "
 // ----------------------------------------------------------
 
   // 2-Loop to increment P_mag
-   while ( Parameters::P_mag < 20.0 ) 
+   while ( Parameters::P_mag < 10.0 ) 
   {
   // Bump
   Parameters::P_mag += 0.1;
