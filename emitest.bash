@@ -2,7 +2,7 @@
 
 
 # Setup directories YOU MUST PICK A NAME FOR YOUR OURPUT DIRECTORY.
-main_dir=Run_ea0001_nseg4_Eta_141e5_pinc1_polyline_restartest2 #pcos1
+main_dir=RESLT_hoop/Run_ea05_pcos01_pinc02_n10_test #nseg4_Eta_141e5_pinc1_poly_pitchfork_n6_2lines #pcos1
 # main_dir=Run_pitchfork_ea005_nseg4_Eta_141e5_pcos01_pinc01
 if [ -e $main_dir ]; then
     echo " "
@@ -76,7 +76,7 @@ for postfix in `echo $postfix_list`; do
                     home_dir=`pwd`
                     
                     # Transfer the important files to the main directory and go there
-                    cp $important_files $restart_file $the_dir 
+                    cp $important_files $restart_file $the_dir #miraqui restart_file - why copied here?
                     cd $the_dir
                     
                     reslt_dir=RESLT
@@ -132,6 +132,27 @@ for postfix in `echo $postfix_list`; do
                     oomph-convert full_soln*.dat; makePvd full_soln full_soln.pvd
                     
                     # Next
+                    cd $home_dir
+                    
+                    # Copy to reslt_dir postprocess programs
+                    cp postprocess.cc pitchfork1.cc pitchfork2.cc animation_maker.bash compare_anim.pvsm $the_dir/$reslt_dir
+                    
+                    # make them executable
+                    cd $the_dir/$reslt_dir
+                    g++ pitchfork1.cc -o pitchfork1
+                    g++ pitchfork2.cc -o pitchfork2
+                    g++ postprocess.cc -o postprocess
+                    .
+                    echo "Postprocess..."
+                    ./postprocess line1_soln*.dat
+                    ./pitchfork1 ./PPDAT/pert*.dat
+                    ./pitchfork2 line2_soln*.dat
+                    
+                    # do executable the animation_maker and run it
+                    chmod +xwr animation_maker.bash
+                    ./animation_maker.bash    
+                    
+                    # Back to home
                     cd $home_dir
 
                 done
