@@ -20,6 +20,7 @@ noinst_PROGRAMS = unrotated_square \
                   element_test \
                   test_disk_fvk \
                   test_disk_restart_fvk \
+                  test_disk_damped_fvk \
                   fvk_axisymmetric \
                   rupinder_fvk_axisymmetric \
                   find_wavenumber
@@ -79,6 +80,8 @@ element_test_SOURCES = \
  test_disk.cc
  test_disk_restart_fvk_SOURCES = \
  test_disk_restart.cc
+  test_disk_damped_fvk_SOURCES = \
+ test_disk_damped.cc
  fvk_axisymmetric_SOURCES = \
  fvk_axisymmetric.cc
  
@@ -119,6 +122,8 @@ element_test_LDADD = -L@libdir@ -lc1_foeppl_von_karman \
 test_disk_fvk_LDADD = -L@libdir@ -lc1_foeppl_von_karman \
  -lgeneric $(EXTERNAL_LIBS) $(FLIBS)
  test_disk_restart_fvk_LDADD = -L@libdir@ -lc1_foeppl_von_karman \
+ -lgeneric $(EXTERNAL_LIBS) $(FLIBS)
+  test_disk_damped_fvk_LDADD = -L@libdir@ -lc1_foeppl_von_karman \
  -lgeneric $(EXTERNAL_LIBS) $(FLIBS)
 fvk_axisymmetric_LDADD = -L@libdir@ -lgeneric $(EXTERNAL_LIBS) $(FLIBS) 
 
