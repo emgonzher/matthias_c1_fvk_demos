@@ -18,6 +18,7 @@ mkdir $main_dir
 
 # Do it
 ./$executable --test_damped_solve > OUTPUT 
+#./$executable  > OUTPUT 
                             
 cd $main_dir
 oomph-convert soln*.dat; makePvd soln soln.pvd 

@@ -2,7 +2,7 @@
 
 
 # Setup directories YOU MUST PICK A NAME FOR YOUR OURPUT DIRECTORY.
-main_dir=RESLT_hoop/Run_ea05_pcos01_pinc02_n10_test #nseg4_Eta_141e5_pinc1_poly_pitchfork_n6_2lines #pcos1
+main_dir=RESLT_damped/ea005_pinc1_damped #Run_ea05_pcos01_pinc02_n10_test #nseg4_Eta_141e5_pinc1_poly_pitchfork_n6_2lines #pcos1
 # main_dir=Run_pitchfork_ea005_nseg4_Eta_141e5_pcos01_pinc01
 if [ -e $main_dir ]; then
     echo " "
@@ -21,7 +21,7 @@ fi
 mkdir $main_dir
 
 
-stem=test_disk_restart  
+stem=test_disk_damped #test_disk_restart  
 postfix_list="_fvk" #  _ks"
 prev_sol_arg="" #"--use_prev_sol"
 restart_file="" #"restart9.dat" #
@@ -142,7 +142,7 @@ for postfix in `echo $postfix_list`; do
                     g++ pitchfork1.cc -o pitchfork1
                     g++ pitchfork2.cc -o pitchfork2
                     g++ postprocess.cc -o postprocess
-                    .
+                    
                     echo "Postprocess..."
                     ./postprocess line1_soln*.dat
                     ./pitchfork1 ./PPDAT/pert*.dat

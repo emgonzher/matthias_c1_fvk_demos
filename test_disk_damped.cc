@@ -229,17 +229,23 @@ namespace Parameters
   Free_edges
  };
 
+ /// Save data alog defined (see constructor) lines
+ bool Linesol = true;
+
  /// Rotate coordinates on curvilinear boundaries?
  bool Rotate_coordinates_on_all_curvilinear_boundaries=true;
 
  /// Which case are we doing
- unsigned Problem_case = Free_edges;
+ unsigned Problem_case = Free_edges; // doubt - no effect?
+
+ /// Nondimensional radio
+ double Lambda = 1;
  
  /// Ellipse half x-axis
- double A = 1.0;
+ double A = Lambda;
  
  /// Ellipse half y-axis
- double B = 1.0;
+ double B = Lambda;
  
  /// Poisson ratio
  double Nu = 0.5;
@@ -249,7 +255,8 @@ namespace Parameters
  double Mu =1.0; 
  
  /// Nondimensional thickness of plate
- double Thickness = 0.01;
+ double Thickness =  8e-2; // Lambda 1 cases - 10; //0.01; -- miraqui R0 formulation 
+ 
 
  #ifdef USE_KS
 
@@ -273,14 +280,15 @@ namespace Parameters
  /// Pressure magnitude
   double P_mag = 0.0;
 
- /// pressure perturbation
- double P_cos=0.0;
-
- /// Wavenumber for pressure perturbation
- unsigned N_cos=6;
+ /// Parameters to track Pitchfork bifurcation:
  
+ /// Pressure perturbation 
+ double P_cos = 0.0;
+ /// Proposed mode
+ unsigned N_mode = 6;
+
  /// Element area
- double Element_area = 0.5;
+ double Element_area = 0.05; // original 0.5 
 
  #ifdef USE_KS
  
@@ -334,13 +342,45 @@ namespace Parameters
   }
 
 #else
- 
- /// Pressure depending on the position (x,y)
-  void get_pressure(const Vector<double>& x, double& pressure)
-  {
-   double phi=atan2(x[1],x[0]);
-   pressure = P_mag + P_cos*cos(phi*double(N_cos));
-  }
+// ==================== original
+//  /// Pressure depending on the position (x,y)
+//   void get_pressure(const Vector<double>& x, double& pressure)
+//   {
+//    pressure = P_mag;
+//   }
+  
+// ===========
+  // bool p_is_uniform = false;
+
+  // if (p_is_uniform)
+  // {
+  //   /// Uniform pressure
+  //   void get_pressure(const Vector<double>& x, double& pressure)
+  //   {
+  //     pressure = P_mag;
+  //   }
+  // }
+  // else
+  // {
+    /// Pressure depending on the position (x,y)
+    void get_pressure(const Vector<double>& x, double& pressure)
+    {
+      // We define the angular coordinate:
+      //double p_cos = 0.1;
+      double theta = 0; 
+      // miraqui - define for different cuadrants - Not working...
+      theta = atan2(x[1],x[0]);
+      //oomph_info << "theta:" << theta << std::endl;
+      double r2 = x[0]*x[0]+x[1]*x[1];
+      pressure = P_mag + P_cos*r2*cos(double(N_mode)*theta);
+    }
+ // }
+// ================
+
+
+
+
+
 
   /// In plane forcing (shear stress) depending on the position (x,y)
   void get_in_plane_traction(const Vector<double>& x, Vector<double>& tau)
@@ -610,7 +650,7 @@ public:
 double damped_solve(
  const double& dt_supplied_guess, 
  const double& epsilon, 
- DampedSolveDocSolutionFctPt doc_soln_fct_pt=0)
+ DampedSolveDocSolutionFctPt doc_soln_fct_pt=0) // doc_soln_fct_pt=0 ?? 
   {
    // We are unsteady until a steady solve succeeds
    bool dofs_are_steady = false;
@@ -644,7 +684,6 @@ double damped_solve(
    {
     doc_soln_fct_pt(unsteady_solve_counter);
     unsteady_solve_counter++;
-    //oomph_info << "blabla" << std::endl;
    }
   
   
@@ -805,7 +844,9 @@ double damped_solve(
  
 private:
 
-
+ // The Line Visualiser - miraqui_line
+  LineVisualiser* LV_pt_1;
+  LineVisualiser* LV_pt_2;
  
  /// Doc boundary elements and faces
  // hierher move this into triangle mesh and describe output and prefix
@@ -916,9 +957,15 @@ private:
 
   /// Doc info object for labeling output
   DocInfo Doc_info;
+  
+  
+public:
+// Add this function to allow access to Doc_info but keep it on private
+const DocInfo& get_doc_info() const {
+    return Doc_info;
+}
 
- // The Line Visualiser.
- LineVisualiser* LV_pt;
+
 
 
 }; // end_of_problem_class
@@ -955,7 +1002,8 @@ UnstructuredC1PlateProblem<ELEMENT>::UnstructuredC1PlateProblem(const double&
  //First bit
  double zeta_start = 0.0;
  double zeta_end = 0.5*MathematicalConstants::Pi;
- unsigned nsegment = (unsigned)(MathematicalConstants::Pi/sqrt(Element_area));
+ unsigned nsegment = 4; //(unsigned)(MathematicalConstants::Pi/sqrt(Element_area)); //miraqui - element_area
+ oomph_info << "nsegment = " << nsegment << std::endl;
  outer_curvilinear_boundary_pt[0] = 
   new TriangleMeshCurviLine(outer_boundary_ellipse_pt, zeta_start,
                             zeta_end, nsegment, Outer_boundary0);
@@ -980,6 +1028,13 @@ UnstructuredC1PlateProblem<ELEMENT>::UnstructuredC1PlateProblem(const double&
   {
    flatten_one_side=false;
   }
+  else if // mod_3
+  (Parameters::Problem_case==Parameters::Free_edges)
+  {
+   flatten_one_side=false;
+  }
+  
+  
  if (flatten_one_side)
   {
    zeta_start = 0.0;
@@ -1106,6 +1161,8 @@ UnstructuredC1PlateProblem<ELEMENT>::UnstructuredC1PlateProblem(const double&
       // Straight curvilinear line
       TwoDStraightLineFromTwoPoints* straight_line_pt =
        new TwoDStraightLineFromTwoPoints(vertices[0],vertices[1]);
+
+      oomph_info << "hierher curvi inner geom obj: " << straight_line_pt << std::endl;
        
       double zeta_start=0.0;
       double zeta_end=1.0;
@@ -1443,32 +1500,110 @@ UnstructuredC1PlateProblem<ELEMENT>::UnstructuredC1PlateProblem(const double&
   sprintf(filename, "RESLT/trace.dat");
   Trace_file.open(filename);
 
+ // Evaluate solution along a specific line
+ if (Parameters::Linesol == true)
+ {
+ 
+  // line1: Radial lines for nphi angles each with npt points
+  // Number of points in each line
+  unsigned npt=50;
 
+  // Number of lines
+  unsigned nphi = 105;
   
-  // Setup sample points for line visualiser
-  unsigned  npt=100;
-  Vector<Vector<double> > coord_vec(npt);
-  coord_vec[0].resize(2);
-  coord_vec[0][0]=0.0;
-  coord_vec[0][1]=0.0;
-  for (unsigned j=1;j<npt;j++)
-   {
-    coord_vec[j].resize(2);
-    coord_vec[j][0]=double(j)/double(npt);
-    coord_vec[j][1]=0.0;
-   }
+  // Write number of point in each line1 -- needed for postprocess
+  std::string nrnphi_file = to_string(Doc_info.directory())+"/nr_nphi_line1.txt";                     
+  std::ofstream output_file1(nrnphi_file);
+  output_file1.precision(8);
+  output_file1 << "# nr nphi" << std::endl;
+  output_file1 << npt << " " << nphi << std::endl;
+  output_file1.close();
+  
+  // Print info with number of points each simulation step
+  oomph_info << "line1 - number of points: "
+  			 << "Nphi = " << nphi 
+             << "Nr = " << npt 
+             << std::endl;
+             
+  // nphi lines with npt dots along r coordinate
+  Vector<Vector<double> > coord_vec_1(npt*nphi);
 
+
+  for (unsigned i=0;i<nphi;i++)
+  {
+    for (unsigned j=0;j<npt;j++)
+    {
+    coord_vec_1[j+i*npt].resize(2);
+    coord_vec_1[j+i*npt][0]=double(j)/double(npt-1)*cos(2*MathematicalConstants::Pi/double(nphi-1)*i);
+    coord_vec_1[j+i*npt][1]=double(j)/double(npt-1)*sin(2*MathematicalConstants::Pi/double(nphi-1)*i);
+    }
+  }
   
+  // line2: These are azimutal lines - we evaluate the sol in n_radius lines
+  // each with n_theta points
+  	
+  	// fixed radii to evaluate solutions
+    std::vector<double> r_vector;
+    r_vector = {0.5, 0.95}; // miraqui - problems if r=1?
+
+  	// Number of azimutal lines
+    unsigned n_radius = r_vector.size();
+  
+  	// Number of points in line
+  	unsigned n_theta = 210;
+  	
+  	// coordinates of lines with n_theta dots and given radius
+	Vector<Vector<double> > coord_vec_2(n_radius*n_theta);
+	
+	
+	// Write number of point in each line2 -- needed for postprocess
+  	std::string nrntheta_file = to_string(Doc_info.directory())+"/nr_nphi_line2.txt";                     
+  	std::ofstream output_file2(nrntheta_file);
+  	output_file2.precision(8);
+  	output_file2 << "# n_r2 n_phi2" << std::endl;
+  	output_file2 << n_radius << " " << n_theta << std::endl;
+  	output_file2.close();
+  	
+  	  // Print info with number of points each simulation step
+  	  oomph_info << "line2 - number of points: "
+  			     << "Nphi2 = " << nphi 
+                 << "Nr2 = " << npt 
+                 << std::endl;
+
+
+	for (unsigned i = 0; i < n_radius; ++i) {
+		for (unsigned j = 0; j < n_theta; ++j) {
+		    unsigned idx = j + i * n_theta; // flatten (i,j)
+		    double theta = 2 * MathematicalConstants::Pi * j / double(n_theta - 1);
+		    coord_vec_2[idx].resize(2);
+		    coord_vec_2[idx][0] = r_vector[i] * cos(theta);
+		    coord_vec_2[idx][1] = r_vector[i] * sin(theta);
+		}
+	}
+
+  // Vector<Vector<double> > coord_vec_1(npt);
+  // for (unsigned j=0;j<npt;j++)
+  // {
+  //  coord_vec_1[j].resize(2);
+  //  coord_vec_1[j][0]=double(j)/double(npt);
+  //  coord_vec_1[j][1]=0.0;
+  // }
+    
   // The C1 elements don't provide a standard implementation
   // of dshape(s,...) so locate_zeta has to use finite
   // differencing. Call this before setting up the
   // line visualiser; this is where the locate_zeta happens!
   Locate_zeta_helpers::Evaluate_dzeta_ds_by_fd=true;
 
-  
-  // Setup line visualiser
-  LV_pt=new LineVisualiser(Bulk_mesh_pt,
-                           coord_vec);
+  // Setup line visualiser -- miraqui_line
+  LV_pt_1=
+    new LineVisualiser(Bulk_mesh_pt, //??
+                     coord_vec_1);
+  // Setup line visualiser -- miraqui_line
+  LV_pt_2=
+    new LineVisualiser(Bulk_mesh_pt, //??
+                     coord_vec_2);                    
+ }
 
 
   
@@ -1606,6 +1741,9 @@ pin_all_displacements_and_rotation_at_centre_node()
  
  // Pin y displacement at node at furthest x distance to suppress rotation about
  // the vertical axis
+ bool pin_rot = true; // mod_4 -- No effect
+ if (pin_rot)
+ {
  pinned_rotation_node_pt->pin(1);
  
  oomph_info << "Pinning (FvK dofs 1) "
@@ -1613,6 +1751,15 @@ pin_all_displacements_and_rotation_at_centre_node()
             << pinned_rotation_node_pt->x(0) << " "
             << pinned_rotation_node_pt->x(1) << " "
             << std::endl;
+ }
+ else
+ {
+   oomph_info << "Not Pinning (FvK dofs 1) - miraqui "
+            << " at "
+            << pinned_rotation_node_pt->x(0) << " "
+            << pinned_rotation_node_pt->x(1) << " "
+            << std::endl;
+ }
  
 #endif
 }
@@ -1723,7 +1870,7 @@ void UnstructuredC1PlateProblem<ELEMENT>::pin_for_balance_on_edge()
 template<class ELEMENT>
 void UnstructuredC1PlateProblem<ELEMENT>::doc_solution()
 {
- ofstream some_file,some_file2;
+ ofstream some_file,some_file2,some_file3,some_file4; // miraqui - is enough with one some_file 
  char filename[100];
  
  
@@ -1747,17 +1894,35 @@ void UnstructuredC1PlateProblem<ELEMENT>::doc_solution()
    dynamic_cast<ELEMENT*>(Bulk_mesh_pt->element_pt(e))->full_output(some_file2,Parameters::Nplot);
   }
  some_file2.close();
+#endif
 
- #endif
- 
- // Output line visualiser solution 
- sprintf(filename,"%s/line_soln%i.dat",
-         Doc_info.directory().c_str(),
-         Doc_info.number());
- some_file.open(filename);
- LV_pt->output(some_file);
- some_file.close();
+ // Output line solutions - miraqui_line
+ if (Parameters::Linesol == true)
+ {
+  sprintf(filename,"%s/line1_soln%i.dat",Doc_info.directory().c_str(),
+          Doc_info.number());
+  some_file3.open(filename);
+  LV_pt_1->output(some_file3);
+  some_file3.close();
 
+  sprintf(filename,"%s/line2_soln%i.dat",Doc_info.directory().c_str(),
+          Doc_info.number());
+  some_file4.open(filename);
+  LV_pt_2->output(some_file4);
+  some_file4.close();
+
+ }
+
+
+ // Write pressure in each simulation step
+ std::string pressure_filename = to_string(Doc_info.directory())+"/pressures.dat";                     
+ std::ofstream output_file;
+ output_file.open(pressure_filename,std::ios::app); // append new line
+ output_file.precision(16);
+ output_file << Parameters::P_mag << " "
+             << Doc_info.number() << " "
+             << std::endl;
+ output_file.close();
 
 
   // Increment the doc_info number
@@ -1789,7 +1954,7 @@ namespace DocProgressOfDampedSolutions
 #endif
 
  /// Function to call doc_solution during damped solves
- void doc_solution_during_damped_solve(const unsigned& i_step) // where is i_step updated?? -- unsteady_solve_counter check
+ void doc_solution_during_damped_solve(const unsigned& i_step)
  {
   oomph_info << "Docing solution for damped solve step "
              << i_step << std::endl;
@@ -1800,6 +1965,53 @@ namespace DocProgressOfDampedSolutions
  }
 
 } // end of namespace
+
+
+// ==== handy function to run damped_solve ========
+
+// ================================================
+// Run damped solve, with optional adaptive stepping
+double run_damped_solve(UnstructuredC1PlateProblem<FoepplVonKarmanC1CurvableBellElement<4>> &problem,
+                        double dt, 
+                        double epsilon, 
+                        bool adaptive = false,
+                        bool docing_sols = false)
+{
+
+	double suggested_next_dt;
+	
+	if (docing_sols)
+	{
+	suggested_next_dt =
+        problem.damped_solve(dt, epsilon,
+                             &DocProgressOfDampedSolutions::doc_solution_during_damped_solve);
+	}
+	else
+	{
+	suggested_next_dt =
+        problem.damped_solve(dt, epsilon);
+        oomph_info << "We are not docing unsteady sols..." << std::endl;
+	}
+    
+
+    if (adaptive)
+    {
+        oomph_info << "Damping completed with dt = " << dt
+                   << ", suggested next dt = " << suggested_next_dt
+                   << ", P_mag = " << Parameters::P_mag << std::endl;
+    }
+    else
+    {
+        oomph_info << "Damping completed with fixed dt = " << dt
+                   << ", P_mag = " << Parameters::P_mag << std::endl;
+    }
+
+    //problem.doc_solution();
+
+    // Return either the new dt (adaptive) or the same dt (fixed)
+    return adaptive ? suggested_next_dt : dt;
+}
+// ====================================================================
 
 
 
@@ -1817,7 +2029,7 @@ int main(int argc, char** argv)
   // Define possible command line arguments and parse the ones that
   // were actually specified
 
-  // Clamped boundary conditions?
+  // Number of plots
   CommandLineArgs::specify_command_line_flag("--nplot",&Parameters::Nplot);
 
   // T-shaped internal boundary
@@ -1835,6 +2047,9 @@ int main(int argc, char** argv)
   // Balance on edge boundary conditions?
   CommandLineArgs::specify_command_line_flag("--use_balance_on_edge_bc");
   
+  // Free boundary conditions?
+  CommandLineArgs::specify_command_line_flag("--use_free_bc"); // mod_1
+
   // Rotate coords?
   CommandLineArgs::specify_command_line_flag
    ("--do_not_rotate_coords_on_curved_boundaries");
@@ -1853,12 +2068,7 @@ int main(int argc, char** argv)
 
   // hierher check that not both are specified
 
-  
-  // Test drive damped solve
-  CommandLineArgs::specify_command_line_flag
-   ("--test_damped_solve");
-  
-  
+   
   // Parse command line
   CommandLineArgs::parse_and_assign();
 
@@ -1900,6 +2110,12 @@ int main(int argc, char** argv)
     Parameters::Problem_case = Parameters::Balance_on_edge;
   }
   
+   /// Free
+  if (CommandLineArgs::command_line_flag_has_been_set("--use_free_bc")) // mod_2
+   {
+    Parameters::Problem_case = Parameters::Free_edges;
+  }
+  
 
 #ifdef USE_KS
   
@@ -1920,82 +2136,266 @@ int main(int argc, char** argv)
   DocProgressOfDampedSolutions::Problem_pt=&problem;
 
   
+  // Do we want to solve the linear problem?
+  // problem.make_linear();
+  
+  // We can (re)set Parameters before solve
+  // ---------------------------------------
+
+  // Physical parameters (SI units)
+  double gravity = 9.81; // m/s^2
+  double density = 900; // kg/m^3
+  double young = 1.44e6;  // Pa
+  Parameters::Nu = 0.5; 
+
+  // Geometrical parameters (SI units)
+  double radius = 1e-1; // m
+  double h_dim = 8e-4; // m
+
+oomph_info << "Dimensional (SI) parameters: " 
+        << "g = "  <<  gravity << " // "
+        << "rho = "   <<  density << " // "
+        << "E = "  <<  young << " // "
+        << "R = " <<  radius << " // "
+        << "h = " << h_dim << " "
+        << std::endl;
+
+  // gamma = R*rho*g/E (final value to reach) 
+  double gamma = gravity*density*radius/young;
+
+  Parameters::Thickness = h_dim/radius; // nondimensional thickness
+
+  // Eta = 12*(1-nu^2)*(R/h)^2
+  Parameters::Eta = 12*(1 - Parameters::Nu * Parameters::Nu) / ( Parameters::Thickness * Parameters::Thickness );
+  
+  // Change RHS = P_mag = gamma*Eta (final value to reach)
+  double P = gamma * Parameters::Eta;
+  oomph_info << "Final P to reach = " << P << " "
+             << std::endl;
+
+  // We reset some parameters to converge Newton method by steps
+  
+  // Update Eta and P_mag
+  Parameters::Eta = 1.41e5; // testing - axi -- change: before defining P
+  Parameters::P_mag = 0; 
+
+// Print parameters info
+oomph_info << "Initial state - Nondimensional parameters: " 
+          << "P_mag (RHS) = "  <<  Parameters::P_mag << " // "
+          << "Eta = " <<  Parameters::Eta << " // "
+          << std::endl;
+  
+
+  // ====== Solving initial state: =============================
   // Tweak Newton solver parameters
   problem.max_residuals() = 1.0e3;
   problem.max_newton_iterations() = 100;
 
+
+
+  // Solve the system
+  problem.newton_solve();
+
   // Document the initial state
   problem.doc_solution();
-
   
-  // Set the Poisson ratio
-  Parameters::Nu = 0.5;
+  // Choose if we want pitchfork tracking or just bump p_mag
   
-  // Do we want to solve the linear problem?
-  // problem.make_linear();
-
-  // Set pressure and incrementation for validation cases
-  Parameters::P_mag = 1.0;
-  double p_inc = 1.0e-2;
-  unsigned n_step = 3;
-
-  
-  if (CommandLineArgs::command_line_flag_has_been_set("--test_damped_solve"))
-   {
-    // 0.1 and 100 steps gives nice animation
-    p_inc=1.0;
-    n_step=10;
-    Parameters::P_cos=1.0;
-   }
-
-  
-  // Overwrite for "Balance on Edge" case
-  if (Parameters::Problem_case == Parameters::Balance_on_edge)
-   {
-    p_inc = 1.0; 
-    n_step = 3; 
-   }
+  bool pitchfork = false;
   
 
+ // ============================================================
+ if (pitchfork)
+ {
+	// ============================================================
+	// ----------------------------------------------------------
+	// Loop to track Pitchfork
+	// ----------------------------------------------------------
 
-  for( unsigned i = 0; i < n_step; i++ )
-  {
-   // Bump
-   Parameters::P_mag += p_inc;
-   
-   // oomph_info << "P_mag = " << Parameters::P_mag << std::endl;
+	  // 1-Switch on p_cos:
+	  Parameters::P_mag = 0.0;
+	  Parameters::P_cos = 0.1; //0.1
+	  Parameters::N_mode = 6;
 
-   if (!CommandLineArgs::command_line_flag_has_been_set("--test_damped_solve"))
-    {
-     // Solve the system
-     problem.newton_solve();
-    }
-   else
-    {
-     // initial value for timestep
-     double dt=1.0;
-     
-     // tolerance for adaptive timestepping; somewhat random
-     // hierher Aidan: any recommendations?
-     double epsilon=1.0e-3;
+	  // Solve the system
+	  problem.newton_solve();
 
-     // Damped solve
-     double suggested_next_dt=
-      problem.damped_solve(dt,epsilon,
-                           &DocProgressOfDampedSolutions::doc_solution_during_damped_solve);
-                           
-//     double suggested_next_dt=
-//      problem.damped_solve(dt,epsilon,0);
+	  // Document the state
+	  problem.doc_solution();
 
-     // Can (but don't have to) to use this for next solve
-     oomph_info << "Suggested next dt = " << suggested_next_dt << " " 
-    		    << "P_mag = " << Parameters::P_mag << std::endl;
-    }
+		oomph_info << "pitchfork-1:" << "//"
+		           << "P_mag = " << Parameters::P_mag << " // "
+		           << "P_cos = " << Parameters::P_cos << " // "
+		           << "N = "     << Parameters::N_mode << " "
+		           << std::endl;
+	 //return 0;
 
-   
-   // Document the current solution
-   problem.doc_solution();
-  }
+	 // ----------------------------------------------------------
+	 // 1.2- Increment P_cos // not necessary - unexpected bifurcation
+
+	  //   while ( Parameters::P_cos < 1.0 ) 
+	  // {
+	  // // Bump
+	  // Parameters::P_cos += 0.1;
+
+	  // // Solve the system
+	  // problem.newton_solve();
+		  
+	  // // Document the current solution
+	  // problem.doc_solution();
+
+	  // oomph_info << "P_cos = "  <<  Parameters::P_cos << " "
+	  //            << std::endl;
+	  // }
+
+	  // oomph_info << "pitchfork-1.2:" << "//"
+	  //         << "P_mag = " << Parameters::P_mag << " // "
+	  //         << "P_cos = " << Parameters::P_cos << " "
+	  //         << "N = "     << Parameters::N_mode << " "
+
+	  //         << std::endl;
+
+	  //return 0;
+	// ----------------------------------------------------------
+
+	// 2-Loop to increment P_mag
+	 while ( Parameters::P_mag < 10.0 ) 
+	 {
+	  // Bump
+	  Parameters::P_mag += 0.1;
+
+	  // Solve the system
+	  problem.newton_solve();
+		  
+	  // Document the current solution
+	  problem.doc_solution();
+
+	  oomph_info << "P_mag = "  <<  Parameters::P_mag << "//"
+		         << "at step " << problem.get_doc_info().number() << " "
+		         << std::endl;
+	  } 
+	  
+	  oomph_info << "pitchfork-2:" << "//"
+		      << "P_mag = " << Parameters::P_mag  << " // "
+		      << "P_cos = " << Parameters::P_cos  << " "
+		      << "N = "     << Parameters::N_mode << " "
+		      << std::endl;
+
+	  // return 0;
+
+	  // 3-Switch off P_cos
+
+	  Parameters::P_cos = 0.0;
+
+	  // Solve the system
+	  problem.newton_solve();
+
+	  // Document the initial state
+	  problem.doc_solution();
+
+		oomph_info << "pitchfork-3:" << "//"
+		           << "P_mag = " << Parameters::P_mag << " // "
+		           << "P_cos = " << Parameters::P_cos << " "
+		           << "N = "     << Parameters::N_mode << " "
+		           << std::endl;
+
+	  // 4-Decreasing pressure until axixsymmetric
+	   while (Parameters::P_mag > 0.0 ) // for (unsigned i = 0; i < 35; i++ )
+	  {
+	  // Bump
+	  Parameters::P_mag -= 0.1;
+
+	  // Solve the system
+	  problem.newton_solve();
+		  
+	  // Document the current solution
+	  problem.doc_solution();
+
+	  oomph_info << "P_mag = "  <<  Parameters::P_mag << " "
+		         << "at step " << problem.get_doc_info().number() << " "
+		         << std::endl;
+	  }
+
+	  oomph_info << "pitchfork-4:" << "//"
+		        << "P_mag = " << Parameters::P_mag << " // "
+		        << "P_cos = " << Parameters::P_cos << " "
+		        << "N = "     << Parameters::N_mode << " "
+		        << std::endl;
+
+	// // ============================================================
+
+ }
+ else
+ {
+// ------------------------------------------------------------
+// === Loop to change P_mag
+// ------------------------------------------------------------
+
+	while (Parameters::P_mag < 11) //10) 
+	{
+	// Bump
+	Parameters::P_mag += 1;
+
+	oomph_info << "Trying P_mag = "  <<  Parameters::P_mag << " "
+		 << std::endl;
+
+	// Solve the system
+	problem.newton_solve();
+	  
+	// Document the current solution
+	problem.doc_solution();
+	}
+	
+	// After reaching some (problematic) pressure: apply damping and reach another steady state
+	Parameters::P_mag += 1;
+	
+	double dt = 1.0;
+	double epsilon = 1.0e-3;
+	bool adapt = false; // adaptative dt or not
+	bool docing = false; // docing unsteady solutions
+	
+    dt = run_damped_solve(problem, dt, epsilon, adapt, docing);
+    
+    // Doc solution after that
+	/problem.doc_solution();
+    
+    
+    // Then, continue increasing pressure from there:
+    
+    while (Parameters::P_mag < 20) //10) 
+	{
+	// Bump
+	Parameters::P_mag += 1;
+
+	oomph_info << "Trying P_mag = "  <<  Parameters::P_mag << " "
+		 << std::endl;
+		 
+ 	// Consider damping for each new pressure:
+ 	//dt = run_damped_solve(problem, dt, epsilon, adapt);
+
+	// Solve the system
+	problem.newton_solve();
+	  
+	// Document the current solution
+	problem.doc_solution();
+	}
+
+	
+	// -----------------------------------------------------------
+ }
+ 
+  // =======================================================================
+
+  // Print parameters info
+  oomph_info << "Final state - Nondimensional parameters: " 
+            << "P_mag (RHS) = "  <<  Parameters::P_mag << " // "
+            << "Eta = " <<  Parameters::Eta << " // "
+            << std::endl;
+
+ return 0;
+
+}// End of main
 
 
-} // End of main
+
+

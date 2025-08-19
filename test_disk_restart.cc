@@ -284,7 +284,7 @@ namespace Parameters
  unsigned N_mode = 6;
 
  /// Element area
- double Element_area = 0.5; // original 0.5 - tried with 0.2
+ double Element_area = 0.5; // original 0.5 
 
  #ifdef USE_KS
  
@@ -1997,6 +1997,10 @@ int main(int argc, char** argv)
   // Re-start from previous solution?
   CommandLineArgs::specify_command_line_flag("--use_prev_sol");
   
+  // Element area
+  CommandLineArgs::specify_command_line_flag("--el_area",
+                                             &Parameters::Element_area);
+
   // Rotate coords?
   CommandLineArgs::specify_command_line_flag
    ("--do_not_rotate_coords_on_curved_boundaries");
