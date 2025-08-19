@@ -284,7 +284,11 @@ namespace Parameters
  unsigned N_mode = 6;
 
  /// Element area
+<<<<<<< Updated upstream
  double Element_area = 0.5; // original 0.5 
+=======
+ double Element_area = 0.001; // original 0.5 - tried with 0.2
+>>>>>>> Stashed changes
 
  #ifdef USE_KS
  
@@ -2267,7 +2271,7 @@ oomph_info << "Initial state - Nondimensional parameters: "
 // ----------------------------------------------------------
 
   // 2-Loop to increment P_mag
-   while ( Parameters::P_mag < 10.0 ) 
+   while ( Parameters::P_mag < 40.0 ) 
   {
   // Bump
   Parameters::P_mag += 0.1;

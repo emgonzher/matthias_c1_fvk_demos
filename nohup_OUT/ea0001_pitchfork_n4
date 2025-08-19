@@ -1,0 +1,212 @@
+Executable : test_disk_restart_fvk
+g++ -DHAVE_CONFIG_H -I. -I../..  -isystem /home/emiliano/oomph-lib/external_distributions/boost/boost_default_installation/include -DOOMPH_HAS_BOOST -isystem /home/emiliano/oomph-lib/external_distributions/gmp/gmp_default_installation/include -DOOMPH_HAS_GMP -isystem /home/emiliano/oomph-lib/external_distributions/mpfr/mpfr_default_installation/include -DOOMPH_HAS_MPFR -isystem /home/emiliano/oomph-lib/external_distributions/cgal/cgal_default_installation/include -DOOMPH_HAS_CGAL -DOOMPH_HAS_STACKTRACE -DOOMPH_HAS_UNISTDH -DOOMPH_HAS_FPUCONTROLH -DOOMPH_HAS_MALLOCH -DOOMPH_HAS_TRIANGLE_LIB -DOOMPH_HAS_TETGEN_LIB -DUSING_OOMPH_SUPERLU -DUSING_OOMPH_SUPERLU_DIST -I/home/emiliano/oomph-lib/build/include -I/home/emiliano/oomph-lib/build/include -Wall -ggdb3 -O0  -DgFortran -O3 -Wall -MT test_disk_restart.o -MD -MP -MF .deps/test_disk_restart.Tpo -c -o test_disk_restart.o test_disk_restart.cc
+In file included from /home/emiliano/oomph-lib/build/include/generic/c1_curved_elements.h:37,
+                 from /home/emiliano/oomph-lib/build/include/generic.h:28,
+                 from test_disk_restart.cc:33:
+/home/emiliano/oomph-lib/build/include/generic/c1_plate_helper.h: In function ‘void oomph::C1PlateHelper::upgrade_triangle_mesh_for_c1_plate_bending(oomph::TriangleMeshBase*, oomph::Mesh*, const bool&)’:
+/home/emiliano/oomph-lib/build/include/generic/c1_plate_helper.h:853:19: warning: structured bindings only available with ‘-std=c++17’ or ‘-std=gnu++17’
+  853 |   for (const auto [b, bla] : c1_curviline_boundary_pt)
+      |                   ^
+In file included from /home/emiliano/oomph-lib/build/include/generic.h:30,
+                 from test_disk_restart.cc:33:
+/home/emiliano/oomph-lib/build/include/generic/subparametric_Telement.h: In instantiation of ‘void oomph::CurvableBellElement<NNODE_1D>::upgrade_element_to_curved(const oomph::C1PlateHelper::CurvedEdgeEnumeration&, const double&, const double&, oomph::C1CurviLine*, const unsigned int&) [with unsigned int NNODE_1D = 4]’:
+/home/emiliano/oomph-lib/build/include/c1_foeppl_von_karman/foeppl_von_karman_curvable_bell_elements.h:894:9:   required from here
+/home/emiliano/oomph-lib/build/include/generic/subparametric_Telement.h:850:17: warning: variable ‘new_integral_pt’ set but not used [-Wunused-but-set-variable]
+  850 |       Integral* new_integral_pt;
+      |                 ^~~~~~~~~~~~~~~
+mv -f .deps/test_disk_restart.Tpo .deps/test_disk_restart.Po
+/bin/bash ../../libtool  --tag=CXX   --mode=link g++ -DgFortran -O3 -Wall -L/home/emiliano/oomph-lib/external_distributions/boost/boost_default_installation/lib -Wl,-rpath,/home/emiliano/oomph-lib/external_distributions/boost/boost_default_installation/lib -L/home/emiliano/oomph-lib/external_distributions/gmp/gmp_default_installation/lib -L/home/emiliano/oomph-lib/external_distributions/mpfr/mpfr_default_installation/lib -L/home/emiliano/oomph-lib/external_distributions/cgal/cgal_default_installation/lib -Wl,-rpath,/home/emiliano/oomph-lib/external_distributions/cgal/cgal_default_installation/lib  -o test_disk_restart_fvk test_disk_restart.o -L/home/emiliano/oomph-lib/build/lib -lc1_foeppl_von_karman -lgeneric -lpthread -lboost_thread -lboost_system -lgmp -lmpfr -lCGAL_Core -lCGAL -loomph_hsl -loomph_crbond_bessel -loomph_triangle -loomph_tetgen -loomph_superlu_4.3 -loomph_metis_from_parmetis_3.1.1 -loomph_lapack -loomph_flapack -loomph_blas -L/usr/lib/gcc/x86_64-linux-gnu/10 -L/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/10/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/10/../../.. -lgfortran -lm -lquadmath 
+libtool: link: g++ -DgFortran -O3 -Wall -Wl,-rpath -Wl,/home/emiliano/oomph-lib/external_distributions/boost/boost_default_installation/lib -Wl,-rpath -Wl,/home/emiliano/oomph-lib/external_distributions/cgal/cgal_default_installation/lib -o test_disk_restart_fvk test_disk_restart.o  -L/home/emiliano/oomph-lib/external_distributions/boost/boost_default_installation/lib -L/home/emiliano/oomph-lib/external_distributions/gmp/gmp_default_installation/lib -L/home/emiliano/oomph-lib/external_distributions/mpfr/mpfr_default_installation/lib -L/home/emiliano/oomph-lib/external_distributions/cgal/cgal_default_installation/lib -L/home/emiliano/oomph-lib/build/lib /home/emiliano/oomph-lib/build/lib/libc1_foeppl_von_karman.so /home/emiliano/oomph-lib/build/lib/libgeneric.so -lpthread -lboost_thread -lboost_system /home/emiliano/oomph-lib/external_distributions/gmp/gmp_default_installation/lib/libgmp.so /home/emiliano/oomph-lib/external_distributions/mpfr/mpfr_default_installation/lib/libmpfr.so -lCGAL_Core -lCGAL /home/emiliano/oomph-lib/build/lib/liboomph_hsl.so /home/emiliano/oomph-lib/build/lib/liboomph_crbond_bessel.so /home/emiliano/oomph-lib/build/lib/liboomph_triangle.a /home/emiliano/oomph-lib/build/lib/liboomph_tetgen.so /home/emiliano/oomph-lib/build/lib/liboomph_superlu_4.3.a /home/emiliano/oomph-lib/build/lib/liboomph_metis_from_parmetis_3.1.1.a /home/emiliano/oomph-lib/build/lib/liboomph_lapack.a /home/emiliano/oomph-lib/build/lib/liboomph_flapack.so /home/emiliano/oomph-lib/build/lib/liboomph_blas.so -L/usr/lib/gcc/x86_64-linux-gnu/10 -L/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/10/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/10/../../.. -lgfortran -lm -lquadmath -Wl,-rpath -Wl,/home/emiliano/oomph-lib/build/lib -Wl,-rpath -Wl,/home/emiliano/oomph-lib/external_distributions/gmp/gmp_default_installation/lib -Wl,-rpath -Wl,/home/emiliano/oomph-lib/external_distributions/mpfr/mpfr_default_installation/lib -Wl,-rpath -Wl,/home/emiliano/oomph-lib/build/lib -Wl,-rpath -Wl,/home/emiliano/oomph-lib/external_distributions/gmp/gmp_default_installation/lib -Wl,-rpath -Wl,/home/emiliano/oomph-lib/external_distributions/mpfr/mpfr_default_installation/lib
+_free
+ 
+ 
+Running: 
+-rwxrwxr-x 1 emiliano emiliano 10839008 ago 19 01:14 test_disk_restart_fvk
+--nplot 5 --use_polyline_for_internal_boundaries --use_free_bc
+ in /home/emiliano/oomph-lib/user_drivers/matthias_c1_fvk_demos/RESLT_pitchfork/ea0001_pcos01_pinc01_N4/Case_straight_rotated_coords_no_t_shape_fvk_free
+ 
+ 
+
+
+======================================================================
+Oomph-lib WARNING
+
+ at /home/emiliano/oomph-lib/build/include/generic/c1_plate_helper.h:904
+
+ in void oomph::C1PlateHelper::upgrade_triangle_mesh_for_c1_plate_bending(oomph::TriangleMeshBase*, oomph::Mesh*, const bool&) [with ELEMENT = oomph::FoepplVonKarmanC1CurvableBellElement<4>]
+
+--------------------------------------------------------
+
+Black box helper function upgrade_triangle_mesh_for_c1_plate_bending()
+will only rotate coordinates on boundaries that are described
+by TriangleMeshCurviLine. It seems that in your triangle mesh only
+4 of 5 boundaries are of this type. 
+ Specifically here's are the boundaries and theircurviness:
+Boundary 0 is curvilinear.
+Boundary 1 is curvilinear.
+Boundary 2 is curvilinear.
+Boundary 3 is curvilinear.
+Boundary 4 is polygonal.
+This only matters if you want to apply clamping-type
+boundary conditions along those boundaries. Continue at your own risk
+and/or make this message disappear by setting
+
+     C1PlateHelper::Do_not_warn_about_polygonal_boundaries
+
+to false. More intelligently, replace the polygonal boundaries
+by TriangleMeshCurviLines. Alternatively, you can do the setup
+yourself, of course. The black box function is only provided for
+convenience and looking inside it will show you what needs to be done.
+
+======================================================================
+
+
+
+======================================================================
+Oomph-lib WARNING
+
+ at /home/emiliano/oomph-lib/build/include/generic/c1_plate_helper.h:904
+
+ in void oomph::C1PlateHelper::upgrade_triangle_mesh_for_c1_plate_bending(oomph::TriangleMeshBase*, oomph::Mesh*, const bool&) [with ELEMENT = oomph::FoepplVonKarmanC1CurvableBellElement<4>]
+
+--------------------------------------------------------
+
+Black box helper function upgrade_triangle_mesh_for_c1_plate_bending()
+will only rotate coordinates on boundaries that are described
+by TriangleMeshCurviLine. It seems that in your triangle mesh only
+4 of 5 boundaries are of this type. 
+ Specifically here's are the boundaries and theircurviness:
+Boundary 0 is curvilinear.
+Boundary 1 is curvilinear.
+Boundary 2 is curvilinear.
+Boundary 3 is curvilinear.
+Boundary 4 is polygonal.
+This only matters if you want to apply clamping-type
+boundary conditions along those boundaries. Continue at your own risk
+and/or make this message disappear by setting
+
+     C1PlateHelper::Do_not_warn_about_polygonal_boundaries
+
+to false. More intelligently, replace the polygonal boundaries
+by TriangleMeshCurviLines. Alternatively, you can do the setup
+yourself, of course. The black box function is only provided for
+convenience and looking inside it will show you what needs to be done.
+
+======================================================================
+
+./emitest.bash: línea 64: 1065702 Abortado                (`core' generado) ./$executable $args > OUTPUT
+./emitest.bash: línea 120: oomph-convert: orden no encontrada
+./emitest.bash: línea 121: oomph-convert: orden no encontrada
+./emitest.bash: línea 123: oomph-convert: orden no encontrada
+./emitest.bash: línea 124: oomph-convert: orden no encontrada
+./emitest.bash: línea 126: oomph-convert: orden no encontrada
+./emitest.bash: línea 127: oomph-convert: orden no encontrada
+./emitest.bash: línea 128: oomph-convert: orden no encontrada
+./emitest.bash: línea 131: oomph-convert: orden no encontrada
+./emitest.bash: línea 131: makePvd: orden no encontrada
+./emitest.bash: línea 132: oomph-convert: orden no encontrada
+./emitest.bash: línea 132: makePvd: orden no encontrada
+pitchfork1.cc: In function ‘int main(int, char**)’:
+pitchfork1.cc:83:10: error: ‘std::filesystem’ has not been declared
+   83 |     std::filesystem::path datadir = std::filesystem::current_path() / "DATA2PLOT";
+      |          ^~~~~~~~~~
+pitchfork1.cc:84:10: error: ‘std::filesystem’ has not been declared
+   84 |     std::filesystem::create_directories(datadir);
+      |          ^~~~~~~~~~
+pitchfork1.cc:84:41: error: ‘datadir’ was not declared in this scope
+   84 |     std::filesystem::create_directories(datadir);
+      |                                         ^~~~~~~
+pitchfork2.cc:14:21: error: ‘filesystem’ is not a namespace-name
+   14 | namespace fs = std::filesystem;
+      |                     ^~~~~~~~~~
+pitchfork2.cc: In function ‘int main(int, char**)’:
+pitchfork2.cc:129:9: error: ‘fs’ has not been declared
+  129 |         fs::path exe_path = fs::absolute(argv[0]).parent_path();
+      |         ^~
+pitchfork2.cc:130:9: error: ‘fs’ has not been declared
+  130 |         fs::path plotdir  = exe_path / "DATA2PLOT";
+      |         ^~
+pitchfork2.cc:131:14: error: ‘fs’ has not been declared
+  131 |         if (!fs::exists(plotdir) && !fs::create_directory(plotdir)) {
+      |              ^~
+pitchfork2.cc:131:25: error: ‘plotdir’ was not declared in this scope
+  131 |         if (!fs::exists(plotdir) && !fs::create_directory(plotdir)) {
+      |                         ^~~~~~~
+pitchfork2.cc:131:38: error: ‘fs’ has not been declared
+  131 |         if (!fs::exists(plotdir) && !fs::create_directory(plotdir)) {
+      |                                      ^~
+pitchfork2.cc:166:18: warning: structured bindings only available with ‘-std=c++17’ or ‘-std=gnu++17’
+  166 |             auto [u_avg, v_avg, w_avg] = block_average(nr, nphi, df);
+      |                  ^
+pitchfork2.cc:186:17: error: ‘fs’ has not been declared
+  186 |                 fs::path outname = plotdir / ("phi_w" + number + ".dat");
+      |                 ^~
+pitchfork2.cc:187:42: error: ‘outname’ was not declared in this scope
+  187 |                 std::ofstream phi_w_file(outname);
+      |                                          ^~~~~~~
+pitchfork2.cc:222:13: error: ‘fs’ has not been declared
+  222 |             fs::path outname = plotdir / "wmax_results2.dat";
+      |             ^~
+pitchfork2.cc:223:37: error: ‘outname’ was not declared in this scope
+  223 |             std::ofstream wmax_file(outname);
+      |                                     ^~~~~~~
+postprocess.cc:12:21: error: ‘filesystem’ is not a namespace-name
+   12 | namespace fs = std::filesystem;
+      |                     ^~~~~~~~~~
+postprocess.cc:76:26: error: ‘filesystem’ in namespace ‘std’ does not name a type
+   76 | void save_dat(const std::filesystem::path &filename,
+      |                          ^~~~~~~~~~
+postprocess.cc:76:43: error: expected unqualified-id before ‘&’ token
+   76 | void save_dat(const std::filesystem::path &filename,
+      |                                           ^
+postprocess.cc:76:42: error: expected ‘)’ before ‘&’ token
+   76 | void save_dat(const std::filesystem::path &filename,
+      |              ~                           ^~
+      |                                          )
+postprocess.cc:76:44: error: expected initializer before ‘filename’
+   76 | void save_dat(const std::filesystem::path &filename,
+      |                                            ^~~~~~~~
+postprocess.cc: In function ‘int main(int, char**)’:
+postprocess.cc:137:5: error: ‘fs’ has not been declared
+  137 |     fs::path outdir = "PPDAT";
+      |     ^~
+postprocess.cc:138:6: error: ‘fs’ has not been declared
+  138 |  if (fs::exists(outdir)) {
+      |      ^~
+postprocess.cc:138:17: error: ‘outdir’ was not declared in this scope
+  138 |  if (fs::exists(outdir)) {
+      |                 ^~~~~~
+postprocess.cc:144:28: error: ‘fs’ has not been declared
+  144 |   for (const auto &entry : fs::directory_iterator(outdir)) {
+      |                            ^~
+postprocess.cc:145:7: error: ‘fs’ has not been declared
+  145 |       fs::remove_all(entry.path());
+      |       ^~
+postprocess.cc:154:11: error: ‘fs’ has not been declared
+  154 |      if (!fs::create_directory(outdir)) {
+      |           ^~
+postprocess.cc:168:22: error: ‘outdir’ was not declared in this scope
+  168 |             save_dat(outdir / ("full" + number + ".dat"),
+      |                      ^~~~~~
+postprocess.cc:168:13: error: ‘save_dat’ was not declared in this scope
+  168 |             save_dat(outdir / ("full" + number + ".dat"),
+      |             ^~~~~~~~
+postprocess.cc:172:18: warning: structured bindings only available with ‘-std=c++17’ or ‘-std=gnu++17’
+  172 |             auto [u, v, w] = averaxi(nr, nphi, df);
+      |                  ^
+./emitest.bash: línea 145: .: se requiere un argumento de nombre de archivo
+.: uso: . nombredearchivo [argumentos]
+Postprocess...
+./emitest.bash: línea 147: ./postprocess: No existe el archivo o el directorio
+./emitest.bash: línea 148: ./pitchfork1: No existe el archivo o el directorio
+./emitest.bash: línea 149: ./pitchfork2: No existe el archivo o el directorio
+./animation_maker.bash: línea 5: cd: ./PPDAT: No existe el archivo o el directorio
+./animation_maker.bash: línea 8: oomph-convert: orden no encontrada
+./animation_maker.bash: línea 10: makePvd: orden no encontrada
+./animation_maker.bash: línea 10: makePvd: orden no encontrada
+./animation_maker.bash: línea 10: makePvd: orden no encontrada
+ 
+ 
+Done!
+ 
+ 
