@@ -284,11 +284,7 @@ namespace Parameters
  unsigned N_mode = 6;
 
  /// Element area
-<<<<<<< Updated upstream
  double Element_area = 0.5; // original 0.5 
-=======
- double Element_area = 0.001; // original 0.5 - tried with 0.2
->>>>>>> Stashed changes
 
  #ifdef USE_KS
  
@@ -2167,24 +2163,24 @@ oomph_info << "Initial state - Nondimensional parameters: "
 
  // ============================================================
 
-//  // ------------------------------------------------------------
-//  // === Loop to change P_mag
-//  // ------------------------------------------------------------
-//  while (Parameters::P_mag < 40) //10) 
-// {
-//   // Bump
-//   Parameters::P_mag += 11;
+  // ------------------------------------------------------------
+  // === Loop to change P_mag
+  // ------------------------------------------------------------
+  while (Parameters::P_mag < 10) //10) 
+ {
+   // Bump
+   Parameters::P_mag += 1;
 
-//   oomph_info << "Trying P_mag = "  <<  Parameters::P_mag << " "
-//         << std::endl;
+   oomph_info << "Trying P_mag = "  <<  Parameters::P_mag << " "
+         << std::endl;
 
-//   // Solve the system
-//   problem.newton_solve();
+   // Solve the system
+   problem.newton_solve();
       
-//   // Document the current solution
-//   problem.doc_solution();
-// }
-// // second part
+   // Document the current solution
+   problem.doc_solution();
+ }
+ // second part
 
 // while (Parameters::P_mag < 9) //10) 
 // {
@@ -2196,143 +2192,143 @@ oomph_info << "Initial state - Nondimensional parameters: "
 
 //   // Solve the system
 //   problem.newton_solve();
-      
+//      
 //   // Document the current solution
 //   problem.doc_solution();
 // }
 
 
-// // == Change manually after last step: 
-// // -------------------------------------
-//   Parameters::P_mag = 10; //86.23;//32.9025;
+//// // == Change manually after last step: 
+//// // -------------------------------------
+////   Parameters::P_mag = 10; //86.23;//32.9025;
 
-//   oomph_info << "Trying P_mag (last) = "  <<  Parameters::P_mag << " "
-//              << std::endl;
+////   oomph_info << "Trying P_mag (last) = "  <<  Parameters::P_mag << " "
+////              << std::endl;
 
-//   // Solve the system
-//   problem.newton_solve();
-      
-//   // Document the current solution
-//   problem.doc_solution();
- // --------------------------------------
+////   // Solve the system
+////   problem.newton_solve();
+//      
+////   // Document the current solution
+////   problem.doc_solution();
+// // --------------------------------------
 
-// // ============================================================
+//// // ============================================================
 
 
-// ============================================================
-  // ----------------------------------------------------------
-  // Loop to track Pitchfork
-  // ----------------------------------------------------------
+//// ============================================================
+//  // ----------------------------------------------------------
+//  // Loop to track Pitchfork
+//  // ----------------------------------------------------------
 
-  // 1-Switch on p_cos:
-  Parameters::P_mag = 0.0;
-  Parameters::P_cos = 0.1; //0.1
-  Parameters::N_mode = 6;
+//  // 1-Switch on p_cos:
+//  Parameters::P_mag = 0.0;
+//  Parameters::P_cos = 0.1; //0.1
+//  Parameters::N_mode = 5;
 
-  // Solve the system
-  problem.newton_solve();
+//  // Solve the system
+//  problem.newton_solve();
 
-  // Document the state
-  problem.doc_solution();
+//  // Document the state
+//  problem.doc_solution();
 
-    oomph_info << "pitchfork-1:" << "//"
-               << "P_mag = " << Parameters::P_mag << " // "
-               << "P_cos = " << Parameters::P_cos << " // "
-               << "N = "     << Parameters::N_mode << " "
-               << std::endl;
- //return 0;
+//    oomph_info << "pitchfork-1:" << "//"
+//               << "P_mag = " << Parameters::P_mag << " // "
+//               << "P_cos = " << Parameters::P_cos << " // "
+//               << "N = "     << Parameters::N_mode << " "
+//               << std::endl;
+// //return 0;
 
- // ----------------------------------------------------------
- // 1.2- Increment P_cos // not necessary - unexpected bifurcation
+// // ----------------------------------------------------------
+// // 1.2- Increment P_cos // not necessary - unexpected bifurcation
 
-  //   while ( Parameters::P_cos < 1.0 ) 
-  // {
-  // // Bump
-  // Parameters::P_cos += 0.1;
+//  //   while ( Parameters::P_cos < 1.0 ) 
+//  // {
+//  // // Bump
+//  // Parameters::P_cos += 0.1;
 
-  // // Solve the system
-  // problem.newton_solve();
-      
-  // // Document the current solution
-  // problem.doc_solution();
+//  // // Solve the system
+//  // problem.newton_solve();
+//      
+//  // // Document the current solution
+//  // problem.doc_solution();
 
-  // oomph_info << "P_cos = "  <<  Parameters::P_cos << " "
-  //            << std::endl;
-  // }
+//  // oomph_info << "P_cos = "  <<  Parameters::P_cos << " "
+//  //            << std::endl;
+//  // }
 
-  // oomph_info << "pitchfork-1.2:" << "//"
-  //         << "P_mag = " << Parameters::P_mag << " // "
-  //         << "P_cos = " << Parameters::P_cos << " "
-  //         << "N = "     << Parameters::N_mode << " "
+//  // oomph_info << "pitchfork-1.2:" << "//"
+//  //         << "P_mag = " << Parameters::P_mag << " // "
+//  //         << "P_cos = " << Parameters::P_cos << " "
+//  //         << "N = "     << Parameters::N_mode << " "
 
-  //         << std::endl;
+//  //         << std::endl;
 
-  //return 0;
-// ----------------------------------------------------------
+//  //return 0;
+//// ----------------------------------------------------------
 
-  // 2-Loop to increment P_mag
-   while ( Parameters::P_mag < 40.0 ) 
-  {
-  // Bump
-  Parameters::P_mag += 0.1;
+//  // 2-Loop to increment P_mag
+//   while ( Parameters::P_mag < 30.0 ) 
+//  {
+//  // Bump
+//  Parameters::P_mag += 0.2;
 
-  // Solve the system
-  problem.newton_solve();
-      
-  // Document the current solution
-  problem.doc_solution();
+//  // Solve the system
+//  problem.newton_solve();
+//      
+//  // Document the current solution
+//  problem.doc_solution();
 
-  oomph_info << "P_mag = "  <<  Parameters::P_mag << "//"
-             << "at step " << problem.get_doc_info().number() << " "
-             << std::endl;
-  } 
-  oomph_info << "pitchfork-2:" << "//"
-          << "P_mag = " << Parameters::P_mag << " // "
-          << "P_cos = " << Parameters::P_cos << " "
-          << "N = "     << Parameters::N_mode << " "
+//  oomph_info << "P_mag = "  <<  Parameters::P_mag << "//"
+//             << "at step " << problem.get_doc_info().number() << " "
+//             << std::endl;
+//  } 
+//  oomph_info << "pitchfork-2:" << "//"
+//          << "P_mag = " << Parameters::P_mag << " // "
+//          << "P_cos = " << Parameters::P_cos << " "
+//          << "N = "     << Parameters::N_mode << " "
 
-          << std::endl;
+//          << std::endl;
 
-  // return 0;
+//  // return 0;
 
-  // 3-Switch off P_cos
+//  // 3-Switch off P_cos
 
-  Parameters::P_cos = 0.0;
+//  Parameters::P_cos = 0.0;
 
-  // Solve the system
-  problem.newton_solve();
+//  // Solve the system
+//  problem.newton_solve();
 
-  // Document the initial state
-  problem.doc_solution();
+//  // Document the initial state
+//  problem.doc_solution();
 
-    oomph_info << "pitchfork-3:" << "//"
-               << "P_mag = " << Parameters::P_mag << " // "
-               << "P_cos = " << Parameters::P_cos << " "
-               << "N = "     << Parameters::N_mode << " "
-               << std::endl;
+//    oomph_info << "pitchfork-3:" << "//"
+//               << "P_mag = " << Parameters::P_mag << " // "
+//               << "P_cos = " << Parameters::P_cos << " "
+//               << "N = "     << Parameters::N_mode << " "
+//               << std::endl;
 
-  // 4-Decreasing pressure until axixsymmetric
-   while (Parameters::P_mag > 0.0 ) // for (unsigned i = 0; i < 35; i++ )
-  {
-  // Bump
-  Parameters::P_mag -= 0.1;
+//  // 4-Decreasing pressure until axixsymmetric
+//   while (Parameters::P_mag > 0.0 ) // for (unsigned i = 0; i < 35; i++ )
+//  {
+//  // Bump
+//  Parameters::P_mag -= 0.2;
 
-  // Solve the system
-  problem.newton_solve();
-      
-  // Document the current solution
-  problem.doc_solution();
+//  // Solve the system
+//  problem.newton_solve();
+//      
+//  // Document the current solution
+//  problem.doc_solution();
 
-  oomph_info << "P_mag = "  <<  Parameters::P_mag << " "
-             << "at step " << problem.get_doc_info().number() << " "
-             << std::endl;
-  }
+//  oomph_info << "P_mag = "  <<  Parameters::P_mag << " "
+//             << "at step " << problem.get_doc_info().number() << " "
+//             << std::endl;
+//  }
 
-  oomph_info << "pitchfork-4:" << "//"
-            << "P_mag = " << Parameters::P_mag << " // "
-            << "P_cos = " << Parameters::P_cos << " "
-            << "N = "     << Parameters::N_mode << " "
-            << std::endl;
+//  oomph_info << "pitchfork-4:" << "//"
+//            << "P_mag = " << Parameters::P_mag << " // "
+//            << "P_cos = " << Parameters::P_cos << " "
+//            << "N = "     << Parameters::N_mode << " "
+//            << std::endl;
 
 // // ============================================================
 

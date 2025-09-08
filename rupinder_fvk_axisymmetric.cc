@@ -627,11 +627,14 @@ int main(int argc, char** argv)
 
     GlobalParameters::Eta = 1.41e5; //140625;
 
-    bool just_steady_sol = true;
+    bool just_steady_sol = false;
     if (just_steady_sol == true)
     {
     // Magnitude of the transverse pressure
-    GlobalParameters::PressureMagnitude = 40.0; //86.2207;
+    GlobalParameters::PressureMagnitude = 0.0; //86.2207;
+    
+    while (GlobalParameters::PressureMagnitude < 10)
+    {   
 
     oomph_info << " P_magnitude = " << GlobalParameters::PressureMagnitude << std::endl;
 
@@ -646,7 +649,8 @@ int main(int argc, char** argv)
     // Oldstyle C 
     char buffer[100];
     //sprintf(buffer, "RESLT_test/test_sol_P%0.3f_Eta%0.3f.dat", GlobalParameters::PressureMagnitude, GlobalParameters::Eta);
-    sprintf(buffer, "RESLT_axi/axi_sol_P%0.3f_Eta%.3e.dat", GlobalParameters::PressureMagnitude, GlobalParameters::Eta);
+    //sprintf(buffer, "RESLT_axi/axi_sol_P%0.3f_Eta%.3e.dat", GlobalParameters::PressureMagnitude, GlobalParameters::Eta);
+    sprintf(buffer, "RESLT_axi/axi_sol_%0.0f.dat", GlobalParameters::PressureMagnitude);
     //sprintf(buffer, "RESLT_axi/crit_soln.dat");
 
     std::string filename = buffer;
@@ -657,6 +661,10 @@ int main(int argc, char** argv)
     problem.newton_solve();
 
     problem.doc_solution(filename, npts);
+    
+    GlobalParameters::PressureMagnitude += 1;
+    
+    }
 
     return 0; 
     }
@@ -706,8 +714,8 @@ int main(int argc, char** argv)
     unsigned npts = 5;
 
     // Solution doc file
-    std::string doc_solution_filename = "RESLT_axi/crit_soln.dat";
-    std::string doc_critical_pressure_filename = "RESLT_axi/critical_pressure.dat";
+    std::string doc_solution_filename = "RESLT_axi/critical_sols/crit_sol_N3.dat";
+    std::string doc_critical_pressure_filename = "RESLT_axi/critical_sols/critical_pressure_N3.dat";
 
     // How small the eigenvalue must be to accept the critical pressure value
     double eigenvalue_tolerance = 1.0e-6;
@@ -720,8 +728,8 @@ int main(int argc, char** argv)
 
     // Save this value to document solution
    // double pressure_axi_sol = GlobalParameters::PressureMagnitude;
-   unsigned initial_wavemode = 4;
-   unsigned max_wavemode = 15;
+   unsigned initial_wavemode = 3;
+   unsigned max_wavemode = 3;
    GlobalParameters::Wavemode = initial_wavemode;
     for ( unsigned i = initial_wavemode; i < max_wavemode+1; i++ )
     {
@@ -730,7 +738,7 @@ int main(int argc, char** argv)
 
     // Set the range of pressures that we guess within
     double minimum_pressure_guess = 0.0;
-    double maximum_pressure_guess = 100;
+    double maximum_pressure_guess = 100.0;
 
     ////////////////////////////////////////////////////////////////////////////
     // End of setting parameters
