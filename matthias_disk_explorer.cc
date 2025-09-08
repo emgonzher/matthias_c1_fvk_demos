@@ -280,7 +280,7 @@ namespace Parameters
  unsigned N_cos=6;
  
  /// Element area
- double Element_area = 0.5;
+ double Element_area = 0.001;
 
  #ifdef USE_KS
  
@@ -622,6 +622,7 @@ double damped_solve(
    
    // Max residual of the steady problem before we attempt a steady solve
    double sufficiently_small = 1.0e-2;
+
    
    // Timestep size
    double dt = dt_supplied_guess;
@@ -955,7 +956,7 @@ UnstructuredC1PlateProblem<ELEMENT>::UnstructuredC1PlateProblem(const double&
  //First bit
  double zeta_start = 0.0;
  double zeta_end = 0.5*MathematicalConstants::Pi;
- unsigned nsegment = (unsigned)(MathematicalConstants::Pi/sqrt(Element_area));
+ unsigned nsegment = 4; //(unsigned)(MathematicalConstants::Pi/sqrt(Element_area));
  outer_curvilinear_boundary_pt[0] = 
   new TriangleMeshCurviLine(outer_boundary_ellipse_pt, zeta_start,
                             zeta_end, nsegment, Outer_boundary0);
@@ -1934,19 +1935,38 @@ int main(int argc, char** argv)
   // Do we want to solve the linear problem?
   // problem.make_linear();
 
-  // Set pressure and incrementation for validation cases
-  Parameters::P_mag = 1.0;
+  // Set pressure and incrementation for validation cases  
   double p_inc = 1.0e-2;
   unsigned n_step = 3;
+  double eta_inc;
+  
+  // Physical parameters (SI)
+  double rho = 900;
+  double gravity = 9.8;
+  double young = 1.44e6;
+  
+  // System dimensions
+  Parameters::Thickness = 0.8e-3; //m
+  double radio = 0.05; //m
+  double r_inc;
+  
+  // Non-dim parameters
+  double gamma = rho*gravity*radio/young;
+  Parameters::Eta = 12*(1-Parameters::Nu*Parameters::Nu)*(radio*radio)/(Parameters::Thickness*Parameters::Thickness);
+  
+  Parameters::P_mag = gamma*Parameters::Eta;
 
   
-  if (CommandLineArgs::command_line_flag_has_been_set("--test_damped_solve"))
-   {
+  //if (CommandLineArgs::command_line_flag_has_been_set("--test_damped_solve"))
+   //{
     // 0.1 and 100 steps gives nice animation
-    p_inc=1.0;
-    n_step=10;
-    Parameters::P_cos=1.0;
-   }
+    p_inc=10.0;
+    eta_inc=1.41e4;
+    n_step=40;
+    Parameters::P_cos=0.0;
+    // Change radio (m)
+    r_inc = 0.005;
+   //}
 
   
   // Overwrite for "Balance on Edge" case
@@ -1955,16 +1975,18 @@ int main(int argc, char** argv)
     p_inc = 1.0; 
     n_step = 3; 
    }
-  
-
 
   for( unsigned i = 0; i < n_step; i++ )
   {
    // Bump
-   Parameters::P_mag += p_inc;
+   //Parameters::P_mag += p_inc;
+   //Parameters::Eta += eta_inc;
    
    // oomph_info << "P_mag = " << Parameters::P_mag << std::endl;
-
+   
+    oomph_info << "P_mag = " << Parameters::P_mag << " "
+		       << "Eta   = " << Parameters::Eta << std::endl;
+   
    if (!CommandLineArgs::command_line_flag_has_been_set("--test_damped_solve"))
     {
      // Solve the system
@@ -1989,12 +2011,25 @@ int main(int argc, char** argv)
 
      // Can (but don't have to) to use this for next solve
      oomph_info << "Suggested next dt = " << suggested_next_dt << " " 
-    		    << "P_mag = " << Parameters::P_mag << std::endl;
+    		    << "P_mag = " << Parameters::P_mag << " "
+    		    << "Eta   = " << Parameters::Eta << std::endl;
     }
 
    
    // Document the current solution
-   problem.doc_solution();
+   problem.doc_solution(); // miraqui - need this if we are documenting in damped solve??
+   
+//   Parameters::Eta += eta_inc;
+//   Parameters::P_mag = Parameters::Eta*gamma;
+   // ----
+   //Parameters::P_mag = Parameters::Eta*gamma;
+   
+   // changing radius
+   radio += r_inc;
+   gamma = rho*gravity*radio/young;
+   Parameters::Eta = 12*(1-Parameters::Nu*Parameters::Nu)*(radio*radio)/(Parameters::Thickness*Parameters::Thickness);
+   Parameters::P_mag = Parameters::Eta*gamma;
+  
   }
 
 

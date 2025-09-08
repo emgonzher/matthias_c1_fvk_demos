@@ -2,7 +2,7 @@
 
 
 # Setup directories YOU MUST PICK A NAME FOR YOUR OURPUT DIRECTORY.
-main_dir=RESLT_damped/ea005_pinc1_damped #Run_ea05_pcos01_pinc02_n10_test #nseg4_Eta_141e5_pinc1_poly_pitchfork_n6_2lines #pcos1
+main_dir=RESLT_eta/ea005_eta_test1 #Run_ea05_pcos01_pinc02_n10_test #nseg4_Eta_141e5_pinc1_poly_pitchfork_n6_2lines #pcos1
 # main_dir=Run_pitchfork_ea005_nseg4_Eta_141e5_pcos01_pinc01
 if [ -e $main_dir ]; then
     echo " "
@@ -98,7 +98,7 @@ for postfix in `echo $postfix_list`; do
                     elif [ "$the_case" == "_balance_on_edge" ]; then
                         args=$args" --use_balance_on_edge_bc "
                     elif [ "$the_case" == "_free" ]; then
-                        args=$args" --use_free_bc"
+                        args=$args" " #--use_free_bc
                        # args=" --use_free_bc" #original - uses curviline
                     fi
                     

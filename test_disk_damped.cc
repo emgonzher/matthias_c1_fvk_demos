@@ -658,7 +658,7 @@ double damped_solve(
    // This used to be an input parameter but generally it's too wobbly
    // so let's set it to false here; can re-enable if it's ever found to be
    // useful
-   bool begin_with_steady_solve=false;
+   bool begin_with_steady_solve=true; // miraqui
    
    // Max residual of the steady problem before we attempt a steady solve
    double sufficiently_small = 1.0e-2;
@@ -1923,6 +1923,16 @@ void UnstructuredC1PlateProblem<ELEMENT>::doc_solution()
              << Doc_info.number() << " "
              << std::endl;
  output_file.close();
+ 
+  // Write eta in each simulation step
+ std::string eta_filename = to_string(Doc_info.directory())+"/etas.dat";                     
+ std::ofstream output_file2;
+ output_file2.open(eta_filename,std::ios::app); // append new line
+ output_file2.precision(16);
+ output_file2 << Parameters::Eta << " "
+             << Doc_info.number() << " "
+             << std::endl;
+ output_file2.close();
 
 
   // Increment the doc_info number
@@ -1937,7 +1947,7 @@ void UnstructuredC1PlateProblem<ELEMENT>::doc_solution()
 /// Namespace for function that calls doc_solution() during the damped
 /// solves
 //========================================================================
-namespace DocProgressOfDampedSolutions
+namespace DocProgressOfDampedSolutions //miraqui_doc_unsteady
 {
 
  /// Pointer to the problem class (to get access the doc solution function
@@ -2185,23 +2195,31 @@ oomph_info << "Initial state - Nondimensional parameters: "
           << "Eta = " <<  Parameters::Eta << " // "
           << std::endl;
   
+  // Print Element_area 
+  oomph_info << "Element_area = " << Parameters::Element_area << std::endl;
+  
+  // Choose if we want pitchfork tracking or just bump p_mag
 
+  bool pitchfork = false;
+  bool damped = false;
+  bool change_eta = true;
+  
   // ====== Solving initial state: =============================
   // Tweak Newton solver parameters
   problem.max_residuals() = 1.0e3;
   problem.max_newton_iterations() = 100;
-
-
-
+  
+  if (!change_eta)
+  {
   // Solve the system
   problem.newton_solve();
 
   // Document the initial state
   problem.doc_solution();
+  }
+
   
-  // Choose if we want pitchfork tracking or just bump p_mag
-  
-  bool pitchfork = false;
+
   
 
  // ============================================================
@@ -2325,13 +2343,15 @@ oomph_info << "Initial state - Nondimensional parameters: "
 	// // ============================================================
 
  }
- else
+ else if (!change_eta)
  {
 // ------------------------------------------------------------
 // === Loop to change P_mag
 // ------------------------------------------------------------
-
-	while (Parameters::P_mag < 11) //10) 
+ if (!damped)
+ {
+ 
+	while (Parameters::P_mag < 10) //10) 
 	{
 	// Bump
 	Parameters::P_mag += 1;
@@ -2345,43 +2365,66 @@ oomph_info << "Initial state - Nondimensional parameters: "
 	// Document the current solution
 	problem.doc_solution();
 	}
-	
-	// After reaching some (problematic) pressure: apply damping and reach another steady state
-	Parameters::P_mag += 1;
-	
-	double dt = 1.0;
-	double epsilon = 1.0e-3;
-	bool adapt = false; // adaptative dt or not
-	bool docing = false; // docing unsteady solutions
-	
-    dt = run_damped_solve(problem, dt, epsilon, adapt, docing);
+ }
     
-    // Doc solution after that
-	/problem.doc_solution();
-    
-    
-    // Then, continue increasing pressure from there:
-    
-    while (Parameters::P_mag < 20) //10) 
+ else{
+	// Increase with damping solver:
+    	double dt = 1.0;
+		double epsilon = 1.0e-3;
+		bool adapt = false; // adaptative dt or not
+		bool docing = false; // docing unsteady solutions
+	while (Parameters::P_mag < 10) 
 	{
 	// Bump
 	Parameters::P_mag += 1;
 
-	oomph_info << "Trying P_mag = "  <<  Parameters::P_mag << " "
+	oomph_info << "Trying (damped) P_mag = "  <<  Parameters::P_mag << " "
 		 << std::endl;
-		 
+
  	// Consider damping for each new pressure:
- 	//dt = run_damped_solve(problem, dt, epsilon, adapt);
-
-	// Solve the system
-	problem.newton_solve();
+ 	dt = run_damped_solve(problem, dt, epsilon, adapt);
 	  
 	// Document the current solution
 	problem.doc_solution();
 	}
+ }
 
 	
 	// -----------------------------------------------------------
+ }
+ else
+ {
+ // ----------------------------
+ // Loop to change Eta (damping)
+ // ----------------------------
+	// Increase with damping solver:
+		double dt = 1.0;
+		double epsilon = 1.0e-3;
+		bool adapt = false; // adaptative dt or not
+		bool docing = true; // docing unsteady solutions
+		
+	 // Solving initial state:
+	 Parameters::P_mag = 86.23;
+  	// Consider damping for each new pressure:
+ 	dt = run_damped_solve(problem, dt, epsilon, adapt, docing);
+	// Document the current solution
+	problem.doc_solution();
+ 
+ 	for (unsigned i = 0; i < 10; i++)
+	{
+	// Bump
+	Parameters::Eta += 1.41e5;
+
+	oomph_info << "Trying (damped) Eta = "  <<  Parameters::Eta << " "
+		 << std::endl;
+
+ 	// Consider damping for each new pressure:
+ 	dt = run_damped_solve(problem, dt, epsilon, adapt, docing);
+	  
+	// Document the current solution
+	problem.doc_solution();
+	}
+ 
  }
  
   // =======================================================================

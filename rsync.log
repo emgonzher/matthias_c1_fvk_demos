@@ -1,0 +1,6 @@
+=== Starting rsync pull ===
+Source: emiliano@193.147.162.91:./RESLT_disk_fvk/RESLT_pitchfork/
+Dest:   RESLT_disk_fvk/RESLT_pitchfork/
+Log:    rsync_pull_20250827_140728.log
+================================
+rsync error: received SIGINT, SIGTERM, or SIGHUP (code 20) at rsync.c(716) [Receiver=3.2.7]

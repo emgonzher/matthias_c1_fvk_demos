@@ -276,7 +276,7 @@ int main()
 {
 
  double ampl=0.1;
- unsigned N=5;
+ unsigned N=6;
  double epsilon=0.01;
  
  unsigned nr=50;
@@ -285,13 +285,15 @@ int main()
 
  ofstream outdata;
 
- outdata.open("RESLT_axi/axi_surface_P2.dat");
+ //outdata.open("RESLT_axi/axi_surface_P32.90_N6.dat");
+ 
+ outdata.open("RESLT_axi/axi_surface_P32.90_N6.dat");
 
  outdata << "ZONE I=" << nr*npts << ", J=" << nphi << std::endl;
 
  for (unsigned i=0;i<nphi;i++)  
   {
-    std::ifstream ifs("RESLT_axi/axi_sol_P2.000_Eta1.410e+05.dat");
+    std::ifstream ifs("RESLT_axi/crit_soln_N6.dat");
 
     std::string line;
    double phi=2.0*4.0*atan(1.0)*double(i)/double(nphi-1);
