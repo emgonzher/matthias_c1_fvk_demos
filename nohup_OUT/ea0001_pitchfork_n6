@@ -63,3 +63,118 @@ convenience and looking inside it will show you what needs to be done.
 
 ======================================================================
 
+./emitest.bash: línea 120: oomph-convert: orden no encontrada
+./emitest.bash: línea 121: oomph-convert: orden no encontrada
+./emitest.bash: línea 123: oomph-convert: orden no encontrada
+./emitest.bash: línea 124: oomph-convert: orden no encontrada
+./emitest.bash: línea 126: oomph-convert: orden no encontrada
+./emitest.bash: línea 127: oomph-convert: orden no encontrada
+./emitest.bash: línea 128: oomph-convert: orden no encontrada
+./emitest.bash: línea 131: oomph-convert: orden no encontrada
+./emitest.bash: línea 131: makePvd: orden no encontrada
+./emitest.bash: línea 132: oomph-convert: orden no encontrada
+./emitest.bash: línea 132: makePvd: orden no encontrada
+pitchfork1.cc: In function ‘int main(int, char**)’:
+pitchfork1.cc:83:10: error: ‘std::filesystem’ has not been declared
+   83 |     std::filesystem::path datadir = std::filesystem::current_path() / "DATA2PLOT";
+      |          ^~~~~~~~~~
+pitchfork1.cc:84:10: error: ‘std::filesystem’ has not been declared
+   84 |     std::filesystem::create_directories(datadir);
+      |          ^~~~~~~~~~
+pitchfork1.cc:84:41: error: ‘datadir’ was not declared in this scope
+   84 |     std::filesystem::create_directories(datadir);
+      |                                         ^~~~~~~
+pitchfork2.cc:14:21: error: ‘filesystem’ is not a namespace-name
+   14 | namespace fs = std::filesystem;
+      |                     ^~~~~~~~~~
+pitchfork2.cc: In function ‘int main(int, char**)’:
+pitchfork2.cc:129:9: error: ‘fs’ has not been declared
+  129 |         fs::path exe_path = fs::absolute(argv[0]).parent_path();
+      |         ^~
+pitchfork2.cc:130:9: error: ‘fs’ has not been declared
+  130 |         fs::path plotdir  = exe_path / "DATA2PLOT";
+      |         ^~
+pitchfork2.cc:131:14: error: ‘fs’ has not been declared
+  131 |         if (!fs::exists(plotdir) && !fs::create_directory(plotdir)) {
+      |              ^~
+pitchfork2.cc:131:25: error: ‘plotdir’ was not declared in this scope
+  131 |         if (!fs::exists(plotdir) && !fs::create_directory(plotdir)) {
+      |                         ^~~~~~~
+pitchfork2.cc:131:38: error: ‘fs’ has not been declared
+  131 |         if (!fs::exists(plotdir) && !fs::create_directory(plotdir)) {
+      |                                      ^~
+pitchfork2.cc:166:18: warning: structured bindings only available with ‘-std=c++17’ or ‘-std=gnu++17’
+  166 |             auto [u_avg, v_avg, w_avg] = block_average(nr, nphi, df);
+      |                  ^
+pitchfork2.cc:186:17: error: ‘fs’ has not been declared
+  186 |                 fs::path outname = plotdir / ("phi_w" + number + ".dat");
+      |                 ^~
+pitchfork2.cc:187:42: error: ‘outname’ was not declared in this scope
+  187 |                 std::ofstream phi_w_file(outname);
+      |                                          ^~~~~~~
+pitchfork2.cc:222:13: error: ‘fs’ has not been declared
+  222 |             fs::path outname = plotdir / "wmax_results2.dat";
+      |             ^~
+pitchfork2.cc:223:37: error: ‘outname’ was not declared in this scope
+  223 |             std::ofstream wmax_file(outname);
+      |                                     ^~~~~~~
+postprocess.cc:12:21: error: ‘filesystem’ is not a namespace-name
+   12 | namespace fs = std::filesystem;
+      |                     ^~~~~~~~~~
+postprocess.cc:76:26: error: ‘filesystem’ in namespace ‘std’ does not name a type
+   76 | void save_dat(const std::filesystem::path &filename,
+      |                          ^~~~~~~~~~
+postprocess.cc:76:43: error: expected unqualified-id before ‘&’ token
+   76 | void save_dat(const std::filesystem::path &filename,
+      |                                           ^
+postprocess.cc:76:42: error: expected ‘)’ before ‘&’ token
+   76 | void save_dat(const std::filesystem::path &filename,
+      |              ~                           ^~
+      |                                          )
+postprocess.cc:76:44: error: expected initializer before ‘filename’
+   76 | void save_dat(const std::filesystem::path &filename,
+      |                                            ^~~~~~~~
+postprocess.cc: In function ‘int main(int, char**)’:
+postprocess.cc:137:5: error: ‘fs’ has not been declared
+  137 |     fs::path outdir = "PPDAT";
+      |     ^~
+postprocess.cc:138:6: error: ‘fs’ has not been declared
+  138 |  if (fs::exists(outdir)) {
+      |      ^~
+postprocess.cc:138:17: error: ‘outdir’ was not declared in this scope
+  138 |  if (fs::exists(outdir)) {
+      |                 ^~~~~~
+postprocess.cc:144:28: error: ‘fs’ has not been declared
+  144 |   for (const auto &entry : fs::directory_iterator(outdir)) {
+      |                            ^~
+postprocess.cc:145:7: error: ‘fs’ has not been declared
+  145 |       fs::remove_all(entry.path());
+      |       ^~
+postprocess.cc:154:11: error: ‘fs’ has not been declared
+  154 |      if (!fs::create_directory(outdir)) {
+      |           ^~
+postprocess.cc:168:22: error: ‘outdir’ was not declared in this scope
+  168 |             save_dat(outdir / ("full" + number + ".dat"),
+      |                      ^~~~~~
+postprocess.cc:168:13: error: ‘save_dat’ was not declared in this scope
+  168 |             save_dat(outdir / ("full" + number + ".dat"),
+      |             ^~~~~~~~
+postprocess.cc:172:18: warning: structured bindings only available with ‘-std=c++17’ or ‘-std=gnu++17’
+  172 |             auto [u, v, w] = averaxi(nr, nphi, df);
+      |                  ^
+./emitest.bash: línea 145: .: se requiere un argumento de nombre de archivo
+.: uso: . nombredearchivo [argumentos]
+Postprocess...
+./emitest.bash: línea 147: ./postprocess: No existe el archivo o el directorio
+./emitest.bash: línea 148: ./pitchfork1: No existe el archivo o el directorio
+./emitest.bash: línea 149: ./pitchfork2: No existe el archivo o el directorio
+./animation_maker.bash: línea 5: cd: ./PPDAT: No existe el archivo o el directorio
+./animation_maker.bash: línea 8: oomph-convert: orden no encontrada
+./animation_maker.bash: línea 10: makePvd: orden no encontrada
+./animation_maker.bash: línea 10: makePvd: orden no encontrada
+./animation_maker.bash: línea 10: makePvd: orden no encontrada
+ 
+ 
+Done!
+ 
+ 

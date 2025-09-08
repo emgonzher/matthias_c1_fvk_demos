@@ -2,11 +2,8 @@
 
 
 # Setup directories YOU MUST PICK A NAME FOR YOUR OURPUT DIRECTORY.
-<<<<<<< Updated upstream
-main_dir=RESLT_damped/ea005_pinc1_damped #Run_ea05_pcos01_pinc02_n10_test #nseg4_Eta_141e5_pinc1_poly_pitchfork_n6_2lines #pcos1
-=======
-main_dir=RESLT_pitchfork/ea0001_pcos01_pinc01_N6 #nseg4_Eta_141e5_pinc1_poly_pitchfork_n6_2lines #pcos1
->>>>>>> Stashed changes
+main_dir=RESLT_report/ea0001_pcos01_pinc01_damped_0-10_N4 #Run_ea05_pcos01_pinc02_n10_test #nseg4_Eta_141e5_pinc1_poly_pitchfork_n6_2lines 
+
 # main_dir=Run_pitchfork_ea005_nseg4_Eta_141e5_pcos01_pinc01
 if [ -e $main_dir ]; then
     echo " "

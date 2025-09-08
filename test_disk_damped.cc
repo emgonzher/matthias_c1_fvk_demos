@@ -288,7 +288,7 @@ namespace Parameters
  unsigned N_mode = 6;
 
  /// Element area
- double Element_area = 0.05; // original 0.5 
+ double Element_area = 0.001; // original 0.5 
 
  #ifdef USE_KS
  
@@ -658,8 +658,9 @@ double damped_solve(
    // This used to be an input parameter but generally it's too wobbly
    // so let's set it to false here; can re-enable if it's ever found to be
    // useful
-   bool begin_with_steady_solve=false;
-   
+   bool begin_with_steady_solve=true;
+   oomph_info << "begin with steady solve" << std::endl;
+
    // Max residual of the steady problem before we attempt a steady solve
    double sufficiently_small = 1.0e-2;
    
@@ -1985,6 +1986,9 @@ double run_damped_solve(UnstructuredC1PlateProblem<FoepplVonKarmanC1CurvableBell
 	suggested_next_dt =
         problem.damped_solve(dt, epsilon,
                              &DocProgressOfDampedSolutions::doc_solution_during_damped_solve);
+	
+	 oomph_info << "Documenting unsteady sols... check postprocess" << std::endl;
+
 	}
 	else
 	{
@@ -2201,12 +2205,20 @@ oomph_info << "Initial state - Nondimensional parameters: "
   
   // Choose if we want pitchfork tracking or just bump p_mag
   
-  bool pitchfork = false;
+  bool pitchfork = true;
   
 
  // ============================================================
  if (pitchfork)
  {
+	// Some parameters for the damping solver:
+	
+	double dt = 1.0;
+        double epsilon = 1.0e-3;
+        bool adapt = false; // adaptative dt or not
+        bool docing = false; // docing unsteady solutions
+
+    
 	// ============================================================
 	// ----------------------------------------------------------
 	// Loop to track Pitchfork
@@ -2215,7 +2227,7 @@ oomph_info << "Initial state - Nondimensional parameters: "
 	  // 1-Switch on p_cos:
 	  Parameters::P_mag = 0.0;
 	  Parameters::P_cos = 0.1; //0.1
-	  Parameters::N_mode = 6;
+	  Parameters::N_mode = 4;
 
 	  // Solve the system
 	  problem.newton_solve();
@@ -2265,8 +2277,9 @@ oomph_info << "Initial state - Nondimensional parameters: "
 	  Parameters::P_mag += 0.1;
 
 	  // Solve the system
-	  problem.newton_solve();
-		  
+	  //problem.newton_solve();
+	  dt = run_damped_solve(problem, dt, epsilon, adapt, docing);
+	  
 	  // Document the current solution
 	  problem.doc_solution();
 
@@ -2288,7 +2301,8 @@ oomph_info << "Initial state - Nondimensional parameters: "
 	  Parameters::P_cos = 0.0;
 
 	  // Solve the system
-	  problem.newton_solve();
+	 // problem.newton_solve();
+	dt = run_damped_solve(problem, dt, epsilon, adapt, docing);
 
 	  // Document the initial state
 	  problem.doc_solution();
@@ -2306,7 +2320,8 @@ oomph_info << "Initial state - Nondimensional parameters: "
 	  Parameters::P_mag -= 0.1;
 
 	  // Solve the system
-	  problem.newton_solve();
+	  //problem.newton_solve();
+	  dt = run_damped_solve(problem, dt, epsilon, adapt, docing);
 		  
 	  // Document the current solution
 	  problem.doc_solution();
@@ -2331,7 +2346,7 @@ oomph_info << "Initial state - Nondimensional parameters: "
 // === Loop to change P_mag
 // ------------------------------------------------------------
 
-	while (Parameters::P_mag < 11) //10) 
+	while (Parameters::P_mag < 10) //10) 
 	{
 	// Bump
 	Parameters::P_mag += 1;
@@ -2349,20 +2364,20 @@ oomph_info << "Initial state - Nondimensional parameters: "
 	// After reaching some (problematic) pressure: apply damping and reach another steady state
 	Parameters::P_mag += 1;
 	
-	double dt = 1.0;
-	double epsilon = 1.0e-3;
-	bool adapt = false; // adaptative dt or not
-	bool docing = false; // docing unsteady solutions
+//	double dt = 1.0;
+//	double epsilon = 1.0e-3;
+//	bool adapt = false; // adaptative dt or not
+//	bool docing = false; // docing unsteady solutions
 	
-    dt = run_damped_solve(problem, dt, epsilon, adapt, docing);
+    //dt = run_damped_solve(problem, dt, epsilon, adapt, docing);
     
     // Doc solution after that
-	/problem.doc_solution();
+//	problem.doc_solution();
     
     
     // Then, continue increasing pressure from there:
     
-    while (Parameters::P_mag < 20) //10) 
+    while (Parameters::P_mag < 2) //10) 
 	{
 	// Bump
 	Parameters::P_mag += 1;
