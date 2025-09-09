@@ -3,10 +3,6 @@
 ccfilename=matthias_disk_explorer
 executable=matthias_disk_explorer_fvk
 
-#!/bin/bash
-
-#!/bin/bash
-
 # default: no auto-remove
 AUTO_REMOVE=0
 
