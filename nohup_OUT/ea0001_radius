@@ -1,0 +1,36 @@
+Removing RESLT_eta/ea0001_radius automatically...
+make: 'matthias_disk_explorer_fvk' está actualizado.
+
+
+======================================================================
+Oomph-lib WARNING
+
+ at /home/emiliano/oomph-lib/build/include/generic/c1_plate_helper.h:904
+
+ in void oomph::C1PlateHelper::upgrade_triangle_mesh_for_c1_plate_bending(oomph::TriangleMeshBase*, oomph::Mesh*, const bool&) [with ELEMENT = oomph::FoepplVonKarmanC1CurvableBellElement<4>]
+
+--------------------------------------------------------
+
+Black box helper function upgrade_triangle_mesh_for_c1_plate_bending()
+will only rotate coordinates on boundaries that are described
+by TriangleMeshCurviLine. It seems that in your triangle mesh only
+4 of 5 boundaries are of this type. 
+ Specifically here's are the boundaries and theircurviness:
+Boundary 0 is curvilinear.
+Boundary 1 is curvilinear.
+Boundary 2 is curvilinear.
+Boundary 3 is curvilinear.
+Boundary 4 is polygonal.
+This only matters if you want to apply clamping-type
+boundary conditions along those boundaries. Continue at your own risk
+and/or make this message disappear by setting
+
+     C1PlateHelper::Do_not_warn_about_polygonal_boundaries
+
+to false. More intelligently, replace the polygonal boundaries
+by TriangleMeshCurviLines. Alternatively, you can do the setup
+yourself, of course. The black box function is only provided for
+convenience and looking inside it will show you what needs to be done.
+
+======================================================================
+

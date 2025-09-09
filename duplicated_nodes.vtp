@@ -5,23 +5,23 @@
 <Points>
 <DataArray type="Float32" NumberOfComponents="3" format="ascii">
 -1.000000e+00 1.224650e-16 0.000000e+00
-6.123230e-17 1.000000e+00 0.000000e+00
 1.000000e+00 -2.449290e-16 0.000000e+00
 -1.836970e-16 -1.000000e+00 0.000000e+00
+6.123230e-17 1.000000e+00 0.000000e+00
 </DataArray>
 </Points>
 <PointData>
 <DataArray type="Float32" Name="V1" format="ascii">
 1.000000e+00
 0.000000e+00
-0.000000e+00
 2.000000e+00
+0.000000e+00
 </DataArray>
 <DataArray type="Float32" Name="V2" format="ascii">
 2.000000e+00
+3.000000e+00
+3.000000e+00
 1.000000e+00
-3.000000e+00
-3.000000e+00
 </DataArray>
 </PointData>
 <Verts>
