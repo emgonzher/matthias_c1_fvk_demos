@@ -283,7 +283,7 @@ namespace Parameters
  double Element_area = 0.005;
 
  #ifdef USE_KS
- 
+
   /// Traction depending on the position (x,y) and deformation of the sheet
   void get_traction(const Vector<double>& x,
 		    const Vector<double>& u,
@@ -1956,13 +1956,14 @@ int main(int argc, char** argv)
   double young = 1.44e6;
   
   // System dimensions
-  Parameters::Thickness = 0.8e-3; //m
-  double radio = 0.2; //m
-  double r_inc = 0.005; // Change radio (m)
+  double thickness_dim = 0.8e-3; //m
+  double radio_dim = 0.2; //m
+  // double r_inc = 0.005; // radio increment (m)
   
   // Non-dim parameters
-  double gamma = rho*gravity*radio/young;
-  Parameters::Eta = 12*(1-Parameters::Nu*Parameters::Nu)*(radio*radio)/(Parameters::Thickness*Parameters::Thickness);
+  double gamma = rho*gravity*radio_dim/young;
+  Parameters::Thickness = thickness_dim/radio_dim;
+  Parameters::Eta = 12*(1-Parameters::Nu*Parameters::Nu)/(Parameters::Thickness*Parameters::Thickness);
   
   //Parameters::P_mag = gamma*Parameters::Eta;
   
@@ -2031,9 +2032,9 @@ int main(int argc, char** argv)
 
    
 //// === changing radius
-//   radio += r_inc;
-//   gamma = rho*gravity*radio/young;
-//   Parameters::Eta = 12*(1-Parameters::Nu*Parameters::Nu)*(radio*radio)/(Parameters::Thickness*Parameters::Thickness);
+//   radio_dim += r_inc;
+//   gamma = rho*gravity*radio_dim/young;
+//   Parameters::Eta = 12*(1-Parameters::Nu*Parameters::Nu)*(radio_dim*radio_dim)/(Parameters::Thickness*Parameters::Thickness);
 //   Parameters::P_mag = Parameters::Eta*gamma;
 
 //   === changing P_mag
