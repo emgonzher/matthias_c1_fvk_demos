@@ -20,7 +20,7 @@ for arg in "$@"; do
     esac
 done
 
-main_dir=RESLT_eta/ea0001_radius
+main_dir=RESLT_rad02/ea0005_rad02
 
 if [ -e "$main_dir" ]; then
     if [ "$AUTO_REMOVE" -eq 1 ]; then
@@ -28,7 +28,7 @@ if [ -e "$main_dir" ]; then
         rm -rf "$main_dir"
     else
         if [ -t 0 ]; then
-            # interactive shell → ask user
+            # interactive shell 
             echo " "
             echo "WARNING: Directory $main_dir already exists!"
             read -p "         remove it and continue? [Y/n] " yn
@@ -37,7 +37,7 @@ if [ -e "$main_dir" ]; then
                 [Nn]* ) echo "Can't continue until you move $main_dir"; exit;;
             esac
         else
-            # non-interactive shell without --autoremove → fail safely
+            # non-interactive shell without --autoremove -> fail safely
             echo "Error: $main_dir exists, and cannot prompt in non-interactive mode."
             exit 1
         fi

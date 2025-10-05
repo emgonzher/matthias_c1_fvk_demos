@@ -280,7 +280,7 @@ namespace Parameters
  unsigned N_cos=6;
  
  /// Element area
- double Element_area = 0.001;
+ double Element_area = 0.005;
 
  #ifdef USE_KS
  
@@ -1943,13 +1943,6 @@ int main(int argc, char** argv)
   problem.max_residuals() = 1.0e3;
   problem.max_newton_iterations() = 100;
 
-
-  // We save stedy sol in damped folder -- to later visualise eveything
-  problem.doc_solution("RESLT_DAMPED",false); // don't increment sol number yet
-
-  // Document the initial state
-  problem.doc_solution();
-
   
   // Set the Poisson ratio
   Parameters::Nu = 0.5;
@@ -1957,11 +1950,6 @@ int main(int argc, char** argv)
   // Do we want to solve the linear problem?
   // problem.make_linear();
 
-  // Set pressure and incrementation for validation cases  
-  double p_inc = 1.0e-2;
-  unsigned n_step = 3;
-  double eta_inc;
-  
   // Physical parameters (SI)
   double rho = 900;
   double gravity = 9.8;
@@ -1969,46 +1957,67 @@ int main(int argc, char** argv)
   
   // System dimensions
   Parameters::Thickness = 0.8e-3; //m
-  double radio = 0.05; //m
-  double r_inc;
+  double radio = 0.2; //m
+  double r_inc = 0.005; // Change radio (m)
   
   // Non-dim parameters
   double gamma = rho*gravity*radio/young;
   Parameters::Eta = 12*(1-Parameters::Nu*Parameters::Nu)*(radio*radio)/(Parameters::Thickness*Parameters::Thickness);
   
-  Parameters::P_mag = gamma*Parameters::Eta;
-
+  //Parameters::P_mag = gamma*Parameters::Eta;
   
-  //if (CommandLineArgs::command_line_flag_has_been_set("--test_damped_solve"))
-   //{
-    // 0.1 and 100 steps gives nice animation
-    p_inc=10.0;
-    eta_inc=1.41e4;
-    n_step=40;
-    Parameters::P_cos=0.0;
-    // Change radio (m)
-    r_inc = 0.005;
-   //}
-
   
+    // initialise parameters - some of them maybe unused...
+    double p_inc = 10;
+    double eta_inc;
+    unsigned n_step;
+    
+    Parameters::P_cos=0.0; // for pitchfork bifurcation
+   
+   
+   Parameters::P_mag = 0.0; // initial value
+   double p_end = gamma*Parameters::Eta; // physical value to reach
+   //p_end = 300;
+   
+   oomph_info << "p_end = " << p_end << std::endl;
+   
+    // initial value for timestep
+    double dt=1.0;
+
+    // tolerance for adaptive timestepping; somewhat random
+    // hierher Aidan: any recommendations?
+    double epsilon=1.0e-3;
+    
+    // Initial state
+    
+    //solve initial state -- P_mag = 0
+    problem.newton_solve();
+        
+   //doc initial state:
+   problem.doc_solution("RESLT_DAMPED",false); // don't increment sol number yet
+   problem.doc_solution(); 
+   
+   // print:
+   oomph_info << "P_mag = " << Parameters::P_mag << " "
+		  << "Eta   = " << Parameters::Eta << std::endl;
+   
+   
+   
   // Overwrite for "Balance on Edge" case
   if (Parameters::Problem_case == Parameters::Balance_on_edge)
    {
+    oomph_info << "blabla = " << std::endl;
     p_inc = 1.0; 
     n_step = 3; 
    }
 
-  for( unsigned i = 0; i < n_step; i++ )
+  // Loop to change parameters:
+  
+  while (Parameters::P_mag < p_end)
   {
-   // Bump
-   //Parameters::P_mag += p_inc;
-   //Parameters::Eta += eta_inc;
-   
-   // oomph_info << "P_mag = " << Parameters::P_mag << std::endl;
-   
-    oomph_info << "P_mag = " << Parameters::P_mag << " "
-		       << "Eta   = " << Parameters::Eta << std::endl;
-   
+//  for( unsigned i = 0; i < n_step; i++ )
+//  {
+  
    if (!CommandLineArgs::command_line_flag_has_been_set("--test_damped_solve"))
     {
      // Solve the system
@@ -2016,47 +2025,67 @@ int main(int argc, char** argv)
     }
    else
     {
-     // initial value for timestep
-     double dt=1.0;
-     
-     // tolerance for adaptive timestepping; somewhat random
-     // hierher Aidan: any recommendations?
-     double epsilon=1.0e-3;
-
-     // Damped solve
-     double suggested_next_dt=
-      problem.damped_solve(dt,epsilon,
-                           &DocProgressOfDampedSolutions::doc_solution_during_damped_solve);
-                           
-//     double suggested_next_dt=
-//      problem.damped_solve(dt,epsilon,0);
-
-     // Can (but don't have to) to use this for next solve
-     oomph_info << "Suggested next dt = " << suggested_next_dt << " " 
-    		    << "P_mag = " << Parameters::P_mag << std::endl;
-    }
-
-   
-  // We save stedy sol in damped folder -- to later visualise eveything
-  problem.doc_solution("RESLT_DAMPED",false); // don't increment sol number yet
-   
-   // Document the current solution
-   problem.doc_solution(); // miraqui - need this if we are documenting in damped solve?   
-
-
-
+//// === changing Eta
 //   Parameters::Eta += eta_inc;
 //   Parameters::P_mag = Parameters::Eta*gamma;
-   // ----
-   //Parameters::P_mag = Parameters::Eta*gamma;
+
    
-   // changing radius
-   radio += r_inc;
-   gamma = rho*gravity*radio/young;
-   Parameters::Eta = 12*(1-Parameters::Nu*Parameters::Nu)*(radio*radio)/(Parameters::Thickness*Parameters::Thickness);
-   Parameters::P_mag = Parameters::Eta*gamma;
+//// === changing radius
+//   radio += r_inc;
+//   gamma = rho*gravity*radio/young;
+//   Parameters::Eta = 12*(1-Parameters::Nu*Parameters::Nu)*(radio*radio)/(Parameters::Thickness*Parameters::Thickness);
+//   Parameters::P_mag = Parameters::Eta*gamma;
+
+//   === changing P_mag
+     Parameters::P_mag += p_inc;
+   
+     // Damped solve
+     double suggested_next_dt=
+     problem.damped_solve(dt,epsilon,
+                           &DocProgressOfDampedSolutions::doc_solution_during_damped_solve);
+                           
+     // Can (but don't have to) to use this for next solve
+     oomph_info << "Suggested next dt = " << suggested_next_dt << std::endl;
+                           
+//     double suggested_next_dt=
+//     problem.damped_solve(dt,epsilon,0); // not documenting damped sol here ...
+   
+     // We save steady sol in damped folder -- to later visualise eveything
+     problem.doc_solution("RESLT_DAMPED",false); // don't increment sol number yet
+   
+     // Document (again) the steady sol in RESLT folder
+     problem.doc_solution();    
+        		    
+     // Print current state:
+     oomph_info << "P_mag = " << Parameters::P_mag << " "
+		    << "Eta   = " << Parameters::Eta << std::endl;
+   
+    }
+
   
-  }
+  } // end of loop
+  
+  
+  // -------
+  // Last pressure: manual change
+     
+  Parameters::P_mag = p_end;
+  
+  // Damped solve
+  problem.damped_solve(dt,epsilon,
+	                 &DocProgressOfDampedSolutions::doc_solution_during_damped_solve);
+	                 
+   // We save steady sol in damped folder -- to later visualise eveything
+   problem.doc_solution("RESLT_DAMPED",false); // don't increment sol number yet
+   
+   // Document (again) the steady sol in RESLT folder
+   problem.doc_solution();  
+   
+   // Print final state:
+   oomph_info << "P_mag = " << Parameters::P_mag << " "
+		  << "Eta   = " << Parameters::Eta << std::endl;
+  
+   // ------ 
 
 
 } // End of main
