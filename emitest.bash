@@ -2,8 +2,8 @@
 
 
 # Setup directories YOU MUST PICK A NAME FOR YOUR OURPUT DIRECTORY.
-main_dir=RESLT_eta/ea005_eta_test1 #Run_ea05_pcos01_pinc02_n10_test #nseg4_Eta_141e5_pinc1_poly_pitchfork_n6_2lines #pcos1
-# main_dir=Run_pitchfork_ea005_nseg4_Eta_141e5_pcos01_pinc01
+#main_dir=RESLT/ea005_pinc4_rad005_gravity 
+main_dir=RESLT/ea005_rad005_pcos01_pinc01_N4
 if [ -e $main_dir ]; then
     echo " "
     echo "WARNING: Directory " $main_dir " already exists!"
@@ -19,7 +19,6 @@ fi
 # fi
 # =====
 mkdir $main_dir
-
 
 stem=test_disk_damped #test_disk_restart  
 postfix_list="_fvk" #  _ks"

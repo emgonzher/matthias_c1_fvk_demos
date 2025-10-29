@@ -20,7 +20,7 @@ for arg in "$@"; do
     esac
 done
 
-main_dir=RESLT_rad02/ea0005_rad02
+main_dir=RESLT/ea005_rad01_pinc01_damped
 
 if [ -e "$main_dir" ]; then
     if [ "$AUTO_REMOVE" -eq 1 ]; then

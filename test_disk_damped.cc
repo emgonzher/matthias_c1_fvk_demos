@@ -2159,7 +2159,7 @@ int main(int argc, char** argv)
   Parameters::Nu = 0.5; 
 
   // Geometrical parameters (SI units)
-  double radius = 1e-1; // m
+  double radius = 5e-2; // m
   double h_dim = 8e-4; // m
 
 oomph_info << "Dimensional (SI) parameters: " 
@@ -2179,14 +2179,14 @@ oomph_info << "Dimensional (SI) parameters: "
   Parameters::Eta = 12*(1 - Parameters::Nu * Parameters::Nu) / ( Parameters::Thickness * Parameters::Thickness );
   
   // Change RHS = P_mag = gamma*Eta (final value to reach)
-  double P = gamma * Parameters::Eta;
-  oomph_info << "Final P to reach = " << P << " "
+  double p_end = gamma * Parameters::Eta;
+  oomph_info << "Final P to reach = " << p_end << " "
              << std::endl;
 
   // We reset some parameters to converge Newton method by steps
   
   // Update Eta and P_mag
-  Parameters::Eta = 1.41e5; // testing - axi -- change: before defining P
+  //Parameters::Eta = 1.41e5; // testing - axi -- change: before defining P
   Parameters::P_mag = 0; 
 
 // Print parameters info
@@ -2200,9 +2200,9 @@ oomph_info << "Initial state - Nondimensional parameters: "
   
   // Choose if we want pitchfork tracking or just bump p_mag
 
-  bool pitchfork = false;
+  bool pitchfork = true;
   bool damped = false;
-  bool change_eta = true;
+  bool change_eta = false;
   
   // ====== Solving initial state: =============================
   // Tweak Newton solver parameters
@@ -2233,7 +2233,7 @@ oomph_info << "Initial state - Nondimensional parameters: "
 	  // 1-Switch on p_cos:
 	  Parameters::P_mag = 0.0;
 	  Parameters::P_cos = 0.1; //0.1
-	  Parameters::N_mode = 6;
+	  Parameters::N_mode = 4;
 
 	  // Solve the system
 	  problem.newton_solve();
@@ -2277,7 +2277,7 @@ oomph_info << "Initial state - Nondimensional parameters: "
 	// ----------------------------------------------------------
 
 	// 2-Loop to increment P_mag
-	 while ( Parameters::P_mag < 10.0 ) 
+	 while ( Parameters::P_mag < p_end*2.0 ) 
 	 {
 	  // Bump
 	  Parameters::P_mag += 0.1;

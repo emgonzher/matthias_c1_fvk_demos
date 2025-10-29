@@ -280,7 +280,7 @@ namespace Parameters
  unsigned N_cos=6;
  
  /// Element area
- double Element_area = 0.005;
+ double Element_area = 0.05;
 
  #ifdef USE_KS
 
@@ -1957,7 +1957,7 @@ int main(int argc, char** argv)
   
   // System dimensions
   double thickness_dim = 0.8e-3; //m
-  double radio_dim = 0.2; //m
+  double radio_dim = 0.1; //m
   // double r_inc = 0.005; // radio increment (m)
   
   // Non-dim parameters
@@ -1969,7 +1969,7 @@ int main(int argc, char** argv)
   
   
     // initialise parameters - some of them maybe unused...
-    double p_inc = 10;
+    double p_inc = 0.1;
     double eta_inc;
     unsigned n_step;
     
@@ -1980,7 +1980,7 @@ int main(int argc, char** argv)
    double p_end = gamma*Parameters::Eta; // physical value to reach
    //p_end = 300;
    
-   oomph_info << "p_end = " << p_end << std::endl;
+   oomph_info << "Final P to reach = " << p_end << std::endl;
    
     // initial value for timestep
     double dt=1.0;
@@ -1991,16 +1991,16 @@ int main(int argc, char** argv)
     
     // Initial state
     
-    //solve initial state -- P_mag = 0
-    problem.newton_solve();
+//    //solve initial state -- P_mag = 0
+//    problem.newton_solve();
         
-   //doc initial state:
-   problem.doc_solution("RESLT_DAMPED",false); // don't increment sol number yet
-   problem.doc_solution(); 
+//   //doc initial state:
+//   problem.doc_solution("RESLT_DAMPED",false); // don't increment sol number yet
+//   problem.doc_solution(); 
    
    // print:
-   oomph_info << "P_mag = " << Parameters::P_mag << " "
-		  << "Eta   = " << Parameters::Eta << std::endl;
+//   oomph_info << "P_mag = " << Parameters::P_mag << " "
+//		  << "Eta   = " << Parameters::Eta << std::endl;
    
    
    
@@ -2036,9 +2036,6 @@ int main(int argc, char** argv)
 //   gamma = rho*gravity*radio_dim/young;
 //   Parameters::Eta = 12*(1-Parameters::Nu*Parameters::Nu)*(radio_dim*radio_dim)/(Parameters::Thickness*Parameters::Thickness);
 //   Parameters::P_mag = Parameters::Eta*gamma;
-
-//   === changing P_mag
-     Parameters::P_mag += p_inc;
    
      // Damped solve
      double suggested_next_dt=
@@ -2060,6 +2057,9 @@ int main(int argc, char** argv)
      // Print current state:
      oomph_info << "P_mag = " << Parameters::P_mag << " "
 		    << "Eta   = " << Parameters::Eta << std::endl;
+		    
+     //   === changing P_mag
+     Parameters::P_mag += p_inc;
    
     }
 

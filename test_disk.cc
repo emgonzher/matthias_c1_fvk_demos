@@ -2111,7 +2111,7 @@ int main(int argc, char** argv)
   Parameters::Nu = 0.5; 
 
   // Geometrical parameters (SI units)
-  double radius = 1e-1; // m
+  double radius = 5e-2; // m
   double h_dim = 8e-4; // m
 
 oomph_info << "Dimensional (SI) parameters: " 
@@ -2131,14 +2131,15 @@ oomph_info << "Dimensional (SI) parameters: "
   Parameters::Eta = 12*(1 - Parameters::Nu * Parameters::Nu) / ( Parameters::Thickness * Parameters::Thickness );
   
   // Change RHS = P_mag = gamma*Eta (final value to reach)
-  double P = gamma * Parameters::Eta;
-  oomph_info << "Final P to reach = " << P << " "
+  double p_end = gamma * Parameters::Eta;
+  oomph_info << "Final P to reach = " << p_end << " "
+  			 << "gamma = " << gamma << " "
              << std::endl;
 
   // We reset some parameters to converge Newton method by steps
   
   // Update Eta and P_mag
-  Parameters::Eta = 1.41e5; // testing - axi -- change: before defining P
+ // Parameters::Eta = 1.41e5; // testing - axi -- change: before defining P
   Parameters::P_mag = 0; 
 
 // Print parameters info
@@ -2156,32 +2157,32 @@ oomph_info << "Initial state - Nondimensional parameters: "
   // Set the previous solution (in case it exists - loaded from command line)
   problem.set_prev_solution();
 
-  // Solve the system
-  problem.newton_solve();
+//  // Solve the system
+//  problem.newton_solve();
 
-  // Document the initial state
-  problem.doc_solution();
+//  // Document the initial state
+//  problem.doc_solution();
 
  // ============================================================
 
-//  // ------------------------------------------------------------
-//  // === Loop to change P_mag
-//  // ------------------------------------------------------------
-//  while (Parameters::P_mag < 40) //10) 
-// {
-//   // Bump
-//   Parameters::P_mag += 11;
+  // ------------------------------------------------------------
+  // === Loop to change P_mag
+  // ------------------------------------------------------------
+  while (Parameters::P_mag < p_end) //10) 
+ {
 
-//   oomph_info << "Trying P_mag = "  <<  Parameters::P_mag << " "
-//         << std::endl;
-
-//   // Solve the system
-//   problem.newton_solve();
+   // Solve the system
+   problem.newton_solve();
       
-//   // Document the current solution
-//   problem.doc_solution();
-// }
-// // second part
+   // Document the current solution
+   problem.doc_solution();
+   
+   oomph_info << "P_mag = "  <<  Parameters::P_mag << " "
+              << std::endl;
+   // Bump
+   Parameters::P_mag += 4.0;
+ }
+ // second part
 
 // while (Parameters::P_mag < 9) //10) 
 // {
@@ -2193,7 +2194,7 @@ oomph_info << "Initial state - Nondimensional parameters: "
 
 //   // Solve the system
 //   problem.newton_solve();
-      
+//      
 //   // Document the current solution
 //   problem.doc_solution();
 // }
@@ -2201,19 +2202,20 @@ oomph_info << "Initial state - Nondimensional parameters: "
 
 // // == Change manually after last step: 
 // // -------------------------------------
-//   Parameters::P_mag = 10; //86.23;//32.9025;
 
-//   oomph_info << "Trying P_mag (last) = "  <<  Parameters::P_mag << " "
-//              << std::endl;
-
-//   // Solve the system
-//   problem.newton_solve();
+   Parameters::P_mag = p_end;
+   
+   // Solve the system
+   problem.newton_solve();
       
-//   // Document the current solution
-//   problem.doc_solution();
- // --------------------------------------
+   // Document the current solution
+   problem.doc_solution();
+   
+   oomph_info << "P_mag (last) = "  <<  Parameters::P_mag << " "
+              << std::endl;
+// --------------------------------------
 
-// // ============================================================
+ // ============================================================
 
 
 // ============================================================
@@ -2221,117 +2223,117 @@ oomph_info << "Initial state - Nondimensional parameters: "
   // Loop to track Pitchfork
   // ----------------------------------------------------------
 
-  // 1-Switch on p_cos:
-  Parameters::P_mag = 0.0;
-  Parameters::P_cos = 0.1; //0.1
-  Parameters::N_mode = 5;
+//  // 1-Switch on p_cos:
+//  Parameters::P_mag = 0.0;
+//  Parameters::P_cos = 0.1; //0.1
+//  Parameters::N_mode = 5;
 
-  // Solve the system
-  problem.newton_solve();
+//  // Solve the system
+//  problem.newton_solve();
 
-  // Document the state
-  problem.doc_solution();
+//  // Document the state
+//  problem.doc_solution();
 
-    oomph_info << "pitchfork-1:" << "//"
-               << "P_mag = " << Parameters::P_mag << " // "
-               << "P_cos = " << Parameters::P_cos << " // "
-               << "N = "     << Parameters::N_mode << " "
-               << std::endl;
- //return 0;
+//    oomph_info << "pitchfork-1:" << "//"
+//               << "P_mag = " << Parameters::P_mag << " // "
+//               << "P_cos = " << Parameters::P_cos << " // "
+//               << "N = "     << Parameters::N_mode << " "
+//               << std::endl;
+// //return 0;
 
- // ----------------------------------------------------------
- // 1.2- Increment P_cos // not necessary - unexpected bifurcation
+// // ----------------------------------------------------------
+// // 1.2- Increment P_cos // not necessary - unexpected bifurcation
 
-  //   while ( Parameters::P_cos < 1.0 ) 
-  // {
-  // // Bump
-  // Parameters::P_cos += 0.1;
+//  //   while ( Parameters::P_cos < 1.0 ) 
+//  // {
+//  // // Bump
+//  // Parameters::P_cos += 0.1;
 
-  // // Solve the system
-  // problem.newton_solve();
-      
-  // // Document the current solution
-  // problem.doc_solution();
+//  // // Solve the system
+//  // problem.newton_solve();
+//      
+//  // // Document the current solution
+//  // problem.doc_solution();
 
-  // oomph_info << "P_cos = "  <<  Parameters::P_cos << " "
-  //            << std::endl;
-  // }
+//  // oomph_info << "P_cos = "  <<  Parameters::P_cos << " "
+//  //            << std::endl;
+//  // }
 
-  // oomph_info << "pitchfork-1.2:" << "//"
-  //         << "P_mag = " << Parameters::P_mag << " // "
-  //         << "P_cos = " << Parameters::P_cos << " "
-  //         << "N = "     << Parameters::N_mode << " "
+//  // oomph_info << "pitchfork-1.2:" << "//"
+//  //         << "P_mag = " << Parameters::P_mag << " // "
+//  //         << "P_cos = " << Parameters::P_cos << " "
+//  //         << "N = "     << Parameters::N_mode << " "
 
-  //         << std::endl;
+//  //         << std::endl;
 
-  //return 0;
-// ----------------------------------------------------------
+//  //return 0;
+//// ----------------------------------------------------------
 
-  // 2-Loop to increment P_mag
-   while ( Parameters::P_mag < 30.0 ) 
-  {
-  // Bump
-  Parameters::P_mag += 0.2;
+//  // 2-Loop to increment P_mag
+//   while ( Parameters::P_mag < 30.0 ) 
+//  {
+//  // Bump
+//  Parameters::P_mag += 0.2;
 
-  // Solve the system
-  problem.newton_solve();
-      
-  // Document the current solution
-  problem.doc_solution();
+//  // Solve the system
+//  problem.newton_solve();
+//      
+//  // Document the current solution
+//  problem.doc_solution();
 
-  oomph_info << "P_mag = "  <<  Parameters::P_mag << "//"
-             << "at step " << problem.get_doc_info().number() << " "
-             << std::endl;
-  } 
-  oomph_info << "pitchfork-2:" << "//"
-          << "P_mag = " << Parameters::P_mag << " // "
-          << "P_cos = " << Parameters::P_cos << " "
-          << "N = "     << Parameters::N_mode << " "
+//  oomph_info << "P_mag = "  <<  Parameters::P_mag << "//"
+//             << "at step " << problem.get_doc_info().number() << " "
+//             << std::endl;
+//  } 
+//  oomph_info << "pitchfork-2:" << "//"
+//          << "P_mag = " << Parameters::P_mag << " // "
+//          << "P_cos = " << Parameters::P_cos << " "
+//          << "N = "     << Parameters::N_mode << " "
 
-          << std::endl;
+//          << std::endl;
 
-  // return 0;
+//  // return 0;
 
-  // 3-Switch off P_cos
+//  // 3-Switch off P_cos
 
-  Parameters::P_cos = 0.0;
+//  Parameters::P_cos = 0.0;
 
-  // Solve the system
-  problem.newton_solve();
+//  // Solve the system
+//  problem.newton_solve();
 
-  // Document the initial state
-  problem.doc_solution();
+//  // Document the initial state
+//  problem.doc_solution();
 
-    oomph_info << "pitchfork-3:" << "//"
-               << "P_mag = " << Parameters::P_mag << " // "
-               << "P_cos = " << Parameters::P_cos << " "
-               << "N = "     << Parameters::N_mode << " "
-               << std::endl;
+//    oomph_info << "pitchfork-3:" << "//"
+//               << "P_mag = " << Parameters::P_mag << " // "
+//               << "P_cos = " << Parameters::P_cos << " "
+//               << "N = "     << Parameters::N_mode << " "
+//               << std::endl;
 
-  // 4-Decreasing pressure until axixsymmetric
-   while (Parameters::P_mag > 0.0 ) // for (unsigned i = 0; i < 35; i++ )
-  {
-  // Bump
-  Parameters::P_mag -= 0.2;
+//  // 4-Decreasing pressure until axixsymmetric
+//   while (Parameters::P_mag > 0.0 ) // for (unsigned i = 0; i < 35; i++ )
+//  {
+//  // Bump
+//  Parameters::P_mag -= 0.2;
 
-  // Solve the system
-  problem.newton_solve();
-      
-  // Document the current solution
-  problem.doc_solution();
+//  // Solve the system
+//  problem.newton_solve();
+//      
+//  // Document the current solution
+//  problem.doc_solution();
 
-  oomph_info << "P_mag = "  <<  Parameters::P_mag << " "
-             << "at step " << problem.get_doc_info().number() << " "
-             << std::endl;
-  }
+//  oomph_info << "P_mag = "  <<  Parameters::P_mag << " "
+//             << "at step " << problem.get_doc_info().number() << " "
+//             << std::endl;
+//  }
 
-  oomph_info << "pitchfork-4:" << "//"
-            << "P_mag = " << Parameters::P_mag << " // "
-            << "P_cos = " << Parameters::P_cos << " "
-            << "N = "     << Parameters::N_mode << " "
-            << std::endl;
+//  oomph_info << "pitchfork-4:" << "//"
+//            << "P_mag = " << Parameters::P_mag << " // "
+//            << "P_cos = " << Parameters::P_cos << " "
+//            << "N = "     << Parameters::N_mode << " "
+//            << std::endl;
 
-// // ============================================================
+//// // ============================================================
 
   // Print parameters info
   oomph_info << "Final state - Nondimensional parameters: " 
